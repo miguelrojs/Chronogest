@@ -107,15 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Almacena el usuario para la sesión actual
             localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
 
-
             // Redirige al usuario a la página de inicio
             window.location.href = '/assets/html/inicio.html';
-        });
-
-
-
-
-
         });
     }
 });
