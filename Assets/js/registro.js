@@ -108,26 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
 
 
-
-            // Solución específica para el repositorio Chronogest
-// Parte a reemplazar en registro.js donde está la redirección
-
-// Redirección específica para GitHub Pages
-try {
-    console.log("Intentando redireccionar...");
-    // Ruta absoluta al repositorio Chronogest
-    window.location.href = "https://miguelrojs.github.io/Chronogest/html/inicio.html";
-    
-    // Si la redirección no funciona inmediatamente, intentar con un timeout
-    setTimeout(function() {
-        console.log("Reintentando redirección después de timeout");
-        window.location.replace("https://miguelrojs.github.io/Chronogest/html/inicio.html");
-    }, 500);
-} catch (error) {
-    console.error("Error durante la redirección:", error);
-    // Intento alternativo
-    window.location.replace("/Chronogest/html/inicio.html");
-}
+            // Redirige al usuario a la página de inicio
+            window.location.href = '/assets/html/inicio.html';
+        });
 
 
 
