@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!id) return;
 
             const menuURLs = {
-                'registrar': 'Assets/html/registro-usuarios.html',
+                'registrar': 'Assets/html/inf-registrousuarios.html',
                 'gestionar': 'Assets/html/gestionar-usuarios.html',
                 'crearHorarios': 'Assets/html/crear-horarios.html',
                 'visualizarHorarios': 'Assets/html/visualizar-horarios.html',
