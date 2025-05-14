@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const menuURLs = {
            'registrar': '../html/inf-registrousuarios.html',
-            'gestionar': 'Assets/html/inf-gestionarusuarios.html',
-            'crearHorarios': 'Assets/html/inf-crearhorario.html',
-            'visualizarHorarios': 'Assets/html/inf-visualizarhorarios.html',
-            'horarioAprendiz': 'Assets/html/inf-horarioaprendiz.html',
-            'horarioInstructor': 'Assets/html/inf-horarioinstructor.html',
-            'revisarSolicitudes': 'Assets/html/inf-revisarsolicitudes.html',
-            'editarHorarios': 'Assets/html/inf-editarhorarios.html',
-            'perfil': 'Assets/html/inf-perfil.html',
-            'solicitudesInstructores': 'Assets/html/inf-solicitudesinstructores.html',
-            'permisosMenu': 'Assets/html/inf-permisosmenu.html'
+            'gestionar': '../html/inf-gestionarusuarios.html',
+            'crearHorarios': '../html/inf-crearhorario.html',
+            'visualizarHorarios': '../html/inf-visualizarhorarios.html',
+            'horarioAprendiz': '../html/inf-horarioaprendiz.html',
+            'horarioInstructor': '../html/inf-horarioinstructor.html',
+            'revisarSolicitudes': '../html/inf-revisarsolicitudes.html',
+            'editarHorarios': '../html/inf-editarhorarios.html',
+            'perfil': '../html/inf-perfil.html',
+            'solicitudesInstructores': '../html/inf-solicitudesinstructores.html',
+            'permisosMenu': '../html/inf-permisosmenu.html'
             };
 
 
