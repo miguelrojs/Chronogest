@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
 
             // Redirige al usuario a la página de inicio
-            window.location.href = '../html/inicio.html';
+           window.location.href = '../html/inicio.html';
         });
     }
 });
