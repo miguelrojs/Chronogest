@@ -23,7 +23,9 @@ document.getElementById('validarCampos').addEventListener('submit', function(eve
         localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
         
         // Redirige al usuario a la página de inicio
-       window.location.href = 'inicio.html';
+       
+        window.location.href ='Assets/html/inicio.html';
+
     } else {
         // Muestra mensaje de error en caso de datos incorrectos
         const mensajeError = document.getElementById('mensajeError');
