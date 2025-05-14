@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="../css/inicio.css">
-
 </head>
-
 <header>
     <h4 class="identificadorRol">Administrador</h4>
     <nav>
@@ -16,39 +14,35 @@
         <a href="../../index.html">Salir</a>
     </nav>
 </header>
-
 <body>
-
+    <div class="contenedor-inicio">
+        <h1>Bienvenido a Chronogest</h1>
+        <p>Selecciona una opción para continuar:</p>
+    </div>
+    
     <div class="perfil">
-<img src="../img/OIP.jpeg" alt="Perfil de Usuario">
-
-<!-- Perfil de Usuario -->
-<div class="perfil-info">
-    <h4>Perfil de usuario</h4>
-    <p id="nombreUsuario"></p>
-    <p id="rolUsuario"></p>
-    <p id="correoUsuario"></p>
-</div>
+        <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
+        <h4>Perfil de usuario</h4>
+        <p id="nombreUsuario"></p>
+        <p id="rolUsuario"></p>
+        <p id="correoUsuario"></p>
+    </div>
+    
     <!-- Activador de lista de usuarios -->
     <input type="checkbox" id="activarListaU">
     <label for="activarListaU" class="boton"></label>
     <div id="contenido">
         <ul id="usuariosList"></ul>
-</div>
     </div>
-        <div class="contenedor-inicio">
-        <h1>Bienvenido a Chronogest</h1>
-        
-        <div class="bienvenida">
-            <p>Selecciona una opción para continuar:</p>
+    
+    <!-- Menú de permisos con contenido desplegable -->
+    <div class="menu-permisos">
+        <label>Permisos Asignados</label>
+        <div id="contenido">
+            <ul class="menu-permisos-lista" id="menuPermisos"></ul>
         </div>
-        
-        <div class="menu-permisos" id="menuPermisos"> 
-                <label>Permisos Asignados</label>
-            <div id="contenido">
-                <ul class="menu-permisos" id="menuPermisos"></ul>
-            </div>
-
+    </div>
+    
     <script src="../js/inicio.js"></script>
 </body>
 </html>

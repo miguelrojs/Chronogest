@@ -25,19 +25,13 @@ header {
   margin-bottom: 16px;
 }
 
-
-
-.perfil-info {
-  margin-left: 16px;  /* separa la foto del texto */
-}
-
-
 /* 4. Perfil de usuario */
 .perfil {
   display: flex;
   align-items: center;
   margin-top: 16px;
 }
+
 .perfil img {
   width: 60px;
   height: 60px;
@@ -170,4 +164,170 @@ nav a:hover {
     height: auto;
     margin-bottom: 1rem;
     display: flex;
+}
+/* Estilos para el menú de permisos con submenús - Para agregar a tu archivo inicio.css */
+
+/* Estilo general del menú de permisos */
+.menu-permisos {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.menu-permisos > label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilo para cada ítem de permiso/categoría */
+.item-permiso {
+    list-style-type: none;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.item-permiso:last-child {
+    border-bottom: none;
+}
+
+/* Contenedor para el botón de categoría */
+.permiso-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para los botones de cada categoría */
+.boton-permiso {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.boton-permiso:hover {
+    background-color: #3367d6;
+}
+
+/* Contenedor para el contenido desplegable de categorías */
+.contenido-permiso {
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Estilo para cada elemento individual de permiso */
+.permiso-item {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #eeeeee;
+}
+
+.permiso-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Estilo para los botones de los permisos */
+.btn-permiso {
+    background-color: #34a853;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-permiso:hover {
+    background-color: #2d8f46;
+}
+
+/* Contenedor para las opciones de cada permiso */
+.opciones-permiso {
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 1px solid #eeeeee;
+}
+
+/* Estilo para botones de acción dentro del contenido */
+.boton-accion {
+    background-color: #fbbc05;
+    color: #333;
+    border: none;
+    padding: 6px 12px;
+    margin: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+}
+
+.boton-accion:hover {
+    background-color: #f8b003;
+}
+
+/* Estilo para enlaces dentro del contenido */
+.enlace-accion {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 3px;
+    color: #4285f4;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 12px;
+}
+
+.enlace-accion:hover {
+    background-color: #f1f3f4;
+    text-decoration: underline;
+}
+
+/* Estilo para imágenes dentro del contenido */
+.imagen-recurso {
+    max-width: 100%;
+    height: auto;
+    margin: 8px 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Añadir una pequeña flecha al botón de permiso para indicar que es desplegable */
+.btn-permiso:after {
+    content: '▼';
+    font-size: 10px;
+    margin-left: 8px;
+}
+
+/* Cambiar la flecha cuando el menú está desplegado */
+.btn-permiso.active:after {
+    content: '▲';
 }
