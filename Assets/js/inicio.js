@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const nombresPermisos = {
                 'registrar': 'Registrar Usuarios',
                 'gestionar': 'Gestionar Usuarios',
-                'crearHorarios': 'Crear Horarios',
+                'crearHorarios': 'Crear Horarios', 
                 'visualizarHorarios': 'Visualizar Horarios',
                 'horarioAprendiz': 'Horario Aprendiz',
                 'horarioInstructor': 'Horario Instructor',

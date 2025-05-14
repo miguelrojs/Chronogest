@@ -22,19 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
             const id = checkbox.id;
             if (!id) return;
 
-            const menuURLs = {
-                'registrar': 'Assets/html/inf-registrousuarios.html',
-                'gestionar': 'Assets/html/gestionar-usuarios.html',
-                'crearHorarios': 'Assets/html/crear-horarios.html',
-                'visualizarHorarios': 'Assets/html/visualizar-horarios.html',
-                'horarioAprendiz': 'Assets/html/horario-aprendiz.html',
-                'horarioInstructor': 'Assets/html/horario-instructor.html',
-                'revisarSolicitudes': '/Assets/html/revisar-solicitudes.html',
-                'editarHorarios': 'Assets/html/editar-horarios.html',
-                'perfil': 'Assets/html/perfil-usuario.html',
-                'solicitudesInstructores': 'Assets/html/solicitudes-cambio.html',
-                'permisosMenu': 'Assets/html/permisos-menu.html'
+          const menuURLs = {
+          'registrar': 'Assets/html/inf-registrousuarios.html',
+           'gestionar': 'Assets/html/inf-gestionarusuarios.html',
+          'crearHorarios': 'Assets/html/inf-crearhorario.html',
+            'visualizarHorarios': 'Assets/html/inf-visualizarhorarios.html',
+           'horarioAprendiz': 'Assets/html/inf-horarioaprendiz.html',
+          'horarioInstructor': 'Assets/html/inf-horarioinstructor.html',
+             'revisarSolicitudes': 'Assets/html/inf-revisarsolicitudes.html',
+            'editarHorarios': 'Assets/html/inf-editarhorarios.html',
+            'perfil': 'Assets/html/inf-perfil.html',
+            'solicitudesInstructores': 'Assets/html/inf-solicitudesinstructores.html',
+            'permisosMenu': 'Assets/html/inf-permisosmenu.html'
             };
+
 
             if (menuURLs[id]) {
                 const button = document.createElement('button');
