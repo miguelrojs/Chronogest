@@ -23,17 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!id) return;
 
             const menuURLs = {
-                'registrar': '/Assets/html/registro-usuarios.html',
-                'gestionar': '/Assets/html/gestionar-usuarios.html',
-                'crearHorarios': '/Assets/html/crear-horarios.html',
-                'visualizarHorarios': '/Assets/html/visualizar-horarios.html',
-                'horarioAprendiz': '/Assets/html/horario-aprendiz.html',
-                'horarioInstructor': '/Assets/html/horario-instructor.html',
+                'registrar': 'Assets/html/registro-usuarios.html',
+                'gestionar': 'Assets/html/gestionar-usuarios.html',
+                'crearHorarios': 'Assets/html/crear-horarios.html',
+                'visualizarHorarios': 'Assets/html/visualizar-horarios.html',
+                'horarioAprendiz': 'Assets/html/horario-aprendiz.html',
+                'horarioInstructor': 'Assets/html/horario-instructor.html',
                 'revisarSolicitudes': '/Assets/html/revisar-solicitudes.html',
-                'editarHorarios': '/Assets/html/editar-horarios.html',
-                'perfil': '/Assets/html/perfil-usuario.html',
-                'solicitudesInstructores': '/Assets/html/solicitudes-cambio.html',
-                'permisosMenu': '/Assets/html/permisos-menu.html'
+                'editarHorarios': 'Assets/html/editar-horarios.html',
+                'perfil': 'Assets/html/perfil-usuario.html',
+                'solicitudesInstructores': 'Assets/html/solicitudes-cambio.html',
+                'permisosMenu': 'Assets/html/permisos-menu.html'
             };
 
             if (menuURLs[id]) {
