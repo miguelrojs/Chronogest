@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/Assets/css/inicio.css">
+
+</head>
+<header>
+    <nav>
+    <a href="/Assets/html/registro.html">Registro</a>
+    <a href="/Assets/html/inicio.html"  class="active">Inicio</a>
+    <a href="Nosotros.html">Salir</a>
+    </nav>
+</header>
+<body>
+
+    <div class="perfil">
+<img src="/Assets/img/OIP.jpeg" alt="Perfil de Usuario">
+
+<!-- Perfil de Usuario -->
+<div class="perfil-info">
+    <h4>Perfil de usuario</h4>
+    <p id="nombreUsuario"></p>
+    <p id="rolUsuario"></p>
+    <p id="correoUsuario"></p>
+</div>
+    <!-- Activador de lista de usuarios -->
+    <input type="checkbox" id="activarListaU">
+    <label for="activarListaU" class="boton"></label>
+    <div id="contenido">
+        <ul id="usuariosList"></ul>
+</div>
+    </div>
+        <div class="contenedor-inicio">
+        <h1>Bienvenido a Chronogest</h1>
+        
+        <div class="bienvenida">
+            <p>Selecciona una opción para continuar:</p>
+        </div>
+        
+        <div class="menu-permisos" id="menuPermisos">
+            <!-- Aquí se cargarán dinámicamente los botones según los permisos -->
+        </div>
+
+    <script src="/Assets/js/inicio.js"></script>
+</body>
+</html>

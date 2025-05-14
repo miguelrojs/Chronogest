@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio sesión - Chronogest</title>
+    <link rel="stylesheet" href="Assets/css/Estilos-inicio.css">
+</head>
+<body>      
+    <div class="container">
+        <!-- Sección izquierda -->
+        <div class="loginIzquierda">
+            <img src="/Assets/img/inicio.JPG" alt="Imagen de fondo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; z-index: 1;">
+            <div class="login-left-content">
+                <h3>¿Nuevo Usuario?</h3>
+                <p class="registrarseLogin">Inicia sesión ahora mismo dando click al botón</p>
+                <p class="textoPequeño">(Requiere Intervención de administrador)</p>
+                <a href="/Assets/html/registro.html">
+                    <button type="button" class="register-button">Registrar</button>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Sección derecha -->
+        <div class="right-section">
+            <div class="login-container">
+                <!-- Contenedor del logo corregido -->
+                <div class="senaLogo">
+                    <img src="/Assets/img/logo-sena-negro-png-2022.png" alt="Logo SENA">
+                </div>
+                
+                <h1 class="login-title">INICIAR</h1>
+                <h1 class="login-title">SESIÓN</h1>
+                <p id="mensajeError" style="display:none; color:red;"></p>
+
+                <!-- Formulario de inicio de sesión -->
+                <form id="validarCampos">
+                    <div class="input-group">
+                        <i>👤</i>
+                        <input type="text" id="usuarioLogin" placeholder="Ingresar Usuario" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i>✉️</i>
+                        <input type="email" id="correoLogin" placeholder="Ingresar Email" required>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="password-container">
+                        <i>🔒</i>
+                        <input type="password" id="contraseñaLogin" placeholder="Ingrese su contraseña" required>
+                        <button type="submit" class="login-button">➔</button>
+                    </div>
+                </form>
+
+                <div class="forgot-password">
+                    <a href="#" id="olvidoPassword">¿Olvidó su contraseña?</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    <!-- OVERLAY: cubre la pantalla -->
+<div id="overlay"></div>
+
+<!-- MODAL de cambio de contraseña -->
+<div id="menuCambioContraseña">
+    <form id="formCambioContraseña">
+    <h3>Restablecer contraseña</h3>
+    <p id="mensajeValidacionCorreo" class="error"></p>
+
+    <label for="correoCambio">Correo electrónico</label>
+    <input
+        type="email"
+        id="correoCambio"
+        placeholder="Ingresa tu correo"
+        required
+    />
+
+    <button type="submit">Enviar</button>
+    </form>
+</div>
+
+    
+    <footer class="footer-estilo-3">
+        <div class="footer-columna">
+            <img src="Assets\img\logo-sena-negro-png-2022.png" alt="Logo sena" class="footer-logo">
+        </div>
+        <div class="footer-columna">
+            <p> El SENA brinda a la ciudadanía, atención presencial en las 33 Regionales y 117 Centros de Formación</p>
+            <p> Cra. 8 #7-53, Pitalito, Huila</p>
+            <p>⏰ Horario de atención</p>
+            <p>Lunes a Viernes: 8am - 6pm</p>
+            <p>Sábados: 9am - 1pm</p>
+        </div>
+        <div class="footer-columna">
+            <p>📩 contacto</p>
+            <p> Chronogest@gmail.com</p>
+            <p>📱 +57 314 2920812</p>
+            <p>&copy; 2025 Chronogest</p>
+        </div>
+    </footer>
+    
+    <script src="Assets/js/login.js"></script>
+    <script src="Assets/js/olvidocontra.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

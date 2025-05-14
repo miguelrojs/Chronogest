@@ -1,0 +1,443 @@
+/* Estilos base */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Corrección del logo */
+.senaLogo {
+    width: 150px; /* Tamaño adecuado para el logo */
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1;
+    display: flex;
+    align-items: stretch; /* Cambiado para que ambos lados tengan la misma altura */
+    justify-content: center;
+    width: 100%;
+    padding: 30px 0 60px 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 0; /* Eliminado el espacio entre columnas */
+}
+
+/* Sección izquierda */
+.loginIzquierda {
+    flex: 1;
+    background-color: #1e3850;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-height: 400px;
+    border-radius: 10px 0 0 10px; /* Redondeado solo en el lado izquierdo */
+    overflow: hidden;
+    background-image: url('ruta-a-tu-imagen-de-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Contenido dentro de la sección izquierda */
+.login-left-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* Overlay oscuro para la imagen de fondo */
+.loginIzquierda::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay oscuro para mejorar legibilidad */
+    z-index: 1;
+}
+
+/* Sección derecha */
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0 10px 10px 0; /* Redondeado solo en el lado derecho */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 20%
+}
+
+.login-container {
+    width: 80%;
+    padding: 30px;
+}
+
+/* Estilos de texto y títulos */
+.login-title {
+    margin-bottom: 0;
+    color: #1e3850;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #1e3850;
+    font-size: 16px;
+}
+
+.instruction {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.textoPequeño {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Grupos de inputs */
+.input-group, .password-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.input-group i, .password-container i {
+    margin-right: 10px;
+    color: #1e3850;
+}
+
+.input-group input, .password-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* Botón de login */
+.login-button {
+    background-color: #1e3850;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-left: auto; /* Alinea el botón a la derecha */
+}
+
+.login-button:hover {
+    background-color: #15293c;
+}
+
+/* Estilos generales de botones */
+button {
+    background-color: white;
+    color: #1e3850;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Link de contraseña olvidada */
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Estilo para el botón de contraseña olvidada */
+#olvidoPassword {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    margin-top: 0;
+}
+
+#olvidoPassword:hover {
+    color: #1e3850;
+}
+
+/* Estilos para el footer */
+.footer-estilo-3 {
+    background-color: #1e3850; /* Color de fondo azul oscuro, puedes ajustarlo */
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto; /* Empuja el footer al fondo */
+    border-top: 1px solid #eee;
+    font-family: Arial, sans-serif;
+}
+
+/* Columnas del footer */
+.footer-columna {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+/* Logo en el footer */
+.footer-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Textos en el footer */
+.footer-columna p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Destacar títulos o subtítulos */
+.footer-columna p:first-of-type {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .footer-estilo-3 {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-columna {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-columna:first-child {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-logo {
+        margin: 0 auto 15px auto;
+    }
+}
+
+/* Overlay para el menú flotante */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    transition: opacity 0.3s;
+}
+
+/* Menú flotante */
+#menuCambioContraseña {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    z-index: 101;
+    width: 350px;
+    max-width: 90%;
+    transition: transform 0.3s;
+}
+
+#menuCambioContraseña h3 {
+    color: #1e3850;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#formCambioContraseña {
+    display: flex;
+    flex-direction: column;
+}
+
+#formCambioContraseña label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+#formCambioContraseña input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#formCambioContraseña button {
+    background-color: #1e3850;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+#formCambioContraseña button:hover {
+    background-color: #15293c;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Estilo para el botón de registro en la sección izquierda */
+.register-button {
+    background-color: white;
+    color: #1e3850;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #f0f0f0;
+    color: #0d1e2d;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+    
+    .loginIzquierda {
+        border-radius: 10px 10px 0 0;
+        min-height: 250px;
+    }
+    
+    .right-section {
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+
+
+/* Modificaciones para el logo */
+.senaLogo {
+    width: auto;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto 20px auto; /* Centrado horizontal con margen inferior */
+    display: block; /* Cambiado a block para mejor control */
+    text-align: center; /* Asegura que la imagen esté centrada */
+}
+
+.senaLogo img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block; /* Mejor control sobre la imagen */
+}
+
+/* Ajustes adicionales para la sección derecha */
+.login-container {
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: left; /* Pero mantiene el texto alineado a la izquierda */
+}
+
+/* Los títulos y campos de entrada deberían ocupar todo el ancho */
+.login-title, .subtitle, .instruction, .input-group, .password-container, .divider {
+    width: 100%;
+}
+
+
+
+/* Asegurar que el enlace de contraseña olvidada se vea como enlace */
+#olvidoPassword {
+    display: inline-block;
+    color: #1e3850;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    margin: 15px 0 0 0;
+}
+
+/* Ajusta el botón de inicio de sesión para que se alinee correctamente */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.login-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0; /* Elimina márgenes que puedan afectar posicionamiento */
+}

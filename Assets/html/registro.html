@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Chronogest</title>
+    <link rel="stylesheet" href="/Assets/css/estilosRegistro.css">
+</head>
+<header>
+    <h4 class="identificadorRol">Administrador</h4>
+    <nav>
+        <a href="/Assets/html/registro.html" class="active">Registro</a>
+        <a href="index.html">Login</a>
+        <a href="/index.html">Salir</a>
+    </nav>
+</header>
+
+<body>
+
+    <div class="contenedorRegistroUsuarios">
+        <h2>Datos Personales</h2>
+        <form id="llenarCampos">
+            <label for="nombre"> Nombre:</label>
+            <input type="text" id="nombre" placeholder="Ingrese Nombre completo" required>
+            
+            <label for="usuario"> Usuario:</label>
+            <input type="text" id="nombreUsuario" placeholder="Agrega un usuario" required>
+            
+            <label for="telefono"> Telefono:</label>
+            <input type="text" id="numeroTelefono" placeholder="Ingrese Numero de Telefono" required>
+            
+            <label for="correo"> Correo:</label>
+            <input type="email" id="correo" placeholder="Ingrese correo electronico" required>
+            
+            <label for="contraseña"> Contraseña:</label>
+            <input type="password" id="contraseña" placeholder="Crea una contraseña" required>
+            
+            <label for="documento"> Tipo de documento:</label>
+            <select id="tiposDocumentos" required> 
+                <option value="tarjetaIdentidad"> Tarjeta de Identidad </option>
+                <option value="cedulaCiudadania"> Cedula de Ciudadanía </option>
+            </select>
+            <label for="numeroDocumento">Número de documento:</label>
+            <input type="text" id="numeroDocumento" placeholder="Ingresa número de documento" required>
+            
+            <h2>Permisos</h2>
+            <div class="help-info">
+                Haz click en el boton de informacion de cada permiso para ver su contenido previo.
+            </div>
+            
+            <div class="permiso-container">
+                <label for="registrar"> Registrar usuarios:</label>
+                <input type="checkbox" class="permiso" id="registrar">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="gestionar"> Gestionar usuarios:</label>
+                <input type="checkbox" class="permiso" id="gestionar">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="crearHorarios"> Crear horarios:</label>
+                <input type="checkbox" class="permiso" id="crearHorarios">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="visualizarHorarios"> Visualizar horarios:</label>
+                <input type="checkbox" class="permiso" id="visualizarHorarios">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="horarioAprendiz"> Horario Aprendiz:</label>
+                <input type="checkbox" class="permiso" id="horarioAprendiz">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="horarioInstructor"> Horario Instructor:</label>
+                <input type="checkbox" class="permiso" id="horarioInstructor">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="revisarSolicitudes"> Revisar solicitudes:</label>
+                <input type="checkbox" class="permiso" id="revisarSolicitudes">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="editarHorarios"> Editar horarios:</label>
+                <input type="checkbox" class="permiso" id="editarHorarios">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="perfil"> Perfil:</label>
+                <input type="checkbox" class="permiso" id="perfil">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="solicitudesInstructores"> Solicitar cambio de horario:</label>
+                <input type="checkbox" class="permiso" id="solicitudesInstructores">
+            </div>
+            
+            <div class="permiso-container">
+                <label for="permisosMenu"> Permisos del menú:</label>
+                <input type="checkbox" class="permiso" id="permisosMenu">
+            </div>
+            
+            <label for="rol"> Rol de usuario:</label>
+            <select id="roles" class="permiso" required> 
+                <option value="Administrador"> Administrador </option>
+                <option value="Instructor"> Instructor </option>
+                <option value="Aprendiz"> Aprendiz </option>
+            </select>
+            
+            <button class="btnRegistrar" type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script src="/Assets/js/registro.js"></script>
+
+</body>
+<footer></footer>
+</html>
