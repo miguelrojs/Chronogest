@@ -22,14 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const id = checkbox.id;
             if (!id) return;
 
-          const menuURLs = {
-          'registrar': 'Assets/html/inf-registrousuarios.html',
-           'gestionar': 'Assets/html/inf-gestionarusuarios.html',
-          'crearHorarios': 'Assets/html/inf-crearhorario.html',
+            const menuURLs = {
+            'registrar': 'Assets/html/inf-registrousuarios.html',
+            'gestionar': 'Assets/html/inf-gestionarusuarios.html',
+            'crearHorarios': 'Assets/html/inf-crearhorario.html',
             'visualizarHorarios': 'Assets/html/inf-visualizarhorarios.html',
-           'horarioAprendiz': 'Assets/html/inf-horarioaprendiz.html',
-          'horarioInstructor': 'Assets/html/inf-horarioinstructor.html',
-             'revisarSolicitudes': 'Assets/html/inf-revisarsolicitudes.html',
+            'horarioAprendiz': 'Assets/html/inf-horarioaprendiz.html',
+            'horarioInstructor': 'Assets/html/inf-horarioinstructor.html',
+            'revisarSolicitudes': 'Assets/html/inf-revisarsolicitudes.html',
             'editarHorarios': 'Assets/html/inf-editarhorarios.html',
             'perfil': 'Assets/html/inf-perfil.html',
             'solicitudesInstructores': 'Assets/html/inf-solicitudesinstructores.html',
