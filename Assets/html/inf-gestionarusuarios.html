@@ -1,14 +1,15 @@
-<!-- gestionar-usuarios.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
-    <link rel="stylesheet" href="/Chronogest/Assets/css/gestion-usuario.css"> <!-- Si tienes un archivo CSS -->
+    <link rel="stylesheet" href="../css/gestion-usuario.css"> <!-- Si tienes un archivo CSS -->
 </head>
 <body>
     <h1>Gestión de Usuarios</h1>
+
+    <!-- Formulario de nuevo usuario -->
     <form id="userForm">
         <input type="text" id="userName" placeholder="Nombre del Usuario" required>
         <input type="email" id="userEmail" placeholder="Correo electrónico" required>
@@ -16,10 +17,10 @@
     </form>
 
     <h2>Lista de Usuarios</h2>
-    <ul id="userList">
+    <div id="usuariosLista">
         <!-- Aquí se mostrarán los usuarios -->
-    </ul>
+    </div>
 
-    <script src="/Chronogest/Assets/js/gestion-usuarios.js"></script>
+    <script src="../js/gestion-usuarios.js"></script>
 </body>
 </html>

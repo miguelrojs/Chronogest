@@ -1,62 +1,128 @@
-// gestion-usuarios.js
+document.addEventListener('DOMContentLoaded', function () {
+    const currentPage = window.location.pathname;
 
-// Cargar los usuarios almacenados en LocalStorage al cargar la página
-document.addEventListener('DOMContentLoaded', loadUsers);
+    // Lógica para el registro de usuarios
+    if (currentPage.includes('registro.html') || currentPage.includes('registro-usuarios.html')) {
 
-// Manejar el envío del formulario para agregar un usuario
-document.getElementById('userForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+        // Botones de navegación junto a cada checkbox
+        document.querySelectorAll('#llenarCampos input[type="checkbox"]').forEach(checkbox => {
+            const id = checkbox.id;
+            if (!id) return;
 
-    const userName = document.getElementById('userName').value;
-    const userEmail = document.getElementById('userEmail').value;
+            const menuURLs = {
+                'registrar': '../html/inf-registrousuarios.html',
+                'gestionar': '../html/inf-gestionarusuarios.html',
+                'crearHorarios': '../html/inf-crearhorario.html',
+                'visualizarHorarios': '../html/inf-visualizarhorarios.html',
+                'horarioAprendiz': '../html/inf-horarioaprendiz.html',
+                'horarioInstructor': '../html/inf-horarioinstructor.html',
+                'revisarSolicitudes': '../html/inf-revisarsolicitudes.html',
+                'editarHorarios': '../html/inf-editarhorarios.html',
+                'perfil': '../html/inf-perfil.html',
+                'solicitudesInstructores': '../html/inf-solicitudesinstructores.html',
+                'permisosMenu': '../html/inf-permisosmenu.html'
+            };
 
-    const user = { name: userName, email: userEmail };
+            if (menuURLs[id]) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'nav-btn';
+                button.textContent = 'Ir';
+                button.style.marginLeft = '10px';
+                button.style.padding = '2px 8px';
+                button.style.fontSize = '12px';
+                button.style.backgroundColor = '#4CAF50';
+                button.style.color = 'white';
+                button.style.border = 'none';
+                button.style.borderRadius = '4px';
+                button.style.cursor = 'pointer';
 
-    // Obtener usuarios existentes del LocalStorage, o inicializar un array vacío
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.location.href = menuURLs[id];
+                });
 
-    // Agregar el nuevo usuario
-    users.push(user);
+                checkbox.parentNode.insertBefore(button, checkbox.nextSibling);
+            }
+        });
 
-    // Guardar los usuarios nuevamente en LocalStorage
-    localStorage.setItem('users', JSON.stringify(users));
+        // Manejo del formulario de registro
+        document.getElementById('llenarCampos').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    // Limpiar el formulario
-    document.getElementById('userForm').reset();
+            const permisosSeleccionados = [];
+            document.querySelectorAll('#llenarCampos input[type="checkbox"]').forEach(cb => {
+                if (cb.checked) {
+                    permisosSeleccionados.push(cb.id);
+                }
+            });
 
-    // Actualizar la lista de usuarios en la interfaz
-    loadUsers();
+            let nuevoUsuario = {
+                nombre: document.getElementById('nombre').value,
+                usuario: document.getElementById('nombreUsuario').value,
+                telefono: document.getElementById('numeroTelefono').value,
+                correo: document.getElementById('correo').value,
+                contraseña: document.getElementById('contraseña').value,
+                tipoDocumento: document.getElementById('tiposDocumentos').value,
+                numeroDocumento: document.getElementById('numeroDocumento').value,
+                rolUsuario: document.getElementById('roles').value,
+                permisos: permisosSeleccionados
+            };
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            if (usuarios.some(u => u.correo === nuevoUsuario.correo)) {
+                alert("Ya existe un usuario con ese correo.");
+                return;
+            }
+
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
+
+            // Redirige a la página de inicio
+            window.location.href = 'inicio.html'; // Ruta relativa correcta desde registro.html
+        });
+    }
+
+    // Lógica para la gestión de usuarios (mostrar y eliminar)
+    if (currentPage.includes('gestionarusuarios.html')) {
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        // Mostrar los usuarios en la página
+        const usuariosContainer = document.getElementById('usuariosLista');
+        usuariosContainer.innerHTML = '';  // Limpiar la lista antes de agregar
+
+        usuarios.forEach((usuario, index) => {
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('usuario');
+
+            userDiv.innerHTML = `
+                <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+                <p><strong>Correo:</strong> ${usuario.correo}</p>
+                <p><strong>Rol:</strong> ${usuario.rolUsuario}</p>
+                <p><strong>Teléfono:</strong> ${usuario.telefono}</p>
+                <p><strong>Documento:</strong> ${usuario.tipoDocumento} - ${usuario.numeroDocumento}</p>
+                <p><strong>Permisos:</strong> ${usuario.permisos.join(', ')}</p>
+                <button class="eliminar" data-index="${index}">Eliminar</button>
+            `;
+
+            usuariosContainer.appendChild(userDiv);
+        });
+
+        // Eliminar usuario
+        document.querySelectorAll('.eliminar').forEach(button => {
+            button.addEventListener('click', function () {
+                const index = button.getAttribute('data-index');
+                usuarios.splice(index, 1); // Eliminar el usuario de la lista
+
+                // Guardar la lista actualizada en el localStorage
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+                // Recargar la página para reflejar los cambios
+                window.location.reload();
+            });
+        });
+    }
 });
 
-// Función para cargar y mostrar los usuarios en la página
-function loadUsers() {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const userList = document.getElementById('userList');
-
-    // Limpiar la lista antes de agregar los usuarios
-    userList.innerHTML = '';
-
-    // Recorrer los usuarios y agregarlos a la lista en la página
-    users.forEach((user, index) => {
-        const li = document.createElement('li');
-        li.textContent = `Nombre: ${user.name}, Correo: ${user.email}`;
-
-        // Botón para eliminar el usuario
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Eliminar';
-        deleteButton.onclick = function() {
-            deleteUser(index);
-        };
-
-        li.appendChild(deleteButton);
-        userList.appendChild(li);
-    });
-}
-
-// Función para eliminar un usuario
-function deleteUser(index) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.splice(index, 1); // Eliminar el usuario por su índice
-    localStorage.setItem('users', JSON.stringify(users)); // Guardar los cambios
-    loadUsers(); // Volver a cargar la lista de usuarios
-}
