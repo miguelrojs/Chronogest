@@ -111,19 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-            / Redirección adaptable que funciona tanto en local como en GitHub Pages
-// Determina si estamos en GitHub Pages o desarrollo local
-const isGitHubPages = window.location.hostname.includes('github.io');
-
-// Construir la URL de redirección
-if (isGitHubPages) {
-  // URL completa para GitHub Pages
-  window.location.href = "https://miguelrojs.github.io/Chronogest/html/inicio.html";
-} else {
-  // URL relativa para desarrollo local
-  window.location.href = "../html/inicio.html";
-}
-
         });
     }
 });
