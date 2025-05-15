@@ -101,8 +101,8 @@ function cargarPermisosConExpansion() {
     
     // URLs para cada permiso
     const menuURLs = {
-        'registrar': '/Assets/html/registro-usuarios.html',
-        'gestionar': '/Assets/html/gestionar-usuarios.html',
+        'registrar': '../html/registro.html',
+        'gestionar': '../html/gestion-usuarios',
         'crearHorarios': '/Assets/html/crear-horarios.html',
         'visualizarHorarios': '/Assets/html/visualizar-horarios.html',
         'horarioAprendiz': '/Assets/html/horario-aprendiz.html',
@@ -111,7 +111,7 @@ function cargarPermisosConExpansion() {
         'editarHorarios': '/Assets/html/editar-horarios.html',
         'perfil': '/Assets/html/perfil-usuario.html',
         'solicitudesInstructores': '/Assets/html/solicitudes-cambio.html',
-        'permisosMenu': '/Assets/html/permisos-menu.html'
+        'permisosMenu': '../html/registro.html'
     };
 
     // Descripción de cada permiso para mostrar en el contenido expandible
