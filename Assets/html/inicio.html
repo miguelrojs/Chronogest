@@ -15,9 +15,6 @@
     </nav>
 </header>   
    <!-- Tu estructura de navegación actual -->
-    <nav>
-        <!-- ... -->
-    </nav>
 
     <div class="container">
         <h1>Panel de Usuario</h1>
@@ -33,14 +30,16 @@
         </section>
         
         <!-- Opción para ver usuarios (si está disponible) -->
-        <section class="ver-usuarios">
+
+        <!-- Sección para ver la lista de usuarios -->
+            <section class="ver-usuarios">
             <h2>Listar Usuarios</h2>
-            <div class="toggle-container">
-                <input type="checkbox" id="activarListaU" class="toggle-checkbox">
-                <label for="activarListaU" class="toggle-label">Mostrar lista de usuarios</label>
-            </div>
-            <ul id="usuariosList" class="usuarios-lista"></ul>
-        </section>
+            <div class="checkbox-container">
+            <input type="checkbox" id="activarListaU" class="checkbox-input">
+            <label for="activarListaU" class="checkbox-label">Mostrar lista de usuarios</label>
+        </div>
+    <ul id="usuariosList" class="usuarios-lista"></ul>
+</section>
         
         <!-- Sección de permisos con todos los elementos definidos en HTML -->
         <section class="permisos-section">

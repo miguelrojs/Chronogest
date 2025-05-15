@@ -326,84 +326,170 @@ label.boton {
   display: flex;
 }
 
-      /* Estilos para el nuevo menú de permisos */
-        .menu-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .menu-item {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 250px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            background-color: #fff;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .menu-header {
-            background-color: #004d99;
-            color: white;
-            padding: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .menu-content {
-            height: 0;
-            overflow: hidden;
-            transition: height 0.3s ease;
-            background-color: #f9f9f9;
-        }
-        
-        .menu-content.active {
-            height: auto;
-            padding: 15px;
-        }
-        
-        .menu-description {
-            margin: 0;
-            padding: 0 0 0 20px;
-        }
-        
-        .menu-description li {
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        
-        .menu-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            border-top: 1px solid #0055aa;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .menu-button:hover {
-            background-color: #0055aa;
-        }
-        
-        .icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .icon.active {
-            transform: rotate(180deg);
-        }
+/* Estilos para el checkbox personalizado */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    user-select: none;
+}
+
+.checkbox-label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #0066cc;
+    border-radius: 4px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.checkbox-input:checked + .checkbox-label:before {
+    background-color: #0066cc;
+}
+
+.checkbox-input:checked + .checkbox-label:after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Estilos para la lista de usuarios */
+.usuarios-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.usuario-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.usuario-item:last-child {
+    border-bottom: none;
+}
+
+.usuario-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario-info strong {
+    color: #0066cc;
+    margin-bottom: 3px;
+}
+
+.usuario-info p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Estilos para el menú de permisos */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.menu-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.menu-header {
+    background-color: #004d99;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.menu-content.active {
+    height: auto;
+    padding: 15px;
+}
+
+.menu-description {
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.menu-description li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.menu-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-top: 1px solid #0055aa;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #0055aa;
+}
+
+.icon {
+    transition: transform 0.3s ease;
+}
+
+.icon.active {
+    transform: rotate(180deg);
+}
