@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!id) return;
 
             const menuURLs = {
-           'registrar': '../html/inf-registrousuarios.html',
-            'gestionar': '../html/inf-gestionarusuarios.html',
-            'crearHorarios': '../html/inf-crearhorario.html',
+           'registrar': '../html/registro.html',
+            'gestionar': '../html/gestion-usuarios.html',
+            'crearHorarios': '../html/crear-horarios',
             'visualizarHorarios': '../html/inf-visualizarhorarios.html',
             'horarioAprendiz': '../html/inf-horarioaprendiz.html',
-            'horarioInstructor': '../html/inf-horarioinstructor.html',
+            'horarioInstructor': '../html/horario-instructor',
             'revisarSolicitudes': '../html/inf-revisarsolicitudes.html',
             'editarHorarios': '../html/inf-editarhorarios.html',
             'perfil': '../html/inf-perfil.html',
-            'solicitudesInstructores': '../html/inf-solicitudesinstructores.html',
+            'solicitudesInstructores': '../html/solicitudes.html',
             'permisosMenu': '../html/inf-permisosmenu.html'
             };
 
