@@ -170,4 +170,14 @@
             // Mostrar mensaje si no tiene permisos
             console.log("Usuario no tiene permisos");
             const mensaje = document.createElement('p');
-            mensaje
+            mensaje.textContent = 'No tienes permisos asignados.';
+            mensaje.style.textAlign = 'center';
+            mensaje.style.color = '#666';
+            mensaje.style.padding = '2rem';
+            menuContainer.appendChild(mensaje);
+        }
+    }
+
+    // Inicializar el menú de permisos con categorías
+    crearCategoriasConPermisos();
+});
