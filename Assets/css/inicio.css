@@ -25,12 +25,9 @@ header {
   margin-bottom: 16px;
 }
 
-
-
 .perfil-info {
   margin-left: 16px;  /* separa la foto del texto */
 }
-
 
 /* 4. Perfil de usuario */
 .perfil {
@@ -117,59 +114,81 @@ nav a:hover {
 #usuariosList li button:hover {
   opacity: 0.9;
 }
+
 .listaUsuarios{
   display: hid;
 }
-  /* Oculta el checkbox real */
-  #activarListaU {
-    display: none;
-  }
 
-  /* Estilo del botón */
-  label.boton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+/* Oculta el checkbox real */
+#activarListaU {
+  display: none;
+}
 
-  /* Contenido a ocultar/mostrar */
-  #contenido {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f1f1f1;
-  }
+/* Estilo del botón */
+label.boton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-  /* Mostrar contenido cuando el checkbox está marcado */
-  #activarListaU:checked + label + #contenido {
-    display: block;
-  }
+/* Contenido a ocultar/mostrar - SOLO PARA LISTA DE USUARIOS */
+#contenidoUsuarios {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
 
-  .footer-estilo-3 {
-    background: linear-gradient(to right, #c5dcf3, #34495e);
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    flex-wrap: wrap;
-    text-align: center;
-    border-radius: 10px;
+/* Mostrar contenido cuando el checkbox está marcado - SOLO PARA USUARIOS */
+#activarListaU:checked + label + #contenidoUsuarios {
+  display: block;
+}
+
+/* Estilo para menú de permisos (siempre visible) */
+.menu-permisos {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.menu-permisos label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.menu-permisos ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.footer-estilo-3 {
+  background: linear-gradient(to right, #c5dcf3, #34495e);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .footer-estilo-3 .footer-columna {
-    flex: 1;
-    min-width: 200px;
-    margin: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+  margin: 0.5rem;
 }
 
 .footer-estilo-3 .footer-logo {
-    width: 200px;
-    height: auto;
-    margin-bottom: 1rem;
-    display: flex;
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: flex;
 }
+
 
     
