@@ -1,0 +1,201 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f0f0;
+        }
+        
+        .header {
+            background-color: #2596be;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        .toolbar {
+            display: flex;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        
+        .toolbar-button {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            margin: 0 5px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .toolbar-button i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+        
+        .toolbar-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Show dropdown on hover or when active class is added */
+        .dropdown:hover .dropdown-content,
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+        
+        .course-panel {
+            background-color: #2596be;
+            color: white;
+            padding: 10px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .course-table td {
+            padding: 5px;
+            vertical-align: middle;
+        }
+        
+        .days-cell {
+            white-space: nowrap;
+        }
+        
+        .days-cell label {
+            margin: 0 2px;
+        }
+        
+        .form-control {
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        .color-picker {
+            width: 100%;
+            height: 35px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-add {
+            padding: 8px 16px;
+            background-color: white;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn-add:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .schedule-container {
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+            min-width: 120px;
+        }
+        
+        .schedule-table th {
+            background-color: #2596be;
+            color: white;
+        }
+        
+        .schedule-table th:first-child {
+            min-width: 80px;
+        }
+        
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .time-cell {
+            background-color: #2596be !important;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .course-item {
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .panel-header {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 900px) {
+            .course-table {
+                font-size: 12px;
+            }
+            
+            .days-cell label {
+                margin: 0 1px;
+            }
+            
+            .btn-add {
+                padding: 6px 10px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .course-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
