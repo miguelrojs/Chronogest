@@ -15,20 +15,29 @@
     </nav>
 </header>
 <body>
-    <div class="perfil">
-        <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
-        <!-- Perfil de Usuario -->
-        <div class="perfil-info">
-            <h4>Perfil de usuario</h4>
-            <p id="nombreUsuario"></p>
-            <p id="rolUsuario"></p>
-            <p id="correoUsuario"></p>
+    <div class="perfil-container">
+        <!-- Activador de perfil de usuario -->
+        <input type="checkbox" id="activarPerfil">
+        <label for="activarPerfil" class="perfil-toggle">
+            <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
+        </label>
+        <!-- Información del perfil (oculta por defecto) -->
+        <div id="contenidoPerfil">
+            <div class="perfil-info">
+                <h4>Perfil de usuario</h4>
+                <p id="nombreUsuario"></p>
+                <p id="rolUsuario"></p>
+                <p id="correoUsuario"></p>
+            </div>
         </div>
+        
         <!-- Activador de lista de usuarios -->
-        <input type="checkbox" id="activarListaU">
-        <label for="activarListaU" class="boton">Mostrar Usuarios</label>
-        <div id="contenidoUsuarios">
-            <ul id="usuariosList"></ul>
+        <div class="lista-usuarios-container">
+            <input type="checkbox" id="activarListaU">
+            <label for="activarListaU" class="boton">Mostrar Usuarios</label>
+            <div id="contenidoUsuarios">
+                <ul id="usuariosList"></ul>
+            </div>
         </div>
     </div>
 

@@ -25,51 +25,85 @@ header {
   margin-bottom: 16px;
 }
 
-.perfil-info {
-  margin-left: 16px;  /* separa la foto del texto */
+/* 4. Contenedor del perfil y lista de usuarios */
+.perfil-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  position: relative;
 }
 
-/* 4. Perfil de usuario */
-.perfil {
-  display: flex;
-  align-items: center;
-  margin-top: 16px;
+/* 5. Configuración para el toggle del perfil */
+#activarPerfil {
+  display: none; /* Ocultar el checkbox */
 }
-.perfil img {
+
+.perfil-toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.perfil-toggle img {
   width: 60px;
   height: 60px;
   border-radius: 50%; /* imagen redonda */
-  margin-right: 16px;
-   
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.perfil h4 {
+#activarPerfil:checked + .perfil-toggle img {
+  transform: scale(1.1); /* Efecto al activar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 6. Contenido del perfil (oculto por defecto) */
+#contenidoPerfil {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/* Mostrar perfil cuando el checkbox está marcado */
+#activarPerfil:checked ~ #contenidoPerfil {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.perfil-info {
+  margin-bottom: 16px;
+}
+
+.perfil-info h4 {
   font-size: 1rem;
   margin-bottom: 10px;
-   
+  color: #4a90e2;
 }
 
-.perfil p {
+.perfil-info p {
   font-size: 0.9rem;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 5px;
 }
 
-.perfil button {
-  margin-left: 16px;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  background-color: #4a90e2; /* botón azul */
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+/* 7. Lista de usuarios container */
+.lista-usuarios-container {
+  margin-left: auto;
 }
 
-.perfil button:hover {
-  opacity: 0.9;
-}
-
-/* 5. Navegación */
+/* 8. Navegación */
 nav a {
   margin-left: 16px;
   text-decoration: none;
@@ -85,7 +119,7 @@ nav a:hover {
   color: #ffffff;
 }
 
-/* 6. Lista de usuarios */
+/* 9. Lista de usuarios */
 #usuariosList {
   list-style: none; /* quita viñetas */
   margin-top: 16px;
@@ -115,16 +149,12 @@ nav a:hover {
   opacity: 0.9;
 }
 
-.listaUsuarios{
-  display: hid;
-}
-
-/* Oculta el checkbox real */
+/* 10. Oculta el checkbox real de lista de usuarios */
 #activarListaU {
   display: none;
 }
 
-/* Estilo del botón */
+/* Estilo del botón de lista de usuarios */
 label.boton {
   display: inline-block;
   padding: 10px 20px;
@@ -140,6 +170,8 @@ label.boton {
   margin-top: 10px;
   padding: 10px;
   background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Mostrar contenido cuando el checkbox está marcado - SOLO PARA USUARIOS */
@@ -147,7 +179,7 @@ label.boton {
   display: block;
 }
 
-/* Estilo para menú de permisos (siempre visible) */
+/* 11. Estilo para menú de permisos (siempre visible) */
 .menu-permisos {
   margin-top: 20px;
   padding: 10px;
@@ -166,6 +198,22 @@ label.boton {
   padding-left: 10px;
 }
 
+/* 12. Contenedor de inicio */
+.contenedor-inicio {
+  margin: 20px 0;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contenedor-inicio h1 {
+  color: #4a90e2;
+  margin-bottom: 16px;
+}
+
+/* 13. Footer */
 .footer-estilo-3 {
   background: linear-gradient(to right, #c5dcf3, #34495e);
   color: white;
@@ -175,6 +223,7 @@ label.boton {
   flex-wrap: wrap;
   text-align: center;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 .footer-estilo-3 .footer-columna {
