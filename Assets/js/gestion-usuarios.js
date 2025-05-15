@@ -1,6 +1,3 @@
-// Script para la gestión de usuarios en el sistema Chronogest
-// Este archivo trabaja en conjunto con el script de registro existente
-
 document.addEventListener('DOMContentLoaded', function () {
     // Detectar la URL actual de la página
     const currentPage = window.location.pathname;
@@ -9,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (currentPage.includes('gestionarusuarios.html')) {
         // Recuperar la lista de usuarios del localStorage (la misma que utiliza el script de registro)
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        // Agregar el console.log para verificar los datos recuperados
+        console.log('Usuarios recuperados del localStorage:', usuarios);
 
         // Mostrar los usuarios en la página
         const usuariosContainer = document.getElementById('usuariosLista');
