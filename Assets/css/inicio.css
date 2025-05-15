@@ -266,16 +266,23 @@ label.boton {
   border-bottom: none;
 }
 
-/* Flecha indicadora (opcional) */
-.permiso-boton:after {
-  content: '▼';
-  float: right;
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
+/* Estilo para el botón de acceso dentro de los permisos */
+.boton-acceso {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
-.permiso-toggle:checked + .permiso-boton:after {
-  transform: rotate(180deg);
+.boton-acceso:hover {
+  background-color: #27ae60;
 }
 
 /* 12. Contenedor de inicio */
