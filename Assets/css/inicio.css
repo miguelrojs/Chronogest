@@ -325,3 +325,85 @@ label.boton {
   margin-bottom: 1rem;
   display: flex;
 }
+
+      /* Estilos para el nuevo menú de permisos */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .menu-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .menu-header {
+            background-color: #004d99;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .menu-content {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        .menu-content.active {
+            height: auto;
+            padding: 15px;
+        }
+        
+        .menu-description {
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+        
+        .menu-description li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-top: 1px solid #0055aa;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .menu-button:hover {
+            background-color: #0055aa;
+        }
+        
+        .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .icon.active {
+            transform: rotate(180deg);
+        }

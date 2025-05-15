@@ -1,62 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../css/inicio.css">
-</head>
-<header>
-    <h4 class="identificadorRol">Administrador</h4>
+   <!-- Tu estructura de navegación actual -->
     <nav>
-        <a href="Assets/html/inicio.html" class="active">Inicio</a>
-        <a href="../../index.html">Login</a>
-        <a href="../../index.html">Salir</a>
+        <!-- ... -->
     </nav>
-</header>
-<body>
-    <div class="perfil-container">
-        <!-- Activador de perfil de usuario -->
-        <input type="checkbox" id="activarPerfil">
-        <label for="activarPerfil" class="perfil-toggle">
-            <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
-        </label>
-        <!-- Información del perfil (oculta por defecto) -->
-        <div id="contenidoPerfil">
-            <div class="perfil-info">
-                <h4>Perfil de usuario</h4>
-                <p id="nombreUsuario"></p>
-                <p id="rolUsuario"></p>
-                <p id="correoUsuario"></p>
-            </div>
-        </div>
+
+    <div class="container">
+        <h1>Panel de Usuario</h1>
         
-        <!-- Activador de lista de usuarios -->
-        <div class="lista-usuarios-container">
-            <input type="checkbox" id="activarListaU">
-            <label for="activarListaU" class="boton">Mostrar Usuarios</label>
-            <div id="contenidoUsuarios">
-                <ul id="usuariosList"></ul>
+        <!-- Sección de información del usuario -->
+        <section class="perfil-usuario">
+            <h2>Mi Perfil</h2>
+            <div class="info-usuario">
+                <p><strong>Usuario:</strong> <span id="nombreUsuario"></span></p>
+                <p><strong>Rol:</strong> <span id="rolUsuario"></span></p>
+                <p><strong>Correo:</strong> <span id="correoUsuario"></span></p>
             </div>
-        </div>
+        </section>
+        
+        <!-- Opción para ver usuarios (si está disponible) -->
+        <section class="ver-usuarios">
+            <h2>Listar Usuarios</h2>
+            <div class="toggle-container">
+                <input type="checkbox" id="activarListaU" class="toggle-checkbox">
+                <label for="activarListaU" class="toggle-label">Mostrar lista de usuarios</label>
+            </div>
+            <ul id="usuariosList" class="usuarios-lista"></ul>
+        </section>
+        
+        <!-- Sección de permisos con todos los elementos definidos en HTML -->
+        <section class="permisos-section">
+            <h2>Mis Permisos</h2>
+            
+            <div id="menuPermisos">
+                <div class="menu-container">
+                    <!-- Registrar Usuarios -->
+                    <div class="menu-item" data-permiso="registrar">
+                        <div class="menu-header">
+                            Registrar Usuarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Crear nuevos usuarios en el sistema</li>
+                                <li>Asignar roles a los usuarios</li>
+                                <li>Establecer permisos iniciales</li>
+                            </ul>
+                        </div>
+                        <a href="../html/registro.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Gestionar Usuarios -->
+                    <div class="menu-item" data-permiso="gestionar">
+                        <div class="menu-header">
+                            Gestionar Usuarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver todos los usuarios</li>
+                                <li>Modificar datos de usuarios</li>
+                                <li>Activar o desactivar usuarios</li>
+                                <li>Cambiar roles</li>
+                            </ul>
+                        </div>
+                        <a href="../html/gestion-usuarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Crear Horarios -->
+                    <div class="menu-item" data-permiso="crearHorarios">
+                        <div class="menu-header">
+                            Crear Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Definir bloques de horarios</li>
+                                <li>Asignar instructores</li>
+                                <li>Establecer aulas y ambientes</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/crear-horarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Visualizar Horarios -->
+                    <div class="menu-item" data-permiso="visualizarHorarios">
+                        <div class="menu-header">
+                            Visualizar Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver horarios de todos los grupos</li>
+                                <li>Consultar disponibilidad</li>
+                                <li>Exportar horarios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/visualizar-horarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Horario Aprendiz -->
+                    <div class="menu-item" data-permiso="horarioAprendiz">
+                        <div class="menu-header">
+                            Horario Aprendiz
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver tu horario personal</li>
+                                <li>Recibir notificaciones de cambios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/horario-aprendiz.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Horario Instructor -->
+                    <div class="menu-item" data-permiso="horarioInstructor">
+                        <div class="menu-header">
+                            Horario Instructor
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver tus clases asignadas</li>
+                                <li>Consultar tu agenda semanal</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/horario-instructor.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Revisar Solicitudes -->
+                    <div class="menu-item" data-permiso="revisarSolicitudes">
+                        <div class="menu-header">
+                            Revisar Solicitudes
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Aprobar o rechazar solicitudes</li>
+                                <li>Enviar notificaciones</li>
+                                <li>Ver historial de cambios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/revisar-solicitudes.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Editar Horarios -->
+                    <div class="menu-item" data-permiso="editarHorarios">
+                        <div class="menu-header">
+                            Editar Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Modificar horarios existentes</li>
+                                <li>Realizar cambios de emergencia</li>
+                                <li>Actualizar asignaciones</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/editar-horarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Mi Perfil -->
+                    <div class="menu-item" data-permiso="perfil">
+                        <div class="menu-header">
+                            Mi Perfil
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Modificar tus datos personales</li>
+                                <li>Cambiar contraseña</li>
+                                <li>Actualizar preferencias</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/perfil-usuario.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Solicitudes de Cambio -->
+                    <div class="menu-item" data-permiso="solicitudesInstructores">
+                        <div class="menu-header">
+                            Solicitudes de Cambio
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Solicitar cambios de horario</li>
+                                <li>Justificar solicitudes</li>
+                                <li>Ver estado de solicitudes</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/solicitudes-cambio.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Gestionar Permisos -->
+                    <div class="menu-item" data-permiso="permisosMenu">
+                        <div class="menu-header">
+                            Gestionar Permisos
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Asignar permisos por rol</li>
+                                <li>Crear nuevos roles</li>
+                                <li>Gestionar accesos al sistema</li>
+                            </ul>
+                        </div>
+                        <a href="../html/registro.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <div class="contenedor-inicio">
-        <h1>Bienvenido a Chronogest</h1>
-        <div class="bienvenida">
-            <p></p>
-        </div>
-    </div>
-
-    <div class="menu-permisos-container">
-        <h3>Permisos Asignados</h3>
-        <div class="permisos-grid" id="menuPermisos">
-            <!-- Los permisos se cargarán dinámicamente desde JavaScript -->
-        </div>
-
-        <p>aqui iran botones de navegacion</p>
-    </div>
-
-    <script src="../js/inicio.js"></script>
-</body>
-</html>
