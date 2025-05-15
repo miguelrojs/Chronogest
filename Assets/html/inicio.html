@@ -14,22 +14,26 @@
         <a href="../../index.html">Salir</a>
     </nav>
 </header>   
-   <!-- Tu estructura de navegación actual -->
-
+    <!-- estructura de navegación -->
     <div class="container">
         <h1>Panel de Usuario</h1>
         
         <!-- Sección de información del usuario -->
-        <section class="perfil-usuario">
-            <h2>Mi Perfil</h2>
-            <div class="info-usuario">
-                <p><strong>Usuario:</strong> <span id="nombreUsuario"></span></p>
-                <p><strong>Rol:</strong> <span id="rolUsuario"></span></p>
-                <p><strong>Correo:</strong> <span id="correoUsuario"></span></p>
+<div class="perfil-container">
+        <!-- Activador de perfil de usuario -->
+        <input type="checkbox" id="activarPerfil">
+        <label for="activarPerfil" class="perfil-toggle">
+            <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
+        </label>
+        <!-- Información del perfil (oculta por defecto) -->
+        <div id="contenidoPerfil">
+            <div class="perfil-info">
+                <h4>Perfil de usuario</h4>
+                <p id="nombreUsuario"></p>
+                <p id="rolUsuario"></p>
+                <p id="correoUsuario"></p>
             </div>
-        </section>
-        
-        <!-- Opción para ver usuarios (si está disponible) -->
+        </div>
 
         <!-- Sección para ver la lista de usuarios -->
             <section class="ver-usuarios">

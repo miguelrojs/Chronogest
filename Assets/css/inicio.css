@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+.perfil-toggle img {
+width: 60px;
+height: 60px;
+  border-radius: 50%; /* imagen redonda */
+margin-right: 16px;
+transition: transform 0.3s ease;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 /* 2. Estilo del body */
 body {
   font-family: Arial, sans-serif;
@@ -264,40 +273,6 @@ label.boton {
 
 .permiso-contenido ul li:last-child {
   border-bottom: none;
-}
-
-/* Estilo para el botón de acceso dentro de los permisos */
-.boton-acceso {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #2ecc71;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.boton-acceso:hover {
-  background-color: #27ae60;
-}
-
-/* 12. Contenedor de inicio */
-.contenedor-inicio {
-  margin: 20px 0;
-  text-align: center;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.contenedor-inicio h1 {
-  color: #4a90e2;
-  margin-bottom: 16px;
 }
 
 /* 13. Footer */

@@ -1,5 +1,3 @@
-// Script integrado - Adaptación con funcionalidad de menús desplegables
-
 document.addEventListener('DOMContentLoaded', function () {
     // Recupera los datos del usuario actual del localStorage
     const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
@@ -37,8 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Carga y muestra los permisos del usuario actual con la nueva estructura HTML
-    cargarPermisosHTML();
+
     
     // Detectar la URL actual de la página
     const currentPage = window.location.pathname;
@@ -87,69 +84,10 @@ function cargarUsuarios() {
     });
 }
 
-// La función original se mantiene intacta por si necesitas usarla en algún momento
 function cargarPermisosConExpansion() {
     const menuPermisos = document.getElementById('menuPermisos');
     menuPermisos.innerHTML = ''; // Limpiar el contenedor de permisos
     
-    // Obtener el usuario actual y sus permisos
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
-    
-    if (!usuarioActual || !usuarioActual.permisos || usuarioActual.permisos.length === 0) {
-        // Mostrar mensaje si no tiene permisos
-        const mensaje = document.createElement('p');
-        mensaje.textContent = 'No tienes permisos asignados.';
-        mensaje.style.textAlign = 'center';
-        mensaje.style.color = '#666';
-        mensaje.style.padding = '2rem';
-        menuPermisos.appendChild(mensaje);
-        return;
-    }
-
-    // Mapeo de nombres de permisos a textos más amigables
-    const nombresPermisos = {
-        'registrar': 'Registrar Usuarios',
-        'gestionar': 'Gestionar Usuarios',
-        'crearHorarios': 'Crear Horarios', 
-        'visualizarHorarios': 'Visualizar Horarios',
-        'horarioAprendiz': 'Horario Aprendiz',
-        'horarioInstructor': 'Horario Instructor',
-        'revisarSolicitudes': 'Revisar Solicitudes',
-        'editarHorarios': 'Editar Horarios',
-        'perfil': 'Mi Perfil',
-        'solicitudesInstructores': 'Solicitudes de Cambio',
-        'permisosMenu': 'Gestionar Permisos'
-    };
-    
-    // URLs para cada permiso
-    const menuURLs = {
-        'registrar': '../html/registro.html',
-        'gestionar': '../html/gestion-usuarios.html',
-        'crearHorarios': '/Assets/html/crear-horarios.html',
-        'visualizarHorarios': '/Assets/html/visualizar-horarios.html',
-        'horarioAprendiz': '/Assets/html/horario-aprendiz.html',
-        'horarioInstructor': '/Assets/html/horario-instructor.html',
-        'revisarSolicitudes': '/Assets/html/revisar-solicitudes.html',
-        'editarHorarios': '/Assets/html/editar-horarios.html',
-        'perfil': '/Assets/html/perfil-usuario.html',
-        'solicitudesInstructores': '/Assets/html/solicitudes-cambio.html',
-        'permisosMenu': '../html/registro.html'
-    };
-
-    // Descripción de cada permiso para mostrar en el contenido expandible
-    const descripcionesPermisos = {
-        'registrar': ['Crear nuevos usuarios en el sistema', 'Asignar roles a los usuarios', 'Establecer permisos iniciales'],
-        'gestionar': ['Ver todos los usuarios', 'Modificar datos de usuarios', 'Activar o desactivar usuarios', 'Cambiar roles'],
-        'crearHorarios': ['Definir bloques de horarios', 'Asignar instructores', 'Establecer aulas y ambientes'],
-        'visualizarHorarios': ['Ver horarios de todos los grupos', 'Consultar disponibilidad', 'Exportar horarios'],
-        'horarioAprendiz': ['Ver tu horario personal', 'Recibir notificaciones de cambios'],
-        'horarioInstructor': ['Ver tus clases asignadas', 'Consultar tu agenda semanal'],
-        'revisarSolicitudes': ['Aprobar o rechazar solicitudes', 'Enviar notificaciones', 'Ver historial de cambios'],
-        'editarHorarios': ['Modificar horarios existentes', 'Realizar cambios de emergencia', 'Actualizar asignaciones'],
-        'perfil': ['Modificar tus datos personales', 'Cambiar contraseña', 'Actualizar preferencias'],
-        'solicitudesInstructores': ['Solicitar cambios de horario', 'Justificar solicitudes', 'Ver estado de solicitudes'],
-        'permisosMenu': ['Asignar permisos por rol', 'Crear nuevos roles', 'Gestionar accesos al sistema']
-    };
     
     // Crear elementos para cada permiso
     usuarioActual.permisos.forEach((permiso, index) => {
@@ -177,41 +115,14 @@ function cargarPermisosConExpansion() {
             // Crear lista de descripción del permiso
             const lista = document.createElement('ul');
             
-            // Agregar descripciones del permiso si existen
-            if (descripcionesPermisos[permiso] && descripcionesPermisos[permiso].length > 0) {
-                descripcionesPermisos[permiso].forEach(desc => {
-                    const item = document.createElement('li');
-                    item.textContent = desc;
-                    lista.appendChild(item);
-                });
-            } else {
-                const item = document.createElement('li');
-                item.textContent = 'Acceso a funcionalidad de ' + (nombresPermisos[permiso] || permiso);
-                lista.appendChild(item);
-            }
-            
-            // Crear botón de acceso a la funcionalidad
-            const botonAcceso = document.createElement('a');
-            botonAcceso.href = menuURLs[permiso];
-            botonAcceso.className = 'boton-acceso';
-            botonAcceso.textContent = 'Ir a ' + (nombresPermisos[permiso] || permiso);
-            
-            // Agregar la lista y el botón al contenido
-            contenido.appendChild(lista);
-            contenido.appendChild(botonAcceso);
-            
-            // Ensamblar todo el item de permiso
-            permisoItem.appendChild(checkbox);
-            permisoItem.appendChild(label);
-            permisoItem.appendChild(contenido);
-            
+
             // Agregar el permiso al menú
             menuPermisos.appendChild(permisoItem);
         }
     });
 }
 
-// Nueva función que crea los menús con estructura HTML en lugar de generarlos con JavaScript
+//función que crea los menus 
 function cargarPermisosHTML() {
     const menuPermisos = document.getElementById('menuPermisos');
     menuPermisos.innerHTML = ''; // Limpiar el contenedor de permisos
@@ -230,22 +141,7 @@ function cargarPermisosHTML() {
         return;
     }
 
-    // Usar los mapeos existentes de nombres, URLs y descripciones
-    const nombresPermisos = {
-        'registrar': 'Registrar Usuarios',
-        'gestionar': 'Gestionar Usuarios',
-        'crearHorarios': 'Crear Horarios', 
-        'visualizarHorarios': 'Visualizar Horarios',
-        'horarioAprendiz': 'Horario Aprendiz',
-        'horarioInstructor': 'Horario Instructor',
-        'revisarSolicitudes': 'Revisar Solicitudes',
-        'editarHorarios': 'Editar Horarios',
-        'perfil': 'Mi Perfil',
-        'solicitudesInstructores': 'Solicitudes de Cambio',
-        'permisosMenu': 'Gestionar Permisos'
-    };
-    
-    // URLs para cada permiso (usar las rutas de tu código original)
+    // URLs para cada permiso
     const menuURLs = {
         'registrar': '../html/registro.html',
         'gestionar': '../html/gestion-usuarios.html',
@@ -260,19 +156,19 @@ function cargarPermisosHTML() {
         'permisosMenu': '../html/registro.html'
     };
 
-    // Descripción de cada permiso para mostrar en el contenido expandible
-    const descripcionesPermisos = {
-        'registrar': ['Crear nuevos usuarios en el sistema', 'Asignar roles a los usuarios', 'Establecer permisos iniciales'],
-        'gestionar': ['Ver todos los usuarios', 'Modificar datos de usuarios', 'Activar o desactivar usuarios', 'Cambiar roles'],
-        'crearHorarios': ['Definir bloques de horarios', 'Asignar instructores', 'Establecer aulas y ambientes'],
-        'visualizarHorarios': ['Ver horarios de todos los grupos', 'Consultar disponibilidad', 'Exportar horarios'],
-        'horarioAprendiz': ['Ver tu horario personal', 'Recibir notificaciones de cambios'],
-        'horarioInstructor': ['Ver tus clases asignadas', 'Consultar tu agenda semanal'],
-        'revisarSolicitudes': ['Aprobar o rechazar solicitudes', 'Enviar notificaciones', 'Ver historial de cambios'],
-        'editarHorarios': ['Modificar horarios existentes', 'Realizar cambios de emergencia', 'Actualizar asignaciones'],
-        'perfil': ['Modificar tus datos personales', 'Cambiar contraseña', 'Actualizar preferencias'],
-        'solicitudesInstructores': ['Solicitar cambios de horario', 'Justificar solicitudes', 'Ver estado de solicitudes'],
-        'permisosMenu': ['Asignar permisos por rol', 'Crear nuevos roles', 'Gestionar accesos al sistema']
+        // Descripción de cada permiso para mostrar en el contenido expandible
+        const  descripcionesPermisos= {
+        'registrar': [],
+        'gestionar': [],
+        'crearHorarios': [],
+        'visualizarHorarios': [],
+        'horarioAprendiz': [],
+        'horarioInstructor': [],
+        'revisarSolicitudes': [],
+        'editarHorarios': [],
+        'perfil': [],
+        'solicitudesInstructores': [],
+        'permisosMenu': [],
     };
     
     // Crear el contenedor principal para la nueva estructura
@@ -298,10 +194,6 @@ function cargarPermisosHTML() {
             // Crear contenido del menú
             const menuContent = document.createElement('div');
             menuContent.className = 'menu-content';
-            
-            // Crear lista de descripciones
-            const descList = document.createElement('ul');
-            descList.className = 'menu-description';
             
             // Agregar items de descripción
             if (descripcionesPermisos[permiso] && descripcionesPermisos[permiso].length > 0) {
