@@ -16,19 +16,30 @@ document.addEventListener('DOMContentLoaded', function () {
             usuariosContainer.innerHTML = ''; // Limpiar la lista antes de agregar
 
             if (usuarios.length === 0) {
-                usuariosContainer.innerHTML = '<p>No hay usuarios registrados.</p>';
+                usuariosContainer.innerHTML = '<div class="mensaje error">No hay usuarios registrados.</div>';
+                usuariosContainer.classList.add('empty');
             } else {
+                usuariosContainer.classList.remove('empty');
                 usuarios.forEach((usuario, index) => {
                     const userDiv = document.createElement('div');
                     userDiv.classList.add('usuario');
 
+                    // Formatear los permisos para mejor visualización
+                    let permisosTexto = '';
+                    if (usuario.permisos && usuario.permisos.length > 0) {
+                        permisosTexto = usuario.permisos.join(', ');
+                    } else {
+                        permisosTexto = 'Sin permisos asignados';
+                    }
+
                     userDiv.innerHTML = `
-                        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-                        <p><strong>Correo:</strong> ${usuario.correo}</p>
-                        <p><strong>Rol:</strong> ${usuario.rolUsuario}</p>
-                        <p><strong>Teléfono:</strong> ${usuario.telefono}</p>
-                        <p><strong>Documento:</strong> ${usuario.tipoDocumento} - ${usuario.numeroDocumento}</p>
-                        <p><strong>Permisos:</strong> ${usuario.permisos.join(', ')}</p>
+                        <p><strong>Nombre:</strong> ${usuario.nombre || 'No especificado'}</p>
+                        <p><strong>Usuario:</strong> ${usuario.usuario || 'No especificado'}</p>
+                        <p><strong>Correo:</strong> ${usuario.correo || 'No especificado'}</p>
+                        <p><strong>Rol:</strong> ${usuario.rolUsuario || 'No especificado'}</p>
+                        <p><strong>Teléfono:</strong> ${usuario.telefono || 'No especificado'}</p>
+                        <p><strong>Documento:</strong> ${usuario.tipoDocumento || 'No especificado'} - ${usuario.numeroDocumento || 'No especificado'}</p>
+                        <p><strong>Permisos:</strong> ${permisosTexto}</p>
                         <button class="eliminar" data-index="${index}">Eliminar</button>
                     `;
 
@@ -42,13 +53,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     const index = parseInt(button.getAttribute('data-index'));
                     
                     if (confirm('¿Está seguro de eliminar este usuario?')) {
+                        // Guardar información del usuario que se va a eliminar para mostrar mensaje
+                        const usuarioEliminado = usuarios[index].nombre;
+                        
                         usuarios.splice(index, 1); // Eliminar el usuario de la lista
 
                         // Guardar la lista actualizada en el localStorage
                         localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-                        // Recargar la página para reflejar los cambios
-                        window.location.reload();
+                        // Mostrar mensaje de éxito antes de recargar
+                        const mensaje = document.createElement('div');
+                        mensaje.className = 'mensaje exito';
+                        mensaje.textContent = `Usuario "${usuarioEliminado}" eliminado correctamente`;
+                        document.querySelector('.container').insertBefore(mensaje, usuariosContainer);
+                        
+                        // Recargar la página después de mostrar el mensaje
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1500);
                     }
                 });
             });
