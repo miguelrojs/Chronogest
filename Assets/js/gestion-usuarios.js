@@ -1,79 +1,132 @@
+// Script para el manejo de permisos, navegación y gestión de usuarios en el sistema Chronogest
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Detectar la URL actual de la página
     const currentPage = window.location.pathname;
+    console.log("JS cargado - Página actual:", currentPage);
 
-    // Lógica específica para la página de gestión de usuarios
-    if (currentPage.includes('gestionarusuarios.html')) {
-        // Recuperar la lista de usuarios del localStorage (la misma que utiliza el script de registro)
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    // ==========================
+    // Navegación en el menú
+    // ==========================
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+        if (link.href.includes(currentPage)) {
+            link.classList.add('active');
+        }
+    });
 
-        // Agregar el console.log para verificar los datos recuperados
-        console.log('Usuarios recuperados del localStorage:', usuarios);
+    // ==========================
+    // Registro de usuarios
+    // ==========================
+    if (currentPage.includes('registro.html') || currentPage.includes('registro-usuarios.html')) {
+        console.log("Página de registro detectada");
 
-        // Mostrar los usuarios en la página
-        const usuariosContainer = document.getElementById('usuariosLista');
-        if (usuariosContainer) {
-            usuariosContainer.innerHTML = ''; // Limpiar la lista antes de agregar
+        document.querySelectorAll('#llenarCampos input[type="checkbox"]').forEach(checkbox => {
+            const id = checkbox.id;
+            if (!id) return;
 
-            if (usuarios.length === 0) {
-                usuariosContainer.innerHTML = '<div class="mensaje error">No hay usuarios registrados.</div>';
-                usuariosContainer.classList.add('empty');
-            } else {
-                usuariosContainer.classList.remove('empty');
-                usuarios.forEach((usuario, index) => {
-                    const userDiv = document.createElement('div');
-                    userDiv.classList.add('usuario');
+            const menuURLs = {
+                'registrar': '../html/inf-registrousuarios.html',
+                'gestionar': '../html/inf-gestionarusuarios.html',
+                'crearHorarios': '../html/inf-crearhorario.html',
+                'visualizarHorarios': '../html/inf-visualizarhorarios.html',
+                'horarioAprendiz': '../html/inf-horarioaprendiz.html',
+                'horarioInstructor': '../html/inf-horarioinstructor.html',
+                'revisarSolicitudes': '../html/inf-revisarsolicitudes.html',
+                'editarHorarios': '../html/inf-editarhorarios.html',
+                'perfil': '../html/inf-perfil.html',
+                'solicitudesInstructores': '../html/inf-solicitudesinstructores.html',
+                'permisosMenu': '../html/inf-permisosmenu.html'
+            };
 
-                    // Formatear los permisos para mejor visualización
-                    let permisosTexto = '';
-                    if (usuario.permisos && usuario.permisos.length > 0) {
-                        permisosTexto = usuario.permisos.join(', ');
-                    } else {
-                        permisosTexto = 'Sin permisos asignados';
-                    }
+            if (menuURLs[id]) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'nav-btn';
+                button.textContent = 'Ir';
+                button.style.marginLeft = '10px';
+                button.style.padding = '2px 8px';
+                button.style.fontSize = '12px';
+                button.style.backgroundColor = '#4CAF50';
+                button.style.color = 'white';
+                button.style.border = 'none';
+                button.style.borderRadius = '4px';
+                button.style.cursor = 'pointer';
 
-                    userDiv.innerHTML = `
-                        <p><strong>Nombre:</strong> ${usuario.nombre || 'No especificado'}</p>
-                        <p><strong>Usuario:</strong> ${usuario.usuario || 'No especificado'}</p>
-                        <p><strong>Correo:</strong> ${usuario.correo || 'No especificado'}</p>
-                        <p><strong>Rol:</strong> ${usuario.rolUsuario || 'No especificado'}</p>
-                        <p><strong>Teléfono:</strong> ${usuario.telefono || 'No especificado'}</p>
-                        <p><strong>Documento:</strong> ${usuario.tipoDocumento || 'No especificado'} - ${usuario.numeroDocumento || 'No especificado'}</p>
-                        <p><strong>Permisos:</strong> ${permisosTexto}</p>
-                        <button class="eliminar" data-index="${index}">Eliminar</button>
-                    `;
-
-                    usuariosContainer.appendChild(userDiv);
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.location.href = menuURLs[id];
                 });
+
+                checkbox.parentNode.insertBefore(button, checkbox.nextSibling);
+            }
+        });
+
+        document.getElementById('llenarCampos').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const permisosSeleccionados = [];
+            document.querySelectorAll('#llenarCampos input[type="checkbox"]').forEach(cb => {
+                if (cb.checked) {
+                    permisosSeleccionados.push(cb.id);
+                }
+            });
+
+            let nuevoUsuario = {
+                nombre: document.getElementById('nombre').value,
+                usuario: document.getElementById('nombreUsuario').value,
+                telefono: document.getElementById('numeroTelefono').value,
+                correo: document.getElementById('correo').value,
+                contraseña: document.getElementById('contraseña').value,
+                tipoDocumento: document.getElementById('tiposDocumentos').value,
+                numeroDocumento: document.getElementById('numeroDocumento').value,
+                rolUsuario: document.getElementById('roles').value,
+                permisos: permisosSeleccionados
+            };
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            if (usuarios.some(u => u.correo === nuevoUsuario.correo)) {
+                alert("Ya existe un usuario con ese correo.");
+                return;
             }
 
-            // Añadir evento para eliminar usuarios
-            document.querySelectorAll('.eliminar').forEach(button => {
-                button.addEventListener('click', function () {
-                    const index = parseInt(button.getAttribute('data-index'));
-                    
-                    if (confirm('¿Está seguro de eliminar este usuario?')) {
-                        // Guardar información del usuario que se va a eliminar para mostrar mensaje
-                        const usuarioEliminado = usuarios[index].nombre;
-                        
-                        usuarios.splice(index, 1); // Eliminar el usuario de la lista
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
 
-                        // Guardar la lista actualizada en el localStorage
-                        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            console.log("Usuario registrado:", nuevoUsuario);
 
-                        // Mostrar mensaje de éxito antes de recargar
-                        const mensaje = document.createElement('div');
-                        mensaje.className = 'mensaje exito';
-                        mensaje.textContent = `Usuario "${usuarioEliminado}" eliminado correctamente`;
-                        document.querySelector('.container').insertBefore(mensaje, usuariosContainer);
-                        
-                        // Recargar la página después de mostrar el mensaje
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 1500);
-                    }
-                });
-            });
+            window.location.href = 'inicio.html';
+        });
+    }
+
+    // ==========================
+    // Gestión de usuarios: mostrar en HTML
+    // ==========================
+    if (currentPage.includes('gestion-usuarios.html')) {
+        console.log("Página de gestión de usuarios detectada");
+
+        const listaUsuarios = document.getElementById('usuariosLista');
+        if (!listaUsuarios) {
+            console.error("No se encontró el contenedor #usuariosLista");
+            return;
         }
+
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        console.log("Usuarios encontrados:", usuarios);
+
+        if (usuarios.length === 0) {
+            listaUsuarios.innerHTML = "<p>No hay usuarios registrados.</p>";
+            return;
+        }
+
+        const ul = document.createElement('ul');
+        usuarios.forEach(usuario => {
+            const li = document.createElement('li');
+            li.textContent = `${usuario.nombre} (${usuario.rolUsuario}) - ${usuario.correo}`;
+            ul.appendChild(li);
+        });
+
+        listaUsuarios.appendChild(ul);
     }
 });
