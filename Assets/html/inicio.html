@@ -15,34 +15,43 @@
     </nav>
 </header>
 <body>
-    <div class="contenedor-inicio">
-        <h1>Bienvenido a Chronogest</h1>
-        <p>Selecciona una opción para continuar:</p>
+    <div class="header">
+        <h1>Sistema de Gestión de Horarios</h1>
     </div>
     
-    <div class="perfil">
-        <img src="../img/OIP.jpeg" alt="Perfil de Usuario">
-        <h4>Perfil de usuario</h4>
-        <p id="nombreUsuario"></p>
-        <p id="rolUsuario"></p>
-        <p id="correoUsuario"></p>
-    </div>
-    
-    <!-- Activador de lista de usuarios -->
-    <input type="checkbox" id="activarListaU">
-    <label for="activarListaU" class="boton"></label>
-    <div id="contenido">
-        <ul id="usuariosList"></ul>
-    </div>
-    
-    <!-- Menú de permisos con contenido desplegable -->
-    <div class="menu-permisos">
-        <label>Permisos Asignados</label>
-        <div id="contenido">
-            <ul class="menu-permisos-lista" id="menuPermisos"></ul>
+    <div class="container">
+        <div class="user-info">
+            <h2>Perfil de Usuario</h2>
+            <div class="user-details">
+                <div class="user-detail">
+                    <strong>Nombre de Usuario:</strong>
+                    <span id="nombreUsuario">Cargando...</span>
+                </div>
+                <div class="user-detail">
+                    <strong>Rol:</strong>
+                    <span id="rolUsuario">Cargando...</span>
+                </div>
+                <div class="user-detail">
+                    <strong>Correo:</strong>
+                    <span id="correoUsuario">Cargando...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="permissions-menu">
+            <h2>Menú de Permisos</h2>
+            <ul id="menuPermisos">
+                <!-- Aquí se cargarán dinámicamente los permisos -->
+                <li>Cargando permisos...</li>
+            </ul>
+        </div>
+        
+        <div class="users-list">
+            <h2>Usuarios Registrados</h2>
+            <ul id="usuariosList">
+                <!-- Aquí se cargarán dinámicamente los usuarios -->
+                <li>Cargando usuarios...</li>
+            </ul>
         </div>
     </div>
-    
-    <script src="../js/inicio.js"></script>
-</body>
 </html>
