@@ -102,7 +102,7 @@ function cargarPermisosConExpansion() {
     // URLs para cada permiso
     const menuURLs = {
         'registrar': '../html/registro.html',
-        'gestionar': '../html/gestion-usuarios',
+        'gestionar': '../html/gestion-usuarios.html',
         'crearHorarios': '/Assets/html/crear-horarios.html',
         'visualizarHorarios': '/Assets/html/visualizar-horarios.html',
         'horarioAprendiz': '/Assets/html/horario-aprendiz.html',
