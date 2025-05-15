@@ -48,9 +48,65 @@
         </div>
     </div>
 
-    <div class="menu-permisos">
-        <label>Permisos Asignados</label>
-        <ul class="menu-permisos" id="menuPermisos"></ul>
+    <div class="menu-permisos-container">
+        <h3>Permisos Asignados</h3>
+        <div class="permisos-grid" id="menuPermisos">
+            <!-- Ejemplo de permiso 1 -->
+            <div class="permiso-item">
+                <input type="checkbox" id="permiso1" class="permiso-toggle">
+                <label for="permiso1" class="permiso-boton">Gestión de Usuarios</label>
+                <div class="permiso-contenido">
+                    <ul>
+                        <li>Crear usuarios</li>
+                        <li>Modificar usuarios</li>
+                        <li>Eliminar usuarios</li>
+                        <li>Ver listado de usuarios</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Ejemplo de permiso 2 -->
+            <div class="permiso-item">
+                <input type="checkbox" id="permiso2" class="permiso-toggle">
+                <label for="permiso2" class="permiso-boton">Gestión de Reportes</label>
+                <div class="permiso-contenido">
+                    <ul>
+                        <li>Generar reportes diarios</li>
+                        <li>Generar reportes semanales</li>
+                        <li>Exportar reportes</li>
+                        <li>Compartir reportes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Ejemplo de permiso 3 -->
+            <div class="permiso-item">
+                <input type="checkbox" id="permiso3" class="permiso-toggle">
+                <label for="permiso3" class="permiso-boton">Configuración del Sistema</label>
+                <div class="permiso-contenido">
+                    <ul>
+                        <li>Modificar parámetros generales</li>
+                        <li>Gestionar copias de seguridad</li>
+                        <li>Configurar notificaciones</li>
+                        <li>Personalizar interfaz</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Ejemplo de permiso 4 -->
+            <div class="permiso-item">
+                <input type="checkbox" id="permiso4" class="permiso-toggle">
+                <label for="permiso4" class="permiso-boton">Gestión de Proyectos</label>
+                <div class="permiso-contenido">
+                    <ul>
+                        <li>Crear proyectos</li>
+                        <li>Asignar tareas</li>
+                        <li>Establecer fechas límite</li>
+                        <li>Evaluar progreso</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../js/inicio.js"></script>
