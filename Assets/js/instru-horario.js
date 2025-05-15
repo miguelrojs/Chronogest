@@ -1,4 +1,3 @@
-// Usar un namespace para evitar colisiones con otros scripts
 const HorariosModule = {
     horarios: [
         { dia: "Lunes", hora: "10:00 AM", ambiente: "A101" },
@@ -42,32 +41,83 @@ const HorariosModule = {
             return;
         }
 
-        // Simulación de la respuesta del administrador
-        const respuesta = this.confirmarCambio(nuevaHora, motivo);
+        // Crear objeto de solicitud
+        const solicitud = {
+            indiceHorario,
+            nuevaHora,
+            motivo,
+            estado: "Pendiente", // Inicialmente la solicitud está pendiente
+        };
+
+        // Guardar la solicitud en LocalStorage
+        let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
+        solicitudes.push(solicitud);
+        localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
 
         // Mostrar respuesta del administrador
-        const respuestaDiv = document.getElementById("respuesta-admin");
-        document.getElementById("respuesta").innerText = respuesta;
+        this.mostrarRespuesta("La solicitud ha sido enviada.");
         
         // Limpiar formulario después de enviar
         document.getElementById("form-cambio").reset();
     },
 
-    // Función que simula la respuesta del administrador
-    confirmarCambio: function(nuevaHora, motivo) {
-        // Lógica simple de aceptación/rechazo
-        if (motivo.length > 10) {
-            return "El cambio ha sido aceptado.";
+    // Función para mostrar la respuesta en la interfaz
+    mostrarRespuesta: function(respuesta) {
+        const respuestaDiv = document.getElementById("respuesta-admin");
+        document.getElementById("respuesta").innerText = respuesta;
+    },
+
+    // Función para mostrar la lista de solicitudes
+    mostrarSolicitudes: function(rol) {
+        const solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
+        const listaSolicitudes = document.getElementById("lista-solicitudes");
+        listaSolicitudes.innerHTML = ""; // Limpiar la lista antes de mostrar las solicitudes
+
+        solicitudes.forEach((solicitud, index) => {
+            const item = document.createElement("li");
+            item.innerHTML = `
+                Solicitud para el horario ${this.horarios[solicitud.indiceHorario].dia} a las ${solicitud.nuevaHora}: ${solicitud.motivo}.
+                <strong>Estado: ${solicitud.estado}</strong>
+                ${rol === "Administrador" ? `<button onclick="HorariosModule.cambiarEstado(${index})">Aceptar/Rechazar</button>` : ""}
+            `;
+            listaSolicitudes.appendChild(item);
+        });
+    },
+
+    // Función para cambiar el estado de la solicitud (aceptar o rechazar)
+    cambiarEstado: function(index) {
+        let solicitudes = JSON.parse(localStorage.getItem("solicitudes"));
+        const solicitud = solicitudes[index];
+        
+        // Cambiar el estado de la solicitud
+        if (solicitud.estado === "Pendiente") {
+            solicitud.estado = "Aceptado"; // Cambiar estado a aceptado
+        } else if (solicitud.estado === "Aceptado") {
+            solicitud.estado = "Rechazado"; // Cambiar estado a rechazado
         } else {
-            return "El cambio ha sido rechazado. La justificación no es suficiente.";
+            solicitud.estado = "Pendiente"; // Volver a pendiente
         }
+
+        // Guardar de nuevo en LocalStorage
+        localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
+        this.mostrarSolicitudes("Administrador"); // Actualizar la lista de solicitudes
     }
 };
 
 // Cargar horarios una vez que el DOM esté listo
 document.addEventListener("DOMContentLoaded", function() {
+    // Cargar horarios para los instructores
     HorariosModule.cargarHorarios();
-    
+
+    // Obtener el rol del usuario desde localStorage
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    const rol = usuarioActual ? usuarioActual.rolUsuario : 'Instructor'; // Si no hay usuario, asumimos que es 'Instructor'
+
+    // Mostrar la lista de solicitudes solo si el rol es Administrador
+    if (rol === "Administrador") {
+        HorariosModule.mostrarSolicitudes("Administrador");
+    }
+
     // Asociar el evento de envío del formulario
     document.getElementById("form-cambio").addEventListener("submit", function(event) {
         HorariosModule.enviarSolicitud(event);
