@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
-    <link rel="stylesheet" href="../css/gestion-usuario.css"> <!-- Si tienes un archivo CSS -->
+    <link rel="stylesheet" href="../css/gestion-usuario.css"> <!-- Ruta al archivo CSS -->
 </head>
 <body>
-    <h1>Gestión de Usuarios</h1>
+    <div class="container">
+        <header>
+            <h1>Gestión de Usuarios</h1>
+        </header>
 
-    <!-- Formulario de nuevo usuario -->
-    <form id="userForm">
-        <input type="text" id="userName" placeholder="Nombre del Usuario" required>
-        <input type="email" id="userEmail" placeholder="Correo electrónico" required>
-        <button type="submit">Agregar Usuario</button>
-    </form>
+        <main>
+            <section class="user-list-section">
+                <h2>Lista de Usuarios</h2>
+                <div id="usuariosLista">
+                    <!-- Aquí se mostrarán los usuarios -->
+                </div>
+            </section>
+        </main>
 
-    <h2>Lista de Usuarios</h2>
-    <div id="usuariosLista">
-        <!-- Aquí se mostrarán los usuarios -->
+        <footer>
+            <p>&copy; 2025 Chronogest - Todos los derechos reservados</p>
+        </footer>
     </div>
 
-    <script src="../js/gestion-usuarios.js"></script>
+    <script src="../js/gestion-usuarios.js"></script> <!-- Ruta al archivo JS -->
 </body>
 </html>

@@ -1,63 +1,100 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
+/* Estilos generales para la página */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-h1, h2 {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
     color: #333;
 }
 
-#userForm {
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.user-list-section {
+    margin-top: 20px;
+}
+
+#usuariosLista {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 20px;
+    gap: 15px;
 }
 
-#userForm input {
-    margin: 5px;
-    padding: 10px;
-    width: 250px;
+.usuario {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#userForm button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+.usuario p {
+    margin-bottom: 10px;
 }
 
-#userForm button:hover {
-    background-color: #45a049;
-}
-
-#userList {
-    list-style-type: none;
-    padding: 0;
-}
-
-#userList li {
-    background-color: #fff;
-    padding: 10px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-button {
+button.eliminar {
     background-color: #f44336;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #e53935;
+button.eliminar:hover {
+    background-color: #d32f2f;
+}
+
+button.eliminar:focus {
+    outline: none;
+}
+
+/* Estilos para los botones y la interactividad */
+button.eliminar {
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.usuario p {
+    font-size: 14px;
+    color: #555;
+}
+
+.usuario p strong {
+    color: #333;
 }
