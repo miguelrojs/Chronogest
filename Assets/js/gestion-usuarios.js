@@ -1,4 +1,4 @@
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const listaUsuarios = document.getElementById('usuariosLista');  // Obtener el contenedor de la lista de usuarios
 
     if (!listaUsuarios) {
@@ -6,20 +6,23 @@
         return;
     }
 
-    // Obtener el usuario actual desde localStorage
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    // Obtener todos los usuarios desde localStorage
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-    // Comprobar si hay un usuario actual
-    if (!usuarioActual) {
+    // Comprobar si hay usuarios registrados
+    if (usuarios.length === 0) {
         listaUsuarios.innerHTML = "<p>No hay usuarios registrados.</p>";
         return;
     }
 
-    // Mostrar el usuario actual
+    // Crear la lista de usuarios y mostrarla
     const ul = document.createElement('ul');
-    const li = document.createElement('li');
-    li.textContent = `${usuarioActual.nombre} (${usuarioActual.rolUsuario}) - ${usuarioActual.correo}`;  // Mostrar nombre, rol y correo
-    ul.appendChild(li);
+    
+    usuarios.forEach(usuario => {
+        const li = document.createElement('li');
+        li.textContent = `${usuario.nombre} (${usuario.rolUsuario}) - ${usuario.correo}`;  // Mostrar nombre, rol y correo
+        ul.appendChild(li);
+    });
 
     // Añadir la lista de usuarios al contenedor
     listaUsuarios.appendChild(ul);
