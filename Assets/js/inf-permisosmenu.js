@@ -17,16 +17,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Mostrar la descripción seleccionada
-        document.getElementById(id).classList.remove('hidden');
+        const description = document.getElementById(id);
+        if (description) {
+            description.classList.remove('hidden');
+        }
 
         // Actualizar el título del contenido
         const menuItem = Array.from(document.querySelectorAll('.menu-item')).find(
-            item => item.getAttribute('onclick').includes(id)
+            item => item.getAttribute('onclick') && item.getAttribute('onclick').includes(id)
         );
-        document.getElementById('content-title').textContent = menuItem.textContent.trim();
+        if (menuItem) {
+            document.getElementById('content-title').textContent = menuItem.textContent.trim();
 
-        // Activar el elemento del menú seleccionado
-        menuItem.classList.add('active');
+            // Activar el elemento del menú seleccionado
+            menuItem.classList.add('active');
+        }
     }
 
     // ==========================
@@ -41,14 +46,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        // Recuperamos los usuarios almacenados en el localStorage
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         console.log("Usuarios encontrados:", usuarios);
 
+        // Si no hay usuarios, mostramos un mensaje
         if (usuarios.length === 0) {
             listaUsuarios.innerHTML = "<p>No hay usuarios registrados.</p>";
             return;
         }
 
+        // Si hay usuarios, los mostramos en la lista
         const ul = document.createElement('ul');
         usuarios.forEach(usuario => {
             const li = document.createElement('li');
