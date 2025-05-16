@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Chronogest</title>
     <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="stylesheet" href="/../css/modulo-crearhorarios.css">
+    <link rel="stylesheet" href="../css/inicio-2.css">
+    <title>Chronogest - Crear Horarios</title>
 </head>
+<body>
+    
 <header>
-    <h4 class="identificadorRol">Administrador</h4>
     <nav>
-        <a href="Assets/html/registro.html" class="active">Registro</a>
+        <a href="../html/registro.html" class="active">Registro</a>
         <a href="../../index.html">Login</a>
         <a href="../../index.html">Salir</a>
     </nav>
-</header>   
-<!-- Tu estructura de navegación actual -->
-    <div class="container">
-        <h1>Panel de Usuario</h1>
-        
-        <!-- Sección de información del usuario -->
+            <!-- Sección de información del usuario -->
 <div class="perfil-container">
         <!-- Activador de perfil de usuario -->
         <input type="checkbox" id="activarPerfil">
@@ -35,7 +31,17 @@
                 <p id="correoUsuario"></p>
             </div>
         </div>
-    <!-- Sección para ver la lista de usuarios -->
+</header>   
+<!-- Tu estructura de navegación actual -->
+    <div class="container">
+    <section class="permisos-section">
+            <div id="menuPermisos">
+                <div class="menu-container">
+                    <div class="main-container">
+        <!-- Menú lateral -->
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+<!-- Sección para ver la lista de usuarios -->
 <section class="ver-usuarios">
     <h2>Listar Usuarios</h2>
     <div class="checkbox-container">
@@ -43,12 +49,10 @@
         <label for="activarListaU" class="checkbox-label">Mostrar lista de usuarios</label>
     </div>
     <ul id="usuariosList" class="usuarios-lista"></ul>
-</section>   
-        
-        <!-- Sección de permisos con todos los elementos definidos en HTML -->
-        <section class="permisos-section">
+</section> 
+    
+    <section class="permisos-section">
             <h2>Mis Permisos</h2>
-            
             <div id="menuPermisos">
                 <div class="menu-container">
                     <!-- Registrar Usuarios -->
@@ -87,20 +91,149 @@
                             <button class="menu-button">Acceder</button>
                         </a>
                     </div>
-                    
-                    <!-- Crear Horarios -->
-                    <div class="menu-item" data-permiso="crearHorarios">
+                    <!-- Visualizar Horarios -->
+                    <div class="menu-item" data-permiso="visualizarHorarios">
                         <div class="menu-header">
-                            Crear Horarios
+                            Visualizar Horarios
                             <span class="icon">▼</span>
                         </div>
                         <div class="menu-content">
-                            <div class="menu-description">
-
-        <body>
-            <div class="header">
-            <h1>Generador de horarios</h1>
-            </div>
+                            <ul class="menu-description">
+                                <li>Ver horarios de todos los grupos</li>
+                                <li>Consultar disponibilidad</li>
+                                <li>Exportar horarios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/visualizar-horarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Horario Aprendiz -->
+                    <div class="menu-item" data-permiso="horarioAprendiz">
+                        <div class="menu-header">
+                            Horario Aprendiz
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver tu horario personal</li>
+                                <li>Recibir notificaciones de cambios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/horario-aprendiz.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Horario Instructor -->
+                    <div class="menu-item" data-permiso="horarioInstructor">
+                        <div class="menu-header">
+                            Horario Instructor
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Ver tus clases asignadas</li>
+                                <li>Consultar tu agenda semanal</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/horario-instructor.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Revisar Solicitudes -->
+                    <div class="menu-item" data-permiso="revisarSolicitudes">
+                        <div class="menu-header">
+                            Revisar Solicitudes
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Aprobar o rechazar solicitudes</li>
+                                <li>Enviar notificaciones</li>
+                                <li>Ver historial de cambios</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/revisar-solicitudes.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Editar Horarios -->
+                    <div class="menu-item" data-permiso="editarHorarios">
+                        <div class="menu-header">
+                            Editar Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Modificar horarios existentes</li>
+                                <li>Realizar cambios de emergencia</li>
+                                <li>Actualizar asignaciones</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/editar-horarios.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Mi Perfil -->
+                    <div class="menu-item" data-permiso="perfil">
+                        <div class="menu-header">
+                            Mi Perfil
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Modificar tus datos personales</li>
+                                <li>Cambiar contraseña</li>
+                                <li>Actualizar preferencias</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/perfil-usuario.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Solicitudes de Cambio -->
+                    <div class="menu-item" data-permiso="solicitudesInstructores">
+                        <div class="menu-header">
+                            Solicitudes de Cambio
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Solicitar cambios de horario</li>
+                                <li>Justificar solicitudes</li>
+                                <li>Ver estado de solicitudes</li>
+                            </ul>
+                        </div>
+                        <a href="/Assets/html/solicitudes-cambio.html">
+                            <button class="menu-button">Acceder</button>
+                        </a>
+                    </div>
+                    
+                    <!-- Gestionar Permisos -->
+                    <div class="menu-item" data-permiso="permisosMenu">
+                        <div class="menu-header">
+                            Gestionar Permisos
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <!-- Horario Aprendiz -->
+                    <div class="menu-item" data-permiso="horarioAprendiz">
+                        <div class="menu-header">
+                            Horario Aprendiz
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <!-- Área de contenido principal -->
+        <div class="content-area">
+           <div class="header">
+        <h1>Generador de horarios</h1>
+    </div>
     
     <div class="toolbar">
         <button class="toolbar-button" id="newScheduleBtn">
@@ -417,161 +550,18 @@
     </script>
 </body>
 </html>
-
-        </div>
-                </div>
-                        <a href="/Assets/html/crear-horarios.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Visualizar Horarios -->
-                    <div class="menu-item" data-permiso="visualizarHorarios">
-                        <div class="menu-header">
-                            Visualizar Horarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver horarios de todos los grupos</li>
-                                <li>Consultar disponibilidad</li>
-                                <li>Exportar horarios</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/visualizar-horarios.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Horario Aprendiz -->
-                    <div class="menu-item" data-permiso="horarioAprendiz">
-                        <div class="menu-header">
-                            Horario Aprendiz
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver tu horario personal</li>
-                                <li>Recibir notificaciones de cambios</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/horario-aprendiz.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Horario Instructor -->
-                    <div class="menu-item" data-permiso="horarioInstructor">
-                        <div class="menu-header">
-                            Horario Instructor
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver tus clases asignadas</li>
-                                <li>Consultar tu agenda semanal</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/horario-instructor.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Revisar Solicitudes -->
-                    <div class="menu-item" data-permiso="revisarSolicitudes">
-                        <div class="menu-header">
-                            Revisar Solicitudes
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Aprobar o rechazar solicitudes</li>
-                                <li>Enviar notificaciones</li>
-                                <li>Ver historial de cambios</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/revisar-solicitudes.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Editar Horarios -->
-                    <div class="menu-item" data-permiso="editarHorarios">
-                        <div class="menu-header">
-                            Editar Horarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Modificar horarios existentes</li>
-                                <li>Realizar cambios de emergencia</li>
-                                <li>Actualizar asignaciones</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/editar-horarios.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Mi Perfil -->
-                    <div class="menu-item" data-permiso="perfil">
-                        <div class="menu-header">
-                            Mi Perfil
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Modificar tus datos personales</li>
-                                <li>Cambiar contraseña</li>
-                                <li>Actualizar preferencias</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/perfil-usuario.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Solicitudes de Cambio -->
-                    <div class="menu-item" data-permiso="solicitudesInstructores">
-                        <div class="menu-header">
-                            Solicitudes de Cambio
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Solicitar cambios de horario</li>
-                                <li>Justificar solicitudes</li>
-                                <li>Ver estado de solicitudes</li>
-                            </ul>
-                        </div>
-                        <a href="/Assets/html/solicitudes-cambio.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
-                    </div>
-                    
-                    <!-- Gestionar Permisos -->
-                    <div class="menu-item" data-permiso="permisosMenu">
-                        <div class="menu-header">
-                            Gestionar Permisos
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
                             <ul class="menu-description">
                                 <li>Asignar permisos por rol</li>
                                 <li>Crear nuevos roles</li>
                                 <li>Gestionar accesos al sistema</li>
                             </ul>
                         </div>
-                        <a href="../html/registro.html">
-                            <button class="menu-button">Acceder</button>
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
+        </div>
     <script src="../js/inicio.js"></script>
 </body>
-<footer></footer>
 </html>

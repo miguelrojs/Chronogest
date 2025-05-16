@@ -236,33 +236,6 @@ function cargarPermisosHTML() {
     menuPermisos.appendChild(menuContainer);
 }
 
-// Función para inicializar la funcionalidad de expansión de los menús
-function inicializarExpansionMenus() {
-    const menuHeaders = document.querySelectorAll('.menu-header');
-    
-    if (menuHeaders && menuHeaders.length > 0) {
-        menuHeaders.forEach(header => {
-            header.addEventListener('click', function() {
-                // Obtener el contenido siguiente (menu-content)
-                const content = this.nextElementSibling;
-                
-                // Obtener el icono dentro del header
-                const icon = this.querySelector('.icon');
-                
-                // Alternar la clase active para mostrar/ocultar el contenido
-                if (content) {
-                    content.classList.toggle('active');
-                }
-                
-                // Alternar la clase active para rotar el icono
-                if (icon) {
-                    icon.classList.toggle('active');
-                }
-            });
-        });
-    }
-}
-
 // Función para mostrar sólo los menús permitidos según el rol del usuario
 // Esta función se mantiene pero no se usa automáticamente, por si quieres filtrar permisos en el futuro
 function mostrarMenusPermitidos(permisos) {
@@ -317,4 +290,103 @@ function filtrarMenusPorPermisos() {
         }
     });
 }
+/**
+ * Función para inicializar la navegación del menú lateral
+ * Esta función hace que el contenido aparezca en el área principal en lugar de dentro del menú
+ */
+function inicializarNavegacionMenu() {
+    // Seleccionar todos los elementos del menú con atributo data-permiso
+    const menuItems = document.querySelectorAll('.menu-item[data-permiso]');
+    
+    // Área principal donde se mostrará el contenido (asumimos que existe o la creamos)
+    let mainContentArea = document.querySelector('.main-content-area');
+    if (!mainContentArea) {
+        // Crear el área principal si no existe
+        mainContentArea = document.createElement('div');
+        mainContentArea.className = 'main-content-area';
+        
+        // Insertar después del sidebar
+        const sidebar = document.querySelector('.sidebar') || document.body;
+        sidebar.parentNode.insertBefore(mainContentArea, sidebar.nextSibling);
+    }
+    
+    // Contenedores de contenido para cada elemento del menú
+    const contentContainers = {};
+    
+    // Inicializar: Mover contenido de cada menú al área principal y ocultarlo
+    menuItems.forEach(menuItem => {
+        const permiso = menuItem.getAttribute('data-permiso');
+        const menuHeader = menuItem.querySelector('.menu-header');
+        const menuContent = menuItem.querySelector('.menu-content');
+        
+        if (menuContent && permiso) {
+            // Crear un contenedor para este contenido en el área principal
+            const contentContainer = document.createElement('div');
+            contentContainer.className = 'main-content-container';
+            contentContainer.id = `content-${permiso}`;
+            contentContainer.style.display = 'none'; // Ocultar inicialmente
+            
+            // Mover el contenido al nuevo contenedor
+            const contentClone = menuContent.cloneNode(true);
+            contentContainer.appendChild(contentClone);
+            
+            // Guardar referencia al contenedor
+            contentContainers[permiso] = contentContainer;
+            
+            // Añadir al área principal
+            mainContentArea.appendChild(contentContainer);
+            
+            // Eliminar el contenido original del menú o mantenerlo vacío
+            menuContent.innerHTML = '';
+            menuContent.style.height = '0';
+        }
+        
+        // Agregar listener al header del menú
+        if (menuHeader && permiso) {
+            menuHeader.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Obtener el ícono dentro del header
+                const icon = this.querySelector('.icon');
+                
+                // Toggle active class en el header
+                this.classList.toggle('active');
+                
+                // Mostrar/ocultar el contenido correspondiente en el área principal
+                Object.keys(contentContainers).forEach(key => {
+                    const container = contentContainers[key];
+                    if (key === permiso) {
+                        // Toggle para este contenedor
+                        if (container.style.display === 'none') {
+                            container.style.display = 'block';
+                            if (icon) icon.classList.add('active');
+                        } else {
+                            container.style.display = 'none';
+                            if (icon) icon.classList.remove('active');
+                        }
+                    } else {
+                        // Ocultar los demás contenedores
+                        container.style.display = 'none';
+                        
+                        // Desactivar otros íconos
+                        const otherItem = document.querySelector(`.menu-item[data-permiso="${key}"]`);
+                        if (otherItem) {
+                            const otherIcon = otherItem.querySelector('.icon');
+                            if (otherIcon) otherIcon.classList.remove('active');
+                            
+                            const otherHeader = otherItem.querySelector('.menu-header');
+                            if (otherHeader) otherHeader.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+    });
+}
 
+// Ejecutar cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar la navegación del menú
+    inicializarNavegacionMenu();
+    });
