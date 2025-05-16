@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/inf-permisosmenu.css">
     <title>Permisos</title>
+    <link rel="stylesheet" href="../css/inf-permisosmenu.css">
     <style>
         .hidden {
             display: none;
@@ -71,22 +71,23 @@
             </div>
         </div>
 
-                 <div class="content-area">
-                <div class="header">
+        <div class="content-area">
+            <div class="header">
                 <h2 id="content-title">Seleccione una opción del menú</h2>
                 <div class="user-info">
                 </div>
-                 </div>
+            </div>
 
-                <div id="descripcion-default" class="description-card">
+            <!-- Descripción por defecto -->
+            <div id="descripcion-default" class="description-card">
                 <h3>Bienvenido al Sistema de Gestión de Horarios</h3>
                 <p>Por favor, seleccione una opción del menú lateral para ver la descripción detallada de cada permiso.</p>
                 <p>Este sistema permite la gestión completa de usuarios, horarios y solicitudes para la institución.</p>
-             </div>
+            </div>
 
-                <!-- Secciones de descripciones -->
-                <div id="registrar-usuarios" class="description-card hidden">
-                <h2>Datos Personales</h2>
+            <!-- Sección de "Registrar usuarios" -->
+            <div id="registrar-usuarios" class="description-card hidden">
+                <h3>Datos Personales</h3>
                 <form id="llenarCampos">
                     <label for="nombre"> Nombre:</label>
                     <input type="text" id="nombre" placeholder="Ingrese Nombre completo" required>
@@ -108,31 +109,24 @@
                     <div class="required-role">
                         <p>Rol requerido: <span>Administrador</span></p>
                     </div>
-                    </form>
-                    </div>
+                </form>
+            </div>
 
-                <!-- Descripción de "Gestionar usuarios" -->
+            <!-- Descripción de "Gestionar usuarios" -->
             <div id="gestionar-usuarios" class="description-card hidden">
                 <h3>Gestionar Usuarios</h3>
-                <p>Este permiso permite administrar los usuarios existentes en el sistema, modificar sus datos, cambiar roles o desactivar cuentas.</p>
-                <p>Funcionalidades disponibles:</p>
-                <ul>
-                    <li>Modificar información de usuarios</li>
-                    <li>Asignar y cambiar roles</li>
-                    <li>Desactivar cuentas</li>
-                    <li>Gestionar solicitudes de usuarios</li>
-                </ul>
+                <p>Este permiso permite administrar los usuarios existentes en el sistema.</p>
 
-                <!-- Sección para mostrar la lista de usuarios -->
                 <h3>Lista de Usuarios</h3>
                 <div id="usuariosLista">
                     <!-- Aquí se mostrarán los usuarios -->
                 </div>
             </div>
 
-                 <!-- Otras secciones de descripciones -->
-                </div>
-                 </div>
+        </div>
+    </div>
+
+                 
 
 
                 <div id="crear-horarios" class="description-card hidden">
