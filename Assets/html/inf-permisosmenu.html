@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inf-permisosmenu.css">
     <title>Permisos</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-       <body>
     <div class="sidebar">
         <div class="sidebar-header">
             <img src="/Assets/img/logo-sena-negro-png-2022.png" alt="Logo SENA">
             <h1>Sistema de Gestión</h1>
         </div>
         
+        <!-- Menu de opciones -->
         <div class="menu-item" onclick="showDescription('registrar-usuarios')">
             <span class="icon">👤</span> Registrar usuarios
         </div>
@@ -53,7 +62,6 @@
     </div>
 
     <div class="content">
-        <!-- Nuevo header basado en la segunda imagen -->
         <div class="main-header">
             <div class="title">Administrador</div>
             <div class="nav-buttons">
@@ -63,197 +71,48 @@
             </div>
         </div>
 
-        <div class="content-area">
-            <div class="header">
+                 <div class="content-area">
+                <div class="header">
                 <h2 id="content-title">Seleccione una opción del menú</h2>
                 <div class="user-info">
                 </div>
-            </div>
+                 </div>
 
-            <div id="descripcion-default" class="description-card">
+                <div id="descripcion-default" class="description-card">
                 <h3>Bienvenido al Sistema de Gestión de Horarios</h3>
                 <p>Por favor, seleccione una opción del menú lateral para ver la descripción detallada de cada permiso.</p>
                 <p>Este sistema permite la gestión completa de usuarios, horarios y solicitudes para la institución.</p>
-            </div>
+             </div>
 
-            <div id="registrar-usuarios" class="description-card hidden">
-        
-        <h2>Datos Personales</h2>
-        <form id="llenarCampos">
-            <label for="nombre"> Nombre:</label>
-        <input type="text" id="nombre" placeholder="Ingrese Nombre completo" required>
-            <label for="usuario"> Usuario:</label>
-        <input type="text" id="nombreUsuario" placeholder="Agrega un usuario" required>
-            <label for="telefono"> Telefono:</label>
-        <input type="text" id="numeroTelefono" placeholder="Ingrese Numero de Telefono" required>
-            <label for="correo"> Correo:</label>
-        <input type="email" id="correo" placeholder="Ingrese correo electronico" required>
-            <label for="contraseña"> Contraseña:</label>
-        <input type="password" id="contraseña" placeholder="Crea una contraseña" required>
-            <label for="documento"> Tipo de documento:</label>
-        <select id="tiposDocumentos" required> 
-            <option value="tarjetaIdentidad"> Tarjeta de Identidad </option>
-            <option value="cedulaCiudadania"> Cedula de Ciudadanía </option>
-        </select>
-        <label for="numeroDocumento">Número de documento:</label>
-<input type="text" id="numeroDocumento" placeholder="Ingresa número de documento" required>
-                <div class="required-role">
-                    <p>Rol requerido: <span>Administrador</span></p>
-                </div>
-            </div>
-        <h1>Permisos</h1>
-        <hr>
-        
-        <div class="info-alert">
-            <p>Haz click en el boton de informacion de cada permiso para ver su contenido previo.</p>
-        </div>
-        
-        <div class="permissions-grid">
-            <!-- Columna izquierda -->
-            <div class="permissions-column">
-                <div class="permission-item">
-                    <div class="permission-label">Gestionar usuarios:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
+                <!-- Secciones de descripciones -->
+                <div id="registrar-usuarios" class="description-card hidden">
+                <h2>Datos Personales</h2>
+                <form id="llenarCampos">
+                    <label for="nombre"> Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Ingrese Nombre completo" required>
+                    <label for="usuario"> Usuario:</label>
+                    <input type="text" id="nombreUsuario" placeholder="Agrega un usuario" required>
+                    <label for="telefono"> Telefono:</label>
+                    <input type="text" id="numeroTelefono" placeholder="Ingrese Numero de Telefono" required>
+                    <label for="correo"> Correo:</label>
+                    <input type="email" id="correo" placeholder="Ingrese correo electronico" required>
+                    <label for="contraseña"> Contraseña:</label>
+                    <input type="password" id="contraseña" placeholder="Crea una contraseña" required>
+                    <label for="documento"> Tipo de documento:</label>
+                    <select id="tiposDocumentos" required> 
+                        <option value="tarjetaIdentidad"> Tarjeta de Identidad </option>
+                        <option value="cedulaCiudadania"> Cedula de Ciudadanía </option>
+                    </select>
+                    <label for="numeroDocumento">Número de documento:</label>
+                    <input type="text" id="numeroDocumento" placeholder="Ingresa número de documento" required>
+                    <div class="required-role">
+                        <p>Rol requerido: <span>Administrador</span></p>
                     </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Visualizar horarios:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
+                    </form>
                     </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Horario Instructor:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Editar horarios:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Solicitar cambio de horario:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Columna derecha -->
-            <div class="permissions-column">
-                <div class="permission-item">
-                    <div class="permission-label">Registrar usuarios:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Crear horarios:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Horario Aprendiz:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Revisar solicitudes:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Perfil:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-                
-                <div class="permission-item">
-                    <div class="permission-label">Permisos del menú:</div>
-                    <div class="permission-controls">
-                        <label class="custom-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox-display"></span>
-                        </label>
-                        <button class="btn-go">Ir</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="role-selector">
-            <div class="role-label">Rol de usuario:</div>
-            <select>
-                <option selected>Administrador</option>
-                <option>Instructor</option>
-                <option>Aprendiz</option>
-            </select>
-        </div>
-        
-        <button class="btn-register">Registrar</button>
-    </div>
-        
 
-    
-                
-          <!-- Descripción de "Gestionar usuarios" -->
-            <div id="gestionar-usuarios" class="description-card hidden">
+                <!-- Descripción de "Gestionar usuarios" -->
+                <div id="gestionar-usuarios" class="description-card hidden">
                 <h3>Gestionar Usuarios</h3>
                 <p>Este permiso permite administrar los usuarios existentes en el sistema, modificar sus datos, cambiar roles o desactivar cuentas.</p>
                 <p>Funcionalidades disponibles:</p>
@@ -263,16 +122,11 @@
                     <li>Desactivar cuentas</li>
                     <li>Gestionar solicitudes de usuarios</li>
                 </ul>
-                <div class="required-role">
-                    <p>Rol requerido: <span>Administrador, Coordinador</span></p>
-                </div>
-            </div>
+                 </div>
 
 
 
-
-
-            <div id="crear-horarios" class="description-card hidden">
+                <div id="crear-horarios" class="description-card hidden">
                 <h3>Crear Horarios</h3>
                 <p>Este permiso permite la creación de nuevos horarios para instructores y aprendices, asignando aulas, materias y espacios temporales.</p>
                 <p>Funcionalidades disponibles:</p>
