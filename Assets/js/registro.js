@@ -90,9 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            usuarios.push(nuevoUsuario);
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-            localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
+           usuarios.push(nuevoUsuario); // Agrega el nuevo usuario a la lista de usuarios
+localStorage.setItem('usuarios', JSON.stringify(usuarios)); // Guarda la lista de usuarios en localStorage
+// NO guardar 'usuarioActual' aquí
+
 
             // Redirige a la página de inicio
             window.location.href = 'inicio.html'; // Ruta relativa correcta desde registro.html
