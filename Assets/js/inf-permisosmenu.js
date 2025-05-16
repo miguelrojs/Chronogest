@@ -1,4 +1,4 @@
- // Función para mostrar la descripción correspondiente
+  // Función para mostrar la descripción correspondiente
         function showDescription(id) {
             // Ocultar todas las descripciones
             document.querySelectorAll('.description-card').forEach(card => {
