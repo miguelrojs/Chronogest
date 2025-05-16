@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permisos menu</title>
-    <link rel="stylesheet" href="../css/permisos-menu.css">
+    <title>Permisos <menu></menu></title>
 </head>
 <body>
+       <body>
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="/api/placeholder/120/60" alt="Logo SENA">
+            <img src="/Assets/img/logo-sena-negro-png-2022.png" alt="Logo SENA">
             <h1>Sistema de Gestión</h1>
         </div>
         
@@ -52,223 +52,390 @@
     </div>
 
     <div class="content">
-        <div class="header">
-            <h2 id="content-title">Seleccione una opción del menú</h2>
-            <div class="user-info">
-                <img src="/api/placeholder/40/40" alt="Usuario">
-                <span>Admin Usuario</span>
+        <!-- Nuevo header basado en la segunda imagen -->
+        <div class="main-header">
+            <div class="title">Administrador</div>
+            <div class="nav-buttons">
+                <button class="nav-button">Registro</button>
+                <button class="nav-button">Login</button>
+                <button class="nav-button">Salir</button>
             </div>
         </div>
 
-        <div id="descripcion-default" class="description-card">
-            <h3>Bienvenido al Sistema de Gestión de Horarios</h3>
-            <p>Por favor, seleccione una opción del menú lateral para ver la descripción detallada de cada permiso.</p>
-            <p>Este sistema permite la gestión completa de usuarios, horarios y solicitudes para la institución.</p>
-        </div>
+        <div class="content-area">
+            <div class="header">
+                <h2 id="content-title">Seleccione una opción del menú</h2>
+                <div class="user-info">
+                </div>
+            </div>
 
-        <div id="registrar-usuarios" class="description-card hidden">
-            <h3>Registrar Usuarios</h3>
-            <p>Este permiso permite crear y registrar nuevos usuarios en el sistema, asignarles roles y configurar sus datos iniciales.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Creación de nuevos usuarios con información básica</li>
-                <li>Asignación de roles específicos (Administrador, Coordinador, Instructor, Aprendiz)</li>
-                <li>Generación de credenciales temporales</li>
-                <li>Verificación de información para evitar duplicados</li>
-                <li>Asociación a fichas técnicas o programas formativos</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Administrador</span></p>
+            <div id="descripcion-default" class="description-card">
+                <h3>Bienvenido al Sistema de Gestión de Horarios</h3>
+                <p>Por favor, seleccione una opción del menú lateral para ver la descripción detallada de cada permiso.</p>
+                <p>Este sistema permite la gestión completa de usuarios, horarios y solicitudes para la institución.</p>
+            </div>
+
+            <div id="registrar-usuarios" class="description-card hidden">
+        
+        <h2>Datos Personales</h2>
+        <form id="llenarCampos">
+            <label for="nombre"> Nombre:</label>
+        <input type="text" id="nombre" placeholder="Ingrese Nombre completo" required>
+            <label for="usuario"> Usuario:</label>
+        <input type="text" id="nombreUsuario" placeholder="Agrega un usuario" required>
+            <label for="telefono"> Telefono:</label>
+        <input type="text" id="numeroTelefono" placeholder="Ingrese Numero de Telefono" required>
+            <label for="correo"> Correo:</label>
+        <input type="email" id="correo" placeholder="Ingrese correo electronico" required>
+            <label for="contraseña"> Contraseña:</label>
+        <input type="password" id="contraseña" placeholder="Crea una contraseña" required>
+            <label for="documento"> Tipo de documento:</label>
+        <select id="tiposDocumentos" required> 
+            <option value="tarjetaIdentidad"> Tarjeta de Identidad </option>
+            <option value="cedulaCiudadania"> Cedula de Ciudadanía </option>
+        </select>
+        <label for="numeroDocumento">Número de documento:</label>
+<input type="text" id="numeroDocumento" placeholder="Ingresa número de documento" required>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Administrador</span></p>
+                </div>
+            </div>
+        <h1>Permisos</h1>
+        <hr>
+        
+        <div class="info-alert">
+            <p>Haz click en el boton de informacion de cada permiso para ver su contenido previo.</p>
+        </div>
+        
+        <div class="permissions-grid">
+            <!-- Columna izquierda -->
+            <div class="permissions-column">
+                <div class="permission-item">
+                    <div class="permission-label">Gestionar usuarios:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Visualizar horarios:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Horario Instructor:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Editar horarios:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Solicitar cambio de horario:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna derecha -->
+            <div class="permissions-column">
+                <div class="permission-item">
+                    <div class="permission-label">Registrar usuarios:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Crear horarios:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Horario Aprendiz:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Revisar solicitudes:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Perfil:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
+                
+                <div class="permission-item">
+                    <div class="permission-label">Permisos del menú:</div>
+                    <div class="permission-controls">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-display"></span>
+                        </label>
+                        <button class="btn-go">Ir</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="gestionar-usuarios" class="description-card hidden">
-            <h3>Gestionar Usuarios</h3>
-            <p>Este permiso permite administrar los usuarios existentes en el sistema, modificar sus datos, cambiar roles o desactivar cuentas.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Consulta de información completa de usuarios</li>
-                <li>Edición de datos personales y de contacto</li>
-                <li>Cambio de roles y permisos</li>
-                <li>Activación/desactivación de cuentas</li>
-                <li>Restablecimiento de contraseñas</li>
-                <li>Generación de reportes de usuarios</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Administrador, Coordinador</span></p>
-            </div>
+        
+        <div class="role-selector">
+            <div class="role-label">Rol de usuario:</div>
+            <select>
+                <option selected>Administrador</option>
+                <option>Instructor</option>
+                <option>Aprendiz</option>
+            </select>
         </div>
+        
+        <button class="btn-register">Registrar</button>
+    </div>
+        
 
-        <div id="crear-horarios" class="description-card hidden">
-            <h3>Crear Horarios</h3>
-            <p>Este permiso permite la creación de nuevos horarios para instructores y aprendices, asignando aulas, materias y espacios temporales.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Creación de horarios semanales</li>
-                <li>Asignación de instructores a grupos específicos</li>
-                <li>Reserva de espacios y ambientes de formación</li>
-                <li>Verificación de disponibilidad de recursos</li>
-                <li>Prevención de conflictos de horarios</li>
-                <li>Definición de horarios por competencias o resultados de aprendizaje</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Administrador, Coordinador</span></p>
+            <div id="gestionar-usuarios" class="description-card hidden">
+                <h3>Gestionar Usuarios</h3>
+                <p>Este permiso permite administrar los usuarios existentes en el sistema, modificar sus datos, cambiar roles o desactivar cuentas.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Consulta de información completa de usuarios</li>
+                    <li>Edición de datos personales y de contacto</li>
+                    <li>Cambio de roles y permisos</li>
+                    <li>Activación/desactivación de cuentas</li>
+                    <li>Restablecimiento de contraseñas</li>
+                    <li>Generación de reportes de usuarios</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Administrador, Coordinador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="visualizar-horarios" class="description-card hidden">
-            <h3>Visualizar Horarios</h3>
-            <p>Este permiso permite consultar los horarios creados para cualquier grupo, instructor o ambiente de formación.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Vista de horarios por día, semana o mes</li>
-                <li>Filtrado por instructor, grupo o ambiente</li>
-                <li>Visualización de detalles de cada sesión programada</li>
-                <li>Identificación de solapamientos o conflictos</li>
-                <li>Exportación de horarios en diferentes formatos</li>
-                <li>Vista de disponibilidad de ambientes</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Todos los roles</span></p>
+            <div id="crear-horarios" class="description-card hidden">
+                <h3>Crear Horarios</h3>
+                <p>Este permiso permite la creación de nuevos horarios para instructores y aprendices, asignando aulas, materias y espacios temporales.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Creación de horarios semanales</li>
+                    <li>Asignación de instructores a grupos específicos</li>
+                    <li>Reserva de espacios y ambientes de formación</li>
+                    <li>Verificación de disponibilidad de recursos</li>
+                    <li>Prevención de conflictos de horarios</li>
+                    <li>Definición de horarios por competencias o resultados de aprendizaje</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Administrador, Coordinador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="horario-aprendiz" class="description-card hidden">
-            <h3>Horario Aprendiz</h3>
-            <p>Este permiso permite a los aprendices consultar su horario personal de formación, mostrando todas sus actividades programadas.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Visualización personalizada del horario semanal</li>
-                <li>Consulta de detalles de cada competencia o resultado de aprendizaje</li>
-                <li>Notificaciones de cambios o actualizaciones</li>
-                <li>Información sobre instructores asignados</li>
-                <li>Detalles de ambientes de formación</li>
-                <li>Exportación del horario personal</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Aprendiz, Instructor, Coordinador, Administrador</span></p>
+            <div id="visualizar-horarios" class="description-card hidden">
+                <h3>Visualizar Horarios</h3>
+                <p>Este permiso permite consultar los horarios creados para cualquier grupo, instructor o ambiente de formación.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Vista de horarios por día, semana o mes</li>
+                    <li>Filtrado por instructor, grupo o ambiente</li>
+                    <li>Visualización de detalles de cada sesión programada</li>
+                    <li>Identificación de solapamientos o conflictos</li>
+                    <li>Exportación de horarios en diferentes formatos</li>
+                    <li>Vista de disponibilidad de ambientes</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Todos los roles</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="horario-instructor" class="description-card hidden">
-            <h3>Horario Instructor</h3>
-            <p>Este permiso permite a los instructores consultar su programación de actividades formativas, grupos asignados y espacios reservados.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Visualización detallada de la carga académica semanal</li>
-                <li>Consulta de grupos y fichas asignadas</li>
-                <li>Información de ambientes reservados para cada sesión</li>
-                <li>Detalle de competencias y resultados de aprendizaje a impartir</li>
-                <li>Gestión de disponibilidad horaria</li>
-                <li>Exportación del horario laboral</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Instructor, Coordinador, Administrador</span></p>
+            <div id="horario-aprendiz" class="description-card hidden">
+                <h3>Horario Aprendiz</h3>
+                <p>Este permiso permite a los aprendices consultar su horario personal de formación, mostrando todas sus actividades programadas.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Visualización personalizada del horario semanal</li>
+                    <li>Consulta de detalles de cada competencia o resultado de aprendizaje</li>
+                    <li>Notificaciones de cambios o actualizaciones</li>
+                    <li>Información sobre instructores asignados</li>
+                    <li>Detalles de ambientes de formación</li>
+                    <li>Exportación del horario personal</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Aprendiz, Instructor, Coordinador, Administrador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="revisar-solicitudes" class="description-card hidden">
-            <h3>Revisar Solicitudes</h3>
-            <p>Este permiso permite gestionar y dar respuesta a las solicitudes de cambio de horario realizadas por instructores o aprendices.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Visualización de solicitudes pendientes</li>
-                <li>Evaluación de justificaciones presentadas</li>
-                <li>Aprobación o rechazo de solicitudes</li>
-                <li>Comunicación de decisiones a los solicitantes</li>
-                <li>Verificación de factibilidad de cambios solicitados</li>
-                <li>Historial de solicitudes procesadas</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Coordinador, Administrador</span></p>
+            <div id="horario-instructor" class="description-card hidden">
+                <h3>Horario Instructor</h3>
+                <p>Este permiso permite a los instructores consultar su programación de actividades formativas, grupos asignados y espacios reservados.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Visualización detallada de la carga académica semanal</li>
+                    <li>Consulta de grupos y fichas asignadas</li>
+                    <li>Información de ambientes reservados para cada sesión</li>
+                    <li>Detalle de competencias y resultados de aprendizaje a impartir</li>
+                    <li>Gestión de disponibilidad horaria</li>
+                    <li>Exportación del horario laboral</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Instructor, Coordinador, Administrador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="editar-horarios" class="description-card hidden">
-            <h3>Editar Horarios</h3>
-            <p>Este permiso permite realizar modificaciones sobre horarios ya creados, ajustando aulas, instructores o espacios temporales.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Modificación de horarios existentes</li>
-                <li>Reasignación de instructores o ambientes</li>
-                <li>Ajuste de fechas y horas de sesiones</li>
-                <li>Gestión de cambios temporales o permanentes</li>
-                <li>Notificación automática a los afectados</li>
-                <li>Registro de historial de cambios realizados</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Coordinador, Administrador</span></p>
+            <div id="revisar-solicitudes" class="description-card hidden">
+                <h3>Revisar Solicitudes</h3>
+                <p>Este permiso permite gestionar y dar respuesta a las solicitudes de cambio de horario realizadas por instructores o aprendices.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Visualización de solicitudes pendientes</li>
+                    <li>Evaluación de justificaciones presentadas</li>
+                    <li>Aprobación o rechazo de solicitudes</li>
+                    <li>Comunicación de decisiones a los solicitantes</li>
+                    <li>Verificación de factibilidad de cambios solicitados</li>
+                    <li>Historial de solicitudes procesadas</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Coordinador, Administrador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="perfil" class="description-card hidden">
-            <h3>Perfil</h3>
-            <p>Este permiso permite a los usuarios consultar y modificar su información personal y preferencias dentro del sistema.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Visualización de datos personales</li>
-                <li>Actualización de información de contacto</li>
-                <li>Cambio de contraseña</li>
-                <li>Configuración de notificaciones</li>
-                <li>Personalización de la interfaz</li>
-                <li>Consulta del historial de actividad</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Todos los roles</span></p>
+            <div id="editar-horarios" class="description-card hidden">
+                <h3>Editar Horarios</h3>
+                <p>Este permiso permite realizar modificaciones sobre horarios ya creados, ajustando aulas, instructores o espacios temporales.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Modificación de horarios existentes</li>
+                    <li>Reasignación de instructores o ambientes</li>
+                    <li>Ajuste de fechas y horas de sesiones</li>
+                    <li>Gestión de cambios temporales o permanentes</li>
+                    <li>Notificación automática a los afectados</li>
+                    <li>Registro de historial de cambios realizados</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Coordinador, Administrador</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="solicitar-cambio" class="description-card hidden">
-            <h3>Solicitar Cambio de Horario</h3>
-            <p>Este permiso permite a los usuarios enviar solicitudes formales para cambios en la programación horaria, especificando motivos y propuestas.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Creación de solicitudes detalladas</li>
-                <li>Justificación de necesidad de cambio</li>
-                <li>Propuesta de alternativas viables</li>
-                <li>Adjuntar documentación de soporte</li>
-                <li>Seguimiento del estado de la solicitud</li>
-                <li>Comunicación con los responsables de aprobación</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Instructor, Aprendiz</span></p>
+            <div id="perfil" class="description-card hidden">
+                <h3>Perfil</h3>
+                <p>Este permiso permite a los usuarios consultar y modificar su información personal y preferencias dentro del sistema.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Visualización de datos personales</li>
+                    <li>Actualización de información de contacto</li>
+                    <li>Cambio de contraseña</li>
+                    <li>Configuración de notificaciones</li>
+                    <li>Personalización de la interfaz</li>
+                    <li>Consulta del historial de actividad</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Todos los roles</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="permisos-menu" class="description-card hidden">
-            <h3>Permisos del Menú</h3>
-            <p>Este permiso permite configurar qué opciones del menú están disponibles para cada rol de usuario en el sistema.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Asignación de permisos por rol</li>
-                <li>Creación de perfiles de acceso personalizados</li>
-                <li>Restricción de funcionalidades sensibles</li>
-                <li>Configuración de niveles de acceso jerárquicos</li>
-                <li>Auditoría de cambios en permisos</li>
-                <li>Simulación de vistas según permisos</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Administrador</span></p>
+            <div id="solicitar-cambio" class="description-card hidden">
+                <h3>Solicitar Cambio de Horario</h3>
+                <p>Este permiso permite a los usuarios enviar solicitudes formales para cambios en la programación horaria, especificando motivos y propuestas.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Creación de solicitudes detalladas</li>
+                    <li>Justificación de necesidad de cambio</li>
+                    <li>Propuesta de alternativas viables</li>
+                    <li>Adjuntar documentación de soporte</li>
+                    <li>Seguimiento del estado de la solicitud</li>
+                    <li>Comunicación con los responsables de aprobación</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Instructor, Aprendiz</span></p>
+                </div>
             </div>
-        </div>
 
-        <div id="rol-usuario" class="description-card hidden">
-            <h3>Rol de Usuario</h3>
-            <p>Este permiso permite gestionar los diferentes roles disponibles en el sistema y las capacidades asociadas a cada uno.</p>
-            <p>Funcionalidades disponibles:</p>
-            <ul>
-                <li>Creación y edición de roles</li>
-                <li>Definición de permisos por rol</li>
-                <li>Asignación de usuarios a roles específicos</li>
-                <li>Configuración de jerarquías de roles</li>
-                <li>Limitación de acceso a información sensible</li>
-                <li>Gestión de roles temporales o especiales</li>
-            </ul>
-            <div class="required-role">
-                <p>Rol requerido: <span>Administrador</span></p>
+            <div id="permisos-menu" class="description-card hidden">
+                <h3>Permisos del Menú</h3>
+                <p>Este permiso permite configurar qué opciones del menú están disponibles para cada rol de usuario en el sistema.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Asignación de permisos por rol</li>
+                    <li>Creación de perfiles de acceso personalizados</li>
+                    <li>Restricción de funcionalidades sensibles</li>
+                    <li>Configuración de niveles de acceso jerárquicos</li>
+                    <li>Auditoría de cambios en permisos</li>
+                    <li>Simulación de vistas según permisos</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Administrador</span></p>
+                </div>
+            </div>
+
+            <div id="rol-usuario" class="description-card hidden">
+                <h3>Rol de Usuario</h3>
+                <p>Este permiso permite gestionar los diferentes roles disponibles en el sistema y las capacidades asociadas a cada uno.</p>
+                <p>Funcionalidades disponibles:</p>
+                <ul>
+                    <li>Creación y edición de roles</li>
+                    <li>Definición de permisos por rol</li>
+                    <li>Asignación de usuarios a roles específicos</li>
+                    <li>Configuración de jerarquías de roles</li>
+                    <li>Limitación de acceso a información sensible</li>
+                    <li>Gestión de roles temporales o especiales</li>
+                </ul>
+                <div class="required-role">
+                    <p>Rol requerido: <span>Administrador</span></p>
+                </div>
             </div>
         </div>
     </div>
-<script src="../js/inf-permisosmenu.js"></script>
 </body>
 </html>
