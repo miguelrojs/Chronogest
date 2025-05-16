@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Chronogest</title>
     <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="/Assets/css/crear--horarios.css">
 </head>
 <header>
     <h4 class="identificadorRol">Administrador</h4>
@@ -94,11 +95,330 @@
                             <span class="icon">▼</span>
                         </div>
                         <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Definir bloques de horarios</li>
-                                <li>Asignar instructores</li>
-                                <li>Establecer aulas y ambientes</li>
-                            </ul>
+                            <div class="menu-description">
+
+        <body>
+            <div class="header">
+            <h1>Generador de horarios</h1>
+            </div>
+    
+    <div class="toolbar">
+        <button class="toolbar-button" id="newScheduleBtn">
+            <i>📅</i> Crear nuevo horario
+        </button>
+        <div class="dropdown">
+            <button class="toolbar-button" id="saveAsBtn">
+                <i>💾</i> Guardar como...
+            </button>
+            <div class="dropdown-content" id="exportOptions">
+                <a href="#" id="exportImage">Imagen (PNG)</a>
+                <a href="#" id="exportPdf">PDF</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="course-panel">
+        <table class="course-table">
+            <tr>
+                <td><label for="courseName">Nombre del curso:</label></td>
+                <td><label>Días:</label></td>
+                <td><label for="startTime">Desde:</label></td>
+                <td><label for="endTime">Hasta:</label></td>
+                <td><label for="courseColor">Color:</label></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="courseName" class="form-control"></td>
+                <td class="days-cell">
+                    <input type="checkbox" id="dayL"> <label for="dayL">L</label>
+                    <input type="checkbox" id="dayK"> <label for="dayK">K</label>
+                    <input type="checkbox" id="dayM"> <label for="dayM">M</label>
+                    <input type="checkbox" id="dayJ"> <label for="dayJ">J</label>
+                    <input type="checkbox" id="dayV"> <label for="dayV">V</label>
+                    <input type="checkbox" id="dayS"> <label for="dayS">S</label>
+                    <input type="checkbox" id="dayD"> <label for="dayD">D</label>
+                </td>
+                <td>
+                    <select id="startTime" class="form-control">
+                        <option value="" disabled selected>---</option>
+                        <option value="7">7:00</option>
+                        <option value="8">8:00</option>
+                        <option value="9">9:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="endTime" class="form-control">
+                        <option value="" disabled selected>---</option>
+                        <option value="8">8:00</option>
+                        <option value="9">9:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="color" id="courseColor" class="color-picker" value="#3498db">
+                </td>
+                <td>
+                    <button id="addCourseBtn" class="btn-add">Agregar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="schedule-container">
+        <table class="schedule-table" id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>Horas</th>
+                    <th>(L) Lunes</th>
+                    <th>(K) Martes</th>
+                    <th>(M) Miércoles</th>
+                    <th>(J) Jueves</th>
+                    <th>(V) Viernes</th>
+                    <th>(S) Sábado</th>
+                    <th>(D) Domingo</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleBody">
+                <!-- Horas generadas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Inicializar variables
+        let courses = [];
+        const daysOfWeek = ['L', 'K', 'M', 'J', 'V', 'S', 'D'];
+        
+        // Generar tabla de horarios
+        function generateTimeTable() {
+            const scheduleBody = document.getElementById('scheduleBody');
+            scheduleBody.innerHTML = '';
+            
+            // Crear filas para cada hora desde 7 hasta 18
+            for (let hour = 7; hour < 18; hour++) {
+                const row = document.createElement('tr');
+                
+                // Celda de hora
+                const timeCell = document.createElement('td');
+                timeCell.className = 'time-cell';
+                timeCell.textContent = `${hour}:00 - ${hour+1}:00`;
+                row.appendChild(timeCell);
+                
+                // Celdas para cada día de la semana
+                for (let day = 0; day < 7; day++) {
+                    const dayCell = document.createElement('td');
+                    dayCell.dataset.day = daysOfWeek[day];
+                    dayCell.dataset.hour = hour;
+                    row.appendChild(dayCell);
+                }
+                
+                scheduleBody.appendChild(row);
+            }
+        }
+        
+        // Renderizar cursos en la tabla
+        function renderCourses() {
+            // Limpiar todas las celdas de la tabla
+            const dayCells = document.querySelectorAll('#scheduleBody td:not(.time-cell)');
+            dayCells.forEach(cell => {
+                cell.innerHTML = '';
+                cell.style.backgroundColor = '';
+            });
+            
+            // Renderizar cada curso
+            courses.forEach(course => {
+                course.days.forEach(day => {
+                    for (let hour = course.startTime; hour < course.endTime; hour++) {
+                        const cell = document.querySelector(`td[data-day="${day}"][data-hour="${hour}"]`);
+                        if (cell) {
+                            const courseItem = document.createElement('div');
+                            courseItem.className = 'course-item';
+                            courseItem.textContent = course.name;
+                            courseItem.style.backgroundColor = course.color;
+                            
+                            // Ajustar color de texto según el fondo
+                            const bgColor = course.color.replace('#', '');
+                            const r = parseInt(bgColor.substr(0, 2), 16);
+                            const g = parseInt(bgColor.substr(2, 2), 16);
+                            const b = parseInt(bgColor.substr(4, 2), 16);
+                            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                            courseItem.style.color = brightness > 128 ? 'black' : 'white';
+                            
+                            cell.appendChild(courseItem);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Añadir un nuevo curso
+        function addCourse() {
+            const courseName = document.getElementById('courseName').value.trim();
+            if (!courseName) {
+                alert('Por favor, ingrese un nombre para el curso.');
+                return;
+            }
+            
+            // Obtener días seleccionados
+            const selectedDays = [];
+            daysOfWeek.forEach(day => {
+                if (document.getElementById(`day${day}`).checked) {
+                    selectedDays.push(day);
+                }
+            });
+            
+            if (selectedDays.length === 0) {
+                alert('Por favor, seleccione al menos un día de la semana.');
+                return;
+            }
+            
+            // Obtener horas
+            const startTime = parseInt(document.getElementById('startTime').value);
+            const endTime = parseInt(document.getElementById('endTime').value);
+            
+            if (isNaN(startTime) || isNaN(endTime)) {
+                alert('Por favor, seleccione horas de inicio y fin válidas.');
+                return;
+            }
+            
+            if (startTime >= endTime) {
+                alert('La hora de inicio debe ser anterior a la hora de fin.');
+                return;
+            }
+            
+            // Obtener color
+            const color = document.getElementById('courseColor').value;
+            
+            // Crear objeto curso
+            const course = {
+                name: courseName,
+                days: selectedDays,
+                startTime: startTime,
+                endTime: endTime,
+                color: color
+            };
+            
+            // Añadir a la lista de cursos
+            courses.push(course);
+            
+            // Renderizar tabla actualizada
+            renderCourses();
+            
+            // Limpiar formulario
+            document.getElementById('courseName').value = '';
+            daysOfWeek.forEach(day => {
+                document.getElementById(`day${day}`).checked = false;
+            });
+            document.getElementById('startTime').selectedIndex = 0;
+            document.getElementById('endTime').selectedIndex = 0;
+        }
+        
+        // Exportar horario como imagen
+        function exportAsImage() {
+            const scheduleTable = document.getElementById('scheduleTable');
+            
+            html2canvas(scheduleTable).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = imgData;
+                link.download = 'horario.png';
+                link.click();
+            });
+        }
+        
+        // Exportar horario como PDF
+        function exportAsPdf() {
+            const scheduleTable = document.getElementById('scheduleTable');
+            const { jsPDF } = window.jspdf;
+            
+            html2canvas(scheduleTable).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('l', 'mm', 'a4'); // Landscape orientation
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('horario.pdf');
+            });
+        }
+        
+        // Crear nuevo horario
+        function createNewSchedule() {
+            if (courses.length > 0) {
+                if (confirm('¿Está seguro de que desea crear un nuevo horario? Se perderán todos los cursos actuales.')) {
+                    courses = [];
+                    renderCourses();
+                }
+            } else {
+                courses = [];
+                renderCourses();
+            }
+        }
+        
+        // Manejar menú desplegable
+        function toggleDropdown() {
+            document.querySelector('.dropdown').classList.toggle('active');
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generar tabla de horarios
+            generateTimeTable();
+            
+            // Botón para añadir curso
+            document.getElementById('addCourseBtn').addEventListener('click', addCourse);
+            
+            // Botón para exportar como imagen
+            document.getElementById('exportImage').addEventListener('click', function(e) {
+                e.preventDefault();
+                exportAsImage();
+                document.querySelector('.dropdown').classList.remove('active');
+            });
+            
+            // Botón para exportar como PDF
+            document.getElementById('exportPdf').addEventListener('click', function(e) {
+                e.preventDefault();
+                exportAsPdf();
+                document.querySelector('.dropdown').classList.remove('active');
+            });
+            
+            // Botón para crear nuevo horario
+            document.getElementById('newScheduleBtn').addEventListener('click', createNewSchedule);
+            
+            // Botón "Guardar como..."
+            document.getElementById('saveAsBtn').addEventListener('click', toggleDropdown);
+            
+            // Cerrar el menú desplegable cuando se hace clic fuera de él
+            document.addEventListener('click', function(e) {
+                const dropdown = document.querySelector('.dropdown');
+                const saveAsBtn = document.getElementById('saveAsBtn');
+                
+                if (!dropdown.contains(e.target) && e.target !== saveAsBtn) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+                        </div>
                         </div>
                         <a href="/Assets/html/crear-horarios.html">
                             <button class="menu-button">Acceder</button>
