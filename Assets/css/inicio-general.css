@@ -1289,7 +1289,7 @@ footer {
             margin-left: 10px;
             padding: 2px 8px;
             font-size: 12px;
-            background-color: #300738;
+            background-color: #1b3053;
             color: white;
             border: none;
             border-radius: 4px;
@@ -1297,7 +1297,7 @@ footer {
         }
         
         .nav-btn:hover {
-            background-color: #225125;
+            background-color: #3d4666;
         }
         
         /* Mejorar visualización de los checkboxes */
