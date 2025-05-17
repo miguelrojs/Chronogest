@@ -462,3 +462,125 @@ nav a:hover {
   width: 50px;
   height: 50px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedor general de Gestionar Usuarios */
+.gest-menu-item {
+  background-color: #2c3e50;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Cabecera clicable */
+.gest-menu-header {
+  padding: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #34495e;
+  transition: background-color 0.3s ease;
+}
+
+.gest-menu-header:hover {
+  background-color: #3d566e;
+}
+
+/* Icono para desplegar */
+.gest-menu-header .gest-icon {
+  transition: transform 0.3s ease;
+}
+
+.gest-menu-header.active .gest-icon {
+  transform: rotate(180deg);
+}
+
+/* Contenido oculto por defecto */
+.gest-menu-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+  background-color: #34495e;
+}
+
+/* Contenido visible cuando está activo */
+.gest-menu-content.active {
+  max-height: 1000px;
+  padding: 15px 20px;
+}
+
+/* Lista descriptiva */
+.gest-menu-description {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  color: #ecf0f1;
+}
+
+/* Elementos de lista */
+.gest-menu-description li {
+  margin: 5px 0;
+}
+
+/* Contenedor de usuarios */
+#gest-usuariosList {
+  background-color: #1c2833;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #ecf0f1;
+}
+
+/* Items de usuario */
+#gest-usuariosList div {
+  padding: 6px 10px;
+  border-bottom: 1px solid #2f4050;
+}
+
+/* Formularios */
+.gest-menu-content form {
+  margin-top: 10px;
+}
+
+.gest-menu-content input[type="text"],
+.gest-menu-content input[type="email"],
+.gest-menu-content input[type="password"],
+.gest-menu-content select {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.gest-menu-content button.gest-btn {
+  background-color: #27ae60;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.gest-menu-content button.gest-btn:hover {
+  background-color: #2ecc71;
+}

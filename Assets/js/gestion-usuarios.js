@@ -1,12 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const listaUsuarios = document.getElementById('usuariosLista');  // Obtener el contenedor de la lista de usuarios
+    // Toggle del contenido del menú "Gestionar Usuarios"
+    const gestionarHeader = document.querySelector('.gest-menu-header');
+    const gestionarContent = document.querySelector('.gest-menu-content');
+
+    if (gestionarHeader && gestionarContent) {
+        gestionarContent.style.display = 'none'; // Ocultar inicialmente
+
+        gestionarHeader.addEventListener('click', () => {
+            if (gestionarContent.style.display === 'none') {
+                gestionarContent.style.display = 'block';
+                gestionarHeader.classList.add('active');
+            } else {
+                gestionarContent.style.display = 'none';
+                gestionarHeader.classList.remove('active');
+            }
+        });
+    }
+
+    // Cargar lista de usuarios dentro del contenedor con clase gest-usuariosList
+    const listaUsuarios = document.querySelector('.gest-usuariosList');  
 
     if (!listaUsuarios) {
-        console.error("No se encontró el contenedor #usuariosLista");
+        console.error("No se encontró el contenedor con clase .gest-usuariosList");
         return;
     }
 
-    // Obtener todos los usuarios desde localStorage
+    // Obtener usuarios desde localStorage
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
     // Comprobar si hay usuarios registrados
@@ -18,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crear la lista de usuarios y mostrarla
     const ul = document.createElement('ul');
     
-    // Itera sobre todos los usuarios en localStorage
     usuarios.forEach((usuario, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -32,11 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         ul.appendChild(li);
     });
 
-    // Añadir la lista de usuarios al contenedor
     listaUsuarios.appendChild(ul);
 });
 
-// Función para modificar datos de un usuario
+// Funciones existentes para editar, activar/desactivar y cambiar rol
 function editarUsuario(index) {
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     const usuario = usuarios[index];
@@ -46,11 +63,10 @@ function editarUsuario(index) {
         usuario.nombre = nuevoNombre;
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
         alert('Nombre actualizado correctamente');
-        location.reload();  // Recargar la página para reflejar los cambios
+        location.reload();
     }
 }
 
-// Función para activar o desactivar un usuario
 function activarDesactivarUsuario(index) {
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     const usuario = usuarios[index];
@@ -58,10 +74,9 @@ function activarDesactivarUsuario(index) {
     usuario.activado = !usuario.activado;
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
     alert(usuario.activado ? 'Usuario activado' : 'Usuario desactivado');
-    location.reload();  // Recargar la página para reflejar los cambios
+    location.reload();
 }
 
-// Función para cambiar el rol de un usuario
 function cambiarRol(index) {
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     const usuario = usuarios[index];
@@ -71,6 +86,6 @@ function cambiarRol(index) {
         usuario.rolUsuario = nuevoRol;
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
         alert('Rol actualizado correctamente');
-        location.reload();  // Recargar la página para reflejar los cambios
+        location.reload();
     }
 }
