@@ -12,15 +12,6 @@
             --color-info: #3b82f6;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-        }
-
         /* Contenido principal */
         main {
             max-width: 1200px;

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="stylesheet" href="../css/inicio-2.css">
+    <link rel="stylesheet" href="../css/gestion-usario.css">
+    <link rel="stylesheet" href="../css/visualizacion.css">
+    <link rel="stylesheet" href="../css/instru-horarios.css">
+    <link rel="stylesheet" href="../css/solicitudes.css">
     <title>Chronogest - Crear Horarios</title>
 </head>
 <body>
@@ -43,167 +47,19 @@
             <ul class="sidebar-menu">
 <!-- Sección para ver la lista de usuarios -->
 <section class="ver-usuarios">
-    <h2>Listar Usuarios</h2>
+    <h2>Lista de Usuarios</h2>
     <div class="checkbox-container">
         <input type="checkbox" id="activarListaU" class="checkbox-input">
-        <label for="activarListaU" class="checkbox-label">Mostrar lista de usuarios</label>
+        <label for="activarListaU" class="checkbox-label">Ver</label>
     </div>
     <ul id="usuariosList" class="usuarios-lista"></ul>
 </section> 
     
     <section class="permisos-section">
-            <h2>Mis Permisos</h2>
+            <h2>Modulos de Chronogest</h2>
             <div id="menuPermisos">
                 <div class="menu-container">
-                    <!-- Registrar Usuarios -->
-                    <div class="menu-item" data-permiso="registrar">
-                        <div class="menu-header">
-                            Registrar Usuarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Crear nuevos usuarios en el sistema</li>
-                                <li>Asignar roles a los usuarios</li>
-                                <li>Establecer permisos iniciales</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Gestionar Usuarios -->
-                    <div class="menu-item" data-permiso="gestionar">
-                    <div class="menu-header gestionar-header" style="cursor:pointer;">
-                    Gestionar Usuarios
-                    <span class="icon">▼</span>
-                    </div>
-                    <div class="menu-content gestionar-content" style="display:none; padding: 10px; border: 1px solid #ccc; margin-top: 5px;">
-                      <div id="usuariosLista">
-                      <!-- Aquí cargará la lista de usuarios desde JS -->
-                    </div>
-                    </div>
-                    </div>
-
-
-
-
-                    <!-- Visualizar Horarios -->
-                    <div class="menu-item" data-permiso="visualizarHorarios">
-                        <div class="menu-header">
-                            Visualizar Horarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver horarios de todos los grupos</li>
-                                <li>Consultar disponibilidad</li>
-                                <li>Exportar horarios</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Horario Aprendiz -->
-                    <div class="menu-item" data-permiso="horarioAprendiz">
-                        <div class="menu-header">
-                            Horario Aprendiz
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver tu horario personal</li>
-                                <li>Recibir notificaciones de cambios</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Horario Instructor -->
-                    <div class="menu-item" data-permiso="horarioInstructor">
-                        <div class="menu-header">
-                            Horario Instructor
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver tus clases asignadas</li>
-                                <li>Consultar tu agenda semanal</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Revisar Solicitudes -->
-                    <div class="menu-item" data-permiso="revisarSolicitudes">
-                        <div class="menu-header">
-                            Revisar Solicitudes
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Aprobar o rechazar solicitudes</li>
-                                <li>Enviar notificaciones</li>
-                                <li>Ver historial de cambios</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Editar Horarios -->
-                    <div class="menu-item" data-permiso="editarHorarios">
-                        <div class="menu-header">
-                            Editar Horarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Modificar horarios existentes</li>
-                                <li>Realizar cambios de emergencia</li>
-                                <li>Actualizar asignaciones</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Mi Perfil -->
-                    <div class="menu-item" data-permiso="perfil">
-                        <div class="menu-header">
-                            Mi Perfil
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Modificar tus datos personales</li>
-                                <li>Cambiar contraseña</li>
-                                <li>Actualizar preferencias</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Solicitudes de Cambio -->
-                    <div class="menu-item" data-permiso="solicitudesInstructores">
-                        <div class="menu-header">
-                            Solicitudes de Cambio
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Solicitar cambios de horario</li>
-                                <li>Justificar solicitudes</li>
-                                <li>Ver estado de solicitudes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Solicitudes de Cambio -->
-                    <div class="menu-item" data-permiso="permisosMenu">
-                        <div class="menu-header">
-                            Permisos del menu
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Solicitar cambios de horario</li>
-                                <li>Justificar solicitudes</li>
-                                <li>Ver estado de solicitudes</li>
-                            </ul>
-                        </div>
-                    </div>
-                            <!-- Crear horarios -->
+                    <!-- Crear horarios -->
                     <div class="menu-item" data-permiso="crearhorarios">
                         <div class="menu-header">
                             Crear Horarios
@@ -501,20 +357,1238 @@
             });
         });
     </script>
+            <ul class="menu-description">
+                <li>Crear horarios</li>
+                <li>Asignar hora y dia del horario</li>
+                <li>Asignar nombre de curso</li>
+            </ul>
+                </div>
+            </div>
+            </div>
+            </div>
+                    <!-- Gestionar Usuarios -->
+                    <div class="menu-item" data-permiso="gestionar">
+                        <div class="menu-header">
+                            Gestionar Usuarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+    <div class="container">
+        <header>
+            <h1>Gestión de Usuarios</h1>
+        </header>
+        <main>
+            <section class="user-list-section">
+                <h2>Lista de Usuarios</h2>
+                <div id="usuariosLista">
+                    <!-- Aquí se mostrarán los usuarios -->
+
+                <div id="checkbox.id"> </div>
+                </div>
+            </section>
+        </main>
+    </div>
                             <ul class="menu-description">
-                                <li>Asignar permisos por rol</li>
-                                <li>Crear nuevos roles</li>
-                                <li>Gestionar accesos al sistema</li>
+                                <li>Ver todos los usuarios</li>
+                                <li>Modificar datos de usuarios</li>
+                                <li>Activar o desactivar usuarios</li>
+                                <li>Cambiar roles</li>
                             </ul>
                         </div>
                     </div>
+                    <!-- Visualizar Horarios -->
+                    <div class="menu-item" data-permiso="visualizarHorarios">
+                        <div class="menu-header">
+                            Visualizar Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                        <header>
+        <h1>Visualización de Horarios</h1>
+    </header>
+    <div class="main-container">
+        <div class="toolbar">
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="window.location.href='generador-horarios.html'">
+                    <i>➕</i> Crear nuevo horario
+                </button>
+                <button class="btn btn-outline">
+                    <i>📄</i> Importar
+                </button>
+                <button class="btn btn-outline">
+                    <i>📤</i> Exportar
+                </button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar horarios...">
+                <select>
+                    <option value="">Todos los días</option>
+                    <option value="L">Lunes</option>
+                    <option value="K">Martes</option>
+                    <option value="M">Miércoles</option>
+                    <option value="J">Jueves</option>
+                    <option value="V">Viernes</option>
+                    <option value="S">Sábado</option>
+                    <option value="D">Domingo</option>
+                </select>
+                <button class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+        
+        <div class="schedules-container" id="schedulesContainer">
+            <!-- Las tarjetas de horarios se generarán dinámicamente con JavaScript -->
+        </div>
+        
+        <div class="pagination">
+            <button>«</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>»</button>
+        </div>
+    </div>
+        <script>
+        // Datos de ejemplo para los horarios
+        const horarios = [
+            {
+                id: 1,
+                nombre: "Matemáticas Avanzadas",
+                dias: ["L", "M", "V"],
+                horaInicio: "08:00",
+                horaFin: "10:00",
+                color: "#4CAF50",
+                fechaCreacion: "2025-05-10"
+            },
+            {
+                id: 2,
+                nombre: "Física Cuántica",
+                dias: ["K", "J"],
+                horaInicio: "10:00",
+                horaFin: "12:00",
+                color: "#2196F3",
+                fechaCreacion: "2025-05-12"
+            },
+            {
+                id: 3,
+                nombre: "Literatura Española",
+                dias: ["L", "M", "V"],
+                horaInicio: "14:00",
+                horaFin: "16:00",
+                color: "#FF9800",
+                fechaCreacion: "2025-04-28"
+            },
+            {
+                id: 4,
+                nombre: "Programación Web",
+                dias: ["K", "J", "S"],
+                horaInicio: "16:00",
+                horaFin: "18:00",
+                color: "#9C27B0",
+                fechaCreacion: "2025-05-05"
+            },
+            {
+                id: 5,
+                nombre: "Inglés Avanzado",
+                dias: ["L", "M", "V"],
+                horaInicio: "12:00",
+                horaFin: "13:00",
+                color: "#F44336",
+                fechaCreacion: "2025-05-14"
+            },
+            {
+                id: 6,
+                nombre: "Historia del Arte",
+                dias: ["M", "J"],
+                horaInicio: "09:00",
+                horaFin: "11:00",
+                color: "#009688",
+                fechaCreacion: "2025-05-10"
+            }
+        ];
+
+        const diasCompletos = {
+            "L": "Lunes",
+            "K": "Martes",
+            "M": "Miércoles",
+            "J": "Jueves",
+            "V": "Viernes",
+            "S": "Sábado",
+            "D": "Domingo"
+        };
+
+        // Función para crear tarjetas de horarios
+        function renderizarHorarios(horarios) {
+            const contenedor = document.getElementById('schedulesContainer');
+            
+            if (horarios.length === 0) {
+                contenedor.innerHTML = `
+                    <div class="empty-state">
+                        <i>📅</i>
+                        <h2>No hay horarios disponibles</h2>
+                        <p>Crea un nuevo horario o importa uno existente.</p>
+                        <button class="btn btn-primary" onclick="window.location.href='generador-horarios.html'">
+                            <i>➕</i> Crear nuevo horario
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            contenedor.innerHTML = '';
+            
+            horarios.forEach(horario => {
+                const card = document.createElement('div');
+                card.className = 'schedule-card';
+                
+                // Crear indicadores de días
+                let dayIndicators = '';
+                ['L', 'K', 'M', 'J', 'V', 'S', 'D'].forEach(dia => {
+                    const isActive = horario.dias.includes(dia);
+                    dayIndicators += `<div class="day ${isActive ? 'active' : 'inactive'}">${dia}</div>`;
+                });
+                
+                // Construir la estructura de la tarjeta
+                card.innerHTML = `
+                    <div class="schedule-header" style="background-color: ${horario.color}">
+                        <h3 class="schedule-title">${horario.nombre}</h3>
+                        <div class="schedule-meta">
+                            <span>${horario.horaInicio} - ${horario.horaFin}</span>
+                        </div>
+                        <div class="schedule-options dropdown">
+                            <span>⋮</span>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="editarHorario(${horario.id})">Editar</a>
+                                <a href="#" onclick="duplicarHorario(${horario.id})">Duplicar</a>
+                                <a href="#" onclick="eliminarHorario(${horario.id})">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-body">
+                        <div class="day-indicator">
+                            ${dayIndicators}
+                        </div>
+                        <p class="time-info">
+                            <strong>Horario:</strong> ${horario.horaInicio} - ${horario.horaFin}
+                        </p>
+                        <p class="time-info">
+                            <strong>Días:</strong> ${horario.dias.map(d => diasCompletos[d]).join(', ')}
+                        </p>
+                    </div>
+                    <div class="schedule-footer">
+                        <span>Creado: ${formatearFecha(horario.fechaCreacion)}</span>
+                        <div class="action-buttons">
+                            <button class="btn btn-sm btn-edit" onclick="editarHorario(${horario.id})">Editar</button>
+                            <button class="btn btn-sm btn-delete" onclick="eliminarHorario(${horario.id})">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+                
+                contenedor.appendChild(card);
+            });
+        }
+
+        // Función para formatear fechas
+        function formatearFecha(fechaStr) {
+            const fecha = new Date(fechaStr);
+            return fecha.toLocaleDateString('es-ES', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        // Funciones para manejar acciones de horarios
+        function editarHorario(id) {
+            alert(`Editando horario con ID: ${id}`);
+            // Aquí redirigirías al generador de horarios con el ID del horario a editar
+            // window.location.href = `generador-horarios.html?id=${id}`;
+        }
+
+        function duplicarHorario(id) {
+            alert(`Duplicando horario con ID: ${id}`);
+            // Implementar lógica para duplicar horario
+        }
+
+        function eliminarHorario(id) {
+            if (confirm(`¿Estás seguro de que deseas eliminar el horario con ID: ${id}?`)) {
+                // Implementar lógica para eliminar horario
+                alert(`Horario con ID: ${id} eliminado`);
+                // Actualizar la vista
+                renderizarHorarios(horarios.filter(h => h.id !== id));
+            }
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarHorarios(horarios);
+        });
+    </script>
+                                <li>Ver horarios de todos los grupos</li>
+                                <li>Consultar disponibilidad</li>
+                                <li>Exportar horarios</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Horario Aprendiz -->
+                    <div class="menu-item" data-permiso="horarioAprendiz">
+                        <div class="menu-header">
+                            Horario Aprendiz
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+
+                                <li>Ver tu horario personal</li>
+                                <li>Recibir notificaciones de cambios</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Horario Instructor -->
+                    <div class="menu-item" data-permiso="horarioInstructor">
+                        <div class="menu-header">
+                            Horario Instructor
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+    <header>
+        <h1>Gestion de Horarios - Instructor</h1>
+    </header>
+
+    <div class="container">
+        <div class="horarios">
+            <h2>Horarios Asignados</h2>
+            <table id="tabla-horarios">
+                <!-- Aquí se llenarán los horarios con JS -->
+            </table>
+        </div>
+
+        <div class="solicitar-cambio">
+            <h2>Solicitar Cambio de Horario</h2>
+            <form id="form-cambio">
+                <label for="hora">Hora Actual:</label>
+                <input type="text" id="hora" disabled><br>
+                <label for="hora-nueva">Nueva Hora:</label>
+                <input type="text" id="hora-nueva"><br>
+                <label for="motivo">Motivo del Cambio:</label>
+                <textarea id="motivo"></textarea><br>
+                <button type="submit">Solicitar Cambio</button>
+            </form>
+        </div>
+
+        <!-- Respuesta del Administrador -->
+        <div class="respuesta-admin" id="respuesta-admin">
+            <h2>Respuesta del Administrador</h2>
+            <p id="respuesta"></p>
+        </div>
+
+        <!-- Solicitudes Pendientes para el Administrador -->
+        <div class="solicitudes-admin" id="solicitudes-admin">
+            <h2>Solicitudes Pendientes</h2>
+            <ul id="lista-solicitudes">
+                <!-- Las solicitudes se mostrarán aquí solo si el rol es Administrador -->
+            </ul>
+        </div>
+    </div>
+
+                                <li>Ver tus clases asignadas</li>
+                                <li>Consultar tu agenda semanal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Revisar Solicitudes -->
+                    <div class="menu-item" data-permiso="revisarSolicitudes">
+                        <div class="menu-header">
+                            Revisar Solicitudes
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                    <main>
+        <div class="page-title">
+            <h1>Revisar Solicitudes</h1>
+            <button class="btn btn-primary" id="exportBtn">
+                <i class="fas fa-download"></i> Exportar
+            </button>
+        </div>
+
+        <!-- Filtros y búsqueda -->
+        <div class="filter-section">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <span class="filter-label">Estado:</span>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="todos">Todos</option>
+                        <option value="pendiente" selected>Pendientes</option>
+                        <option value="aprobado">Aprobados</option>
+                        <option value="rechazado">Rechazados</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Tipo:</span>
+                    <select class="filter-select" id="typeFilter">
+                        <option value="todos">Todos</option>
+                        <option value="vacaciones">Vacaciones</option>
+                        <option value="permiso">Permisos</option>
+                        <option value="enfermedad">Enfermedad</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Departamento:</span>
+                    <select class="filter-select" id="deptFilter">
+                        <option value="todos">Todos</option>
+                        <option value="rrhh">RRHH</option>
+                        <option value="it">IT</option>
+                        <option value="ventas">Ventas</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="finanzas">Finanzas</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar por nombre o ID...">
                 </div>
             </div>
+        </div>
+
+        <!-- Grid de solicitudes -->
+        <div class="solicitudes-grid" id="solicitudesGrid">
+            <!-- Tarjeta de solicitud 1 -->
+            <div class="solicitud-card" data-id="SOL-001">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Vacaciones</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Ana García</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">RRHH</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">10/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Periodo:</div>
+                            <div class="info-value">20/05/2025 - 27/05/2025</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-001">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-001">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-001">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de solicitud 2 -->
+            <div class="solicitud-card" data-id="SOL-002">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Permiso</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Carlos Martínez</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">IT</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">11/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha permiso:</div>
+                            <div class="info-value">18/05/2025</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-002">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-002">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-002">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de solicitud 3 -->
+            <div class="solicitud-card" data-id="SOL-003">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Enfermedad</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Elena Sánchez</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">Ventas</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">12/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Periodo:</div>
+                            <div class="info-value">12/05/2025 - 15/05/2025</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-003">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-003">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-003">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de solicitud 4 -->
+            <div class="solicitud-card" data-id="SOL-004">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Permiso</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Miguel Torres</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">Marketing</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">13/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha permiso:</div>
+                            <div class="info-value">20/05/2025</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-004">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-004">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-004">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de solicitud 5 -->
+            <div class="solicitud-card" data-id="SOL-005">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Vacaciones</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Laura Pérez</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">Finanzas</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">14/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Periodo:</div>
+                            <div class="info-value">01/06/2025 - 15/06/2025</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-005">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-005">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-005">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de solicitud 6 -->
+            <div class="solicitud-card" data-id="SOL-006">
+                <div class="solicitud-header">
+                    <div class="solicitud-tipo">Otros</div>
+                    <div class="solicitud-estado estado-pendiente">Pendiente</div>
+                </div>
+                <div class="solicitud-content">
+                    <div class="solicitud-info">
+                        <div class="info-row">
+                            <div class="info-label">Solicitante:</div>
+                            <div class="info-value">Roberto Díaz</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Departamento:</div>
+                            <div class="info-value">RRHH</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha solicitud:</div>
+                            <div class="info-value">14/05/2025</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Motivo:</div>
+                            <div class="info-value">Formación profesional</div>
+                        </div>
+                    </div>
+                    <div class="solicitud-actions">
+                        <button class="btn btn-neutral ver-detalles" data-id="SOL-006">
+                            <i class="fas fa-eye"></i> Ver detalles
+                        </button>
+                        <button class="btn btn-success aprobar-solicitud" data-id="SOL-006">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="SOL-006">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginación -->
+        <div class="pagination" id="pagination">
+            <div class="page-item disabled">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="page-item active">1</div>
+            <div class="page-item">2</div>
+            <div class="page-item">3</div>
+            <div class="page-item">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de detalles -->
+    <div class="modal-backdrop" id="detallesModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Solicitud de Vacaciones - SOL-001</div>
+                <button class="modal-close" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Información de la Solicitud</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">ID Solicitud</div>
+                            <div class="detail-value">SOL-001</div>
+                        </div>
+                        <div class="detail-item">
+                        
+                            <script >const solicitudesData = [
+    {
+        id: "SOL-001",
+        tipo: "Vacaciones",
+        estado: "pendiente",
+        solicitante: "Ana García",
+        departamento: "RRHH",
+        fechaSolicitud: "10/05/2025",
+        periodo: "20/05/2025 - 27/05/2025",
+        detalles: "Vacaciones anuales programadas"
+    },
+    {
+        id: "SOL-002",
+        tipo: "Permiso",
+        estado: "pendiente",
+        solicitante: "Carlos Martínez",
+        departamento: "IT",
+        fechaSolicitud: "11/05/2025",
+        fechaPermiso: "18/05/2025",
+        detalles: "Asuntos personales"
+    },
+    {
+        id: "SOL-003",
+        tipo: "Enfermedad",
+        estado: "pendiente",
+        solicitante: "Elena Sánchez",
+        departamento: "Ventas",
+        fechaSolicitud: "12/05/2025",
+        periodo: "12/05/2025 - 15/05/2025",
+        detalles: "Reposo por gripe"
+    },
+    {
+        id: "SOL-004",
+        tipo: "Permiso",
+        estado: "pendiente",
+        solicitante: "Miguel Torres",
+        departamento: "Marketing",
+        fechaSolicitud: "13/05/2025",
+        fechaPermiso: "20/05/2025",
+        detalles: "Cita médica"
+    },
+    {
+        id: "SOL-005",
+        tipo: "Vacaciones",
+        estado: "pendiente",
+        solicitante: "Laura Pérez",
+        departamento: "Finanzas",
+        fechaSolicitud: "14/05/2025",
+        periodo: "01/06/2025 - 15/06/2025",
+        detalles: "Vacaciones de verano"
+    },
+    {
+        id: "SOL-006",
+        tipo: "Otros",
+        estado: "pendiente",
+        solicitante: "Roberto Díaz",
+        departamento: "RRHH",
+        fechaSolicitud: "14/05/2025",
+        motivo: "Formación profesional",
+        detalles: "Curso de actualización en gestión de personal"
+    },
+    {
+        id: "SOL-007",
+        tipo: "Vacaciones",
+        estado: "aprobado",
+        solicitante: "María López",
+        departamento: "IT",
+        fechaSolicitud: "05/05/2025",
+        periodo: "01/07/2025 - 15/07/2025",
+        detalles: "Vacaciones de verano"
+    },
+    {
+        id: "SOL-008",
+        tipo: "Permiso",
+        estado: "rechazado",
+        solicitante: "Pedro Gómez",
+        departamento: "Ventas",
+        fechaSolicitud: "02/05/2025",
+        fechaPermiso: "05/05/2025",
+        detalles: "Rechazado por falta de personal ese día"
+    }
+];
+
+// Variables globales para el manejo de la aplicación
+let solicitudesFiltradas = [...solicitudesData];
+let paginaActual = 1;
+const solicitudesPorPagina = 6;
+
+// Elementos DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar la aplicación
+    inicializarApp();
+    
+    // Configurar event listeners
+    configurarEventListeners();
+});
+
+function inicializarApp() {
+    // Cargar solicitudes iniciales (por defecto filtradas a pendientes)
+    filtrarSolicitudes();
+    
+    // Actualizar paginación
+    actualizarPaginacion();
+}
+
+function configurarEventListeners() {
+    // Filtros
+    document.getElementById('statusFilter').addEventListener('change', filtrarSolicitudes);
+    document.getElementById('typeFilter').addEventListener('change', filtrarSolicitudes);
+    document.getElementById('deptFilter').addEventListener('change', filtrarSolicitudes);
+    
+    // Búsqueda
+    document.getElementById('searchInput').addEventListener('input', filtrarSolicitudes);
+    
+    // Exportar
+    document.getElementById('exportBtn').addEventListener('click', exportarDatos);
+    
+    // Cerrar modal
+    document.getElementById('closeModal').addEventListener('click', cerrarModal);
+    
+    // Delegación de eventos para botones en las tarjetas (que pueden ser dinámicas)
+    document.getElementById('solicitudesGrid').addEventListener('click', function(e) {
+        // Ver detalles
+        if (e.target.classList.contains('ver-detalles') || 
+            (e.target.parentElement && e.target.parentElement.classList.contains('ver-detalles'))) {
+            const id = e.target.dataset.id || e.target.parentElement.dataset.id;
+            mostrarDetalles(id);
+        }
+        
+        // Aprobar solicitud
+        if (e.target.classList.contains('aprobar-solicitud') || 
+            (e.target.parentElement && e.target.parentElement.classList.contains('aprobar-solicitud'))) {
+            const id = e.target.dataset.id || e.target.parentElement.dataset.id;
+            aprobarSolicitud(id);
+        }
+        
+        // Rechazar solicitud
+        if (e.target.classList.contains('rechazar-solicitud') || 
+            (e.target.parentElement && e.target.parentElement.classList.contains('rechazar-solicitud'))) {
+            const id = e.target.dataset.id || e.target.parentElement.dataset.id;
+            rechazarSolicitud(id);
+        }
+    });
+    
+    // Paginación
+    document.getElementById('pagination').addEventListener('click', function(e) {
+        if (e.target.classList.contains('page-item') && !e.target.classList.contains('active') && !e.target.classList.contains('disabled')) {
+            if (e.target.textContent === '→' || e.target.querySelector('.fa-chevron-right')) {
+                cambiarPagina(paginaActual + 1);
+            } else if (e.target.textContent === '←' || e.target.querySelector('.fa-chevron-left')) {
+                cambiarPagina(paginaActual - 1);
+            } else {
+                cambiarPagina(parseInt(e.target.textContent));
+            }
+        }
+    });
+}
+
+function filtrarSolicitudes() {
+    const statusFilter = document.getElementById('statusFilter').value;
+    const typeFilter = document.getElementById('typeFilter').value;
+    const deptFilter = document.getElementById('deptFilter').value;
+    const searchText = document.getElementById('searchInput').value.toLowerCase();
+    
+    // Filtrar por criterios seleccionados
+    solicitudesFiltradas = solicitudesData.filter(solicitud => {
+        // Filtro de estado
+        if (statusFilter !== 'todos' && solicitud.estado !== statusFilter) {
+            return false;
+        }
+        
+        // Filtro de tipo
+        if (typeFilter !== 'todos' && solicitud.tipo.toLowerCase() !== typeFilter) {
+            return false;
+        }
+        
+        // Filtro de departamento
+        if (deptFilter !== 'todos' && solicitud.departamento.toLowerCase() !== deptFilter) {
+            return false;
+        }
+        
+        // Filtro de búsqueda por nombre o ID
+        if (searchText && 
+            !solicitud.id.toLowerCase().includes(searchText) && 
+            !solicitud.solicitante.toLowerCase().includes(searchText)) {
+            return false;
+        }
+        
+        return true;
+    });
+    
+    // Resetear a la primera página cuando se aplica un filtro
+    paginaActual = 1;
+    
+    // Actualizar la vista
+    renderizarSolicitudes();
+    actualizarPaginacion();
+}
+
+function renderizarSolicitudes() {
+    const grid = document.getElementById('solicitudesGrid');
+    grid.innerHTML = '';
+    
+    // Calcular índices para paginación
+    const startIndex = (paginaActual - 1) * solicitudesPorPagina;
+    const endIndex = startIndex + solicitudesPorPagina;
+    const solicitudesPagina = solicitudesFiltradas.slice(startIndex, endIndex);
+    
+    if (solicitudesPagina.length === 0) {
+        grid.innerHTML = '<div class="no-results">No se encontraron solicitudes con los filtros actuales</div>';
+        return;
+    }
+    
+    // Crear tarjetas para cada solicitud
+    solicitudesPagina.forEach(solicitud => {
+        const card = document.createElement('div');
+        card.className = 'solicitud-card';
+        card.dataset.id = solicitud.id;
+        
+        let periodoInfo = '';
+        if (solicitud.periodo) {
+            periodoInfo = `
+                <div class="info-row">
+                    <div class="info-label">Periodo:</div>
+                    <div class="info-value">${solicitud.periodo}</div>
+                </div>
+            `;
+        } else if (solicitud.fechaPermiso) {
+            periodoInfo = `
+                <div class="info-row">
+                    <div class="info-label">Fecha permiso:</div>
+                    <div class="info-value">${solicitud.fechaPermiso}</div>
+                </div>
+            `;
+        } else if (solicitud.motivo) {
+            periodoInfo = `
+                <div class="info-row">
+                    <div class="info-label">Motivo:</div>
+                    <div class="info-value">${solicitud.motivo}</div>
+                </div>
+            `;
+        }
+        
+        card.innerHTML = `
+            <div class="solicitud-header">
+                <div class="solicitud-tipo">${solicitud.tipo}</div>
+                <div class="solicitud-estado estado-${solicitud.estado}">${capitalize(solicitud.estado)}</div>
+            </div>
+            <div class="solicitud-content">
+                <div class="solicitud-info">
+                    <div class="info-row">
+                        <div class="info-label">Solicitante:</div>
+                        <div class="info-value">${solicitud.solicitante}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Departamento:</div>
+                        <div class="info-value">${solicitud.departamento}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Fecha solicitud:</div>
+                        <div class="info-value">${solicitud.fechaSolicitud}</div>
+                    </div>
+                    ${periodoInfo}
+                </div>
+                <div class="solicitud-actions">
+                    <button class="btn btn-neutral ver-detalles" data-id="${solicitud.id}">
+                        <i class="fas fa-eye"></i> Ver detalles
+                    </button>
+                    ${solicitud.estado === 'pendiente' ? `
+                        <button class="btn btn-success aprobar-solicitud" data-id="${solicitud.id}">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-danger rechazar-solicitud" data-id="${solicitud.id}">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function actualizarPaginacion() {
+    const totalPaginas = Math.ceil(solicitudesFiltradas.length / solicitudesPorPagina);
+    const paginationEl = document.getElementById('pagination');
+    paginationEl.innerHTML = '';
+    
+    // Botón anterior
+    const prevBtn = document.createElement('div');
+    prevBtn.className = `page-item ${paginaActual === 1 ? 'disabled' : ''}`;
+    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    paginationEl.appendChild(prevBtn);
+    
+    // Números de página
+    for (let i = 1; i <= totalPaginas; i++) {
+        const pageBtn = document.createElement('div');
+        pageBtn.className = `page-item ${i === paginaActual ? 'active' : ''}`;
+        pageBtn.textContent = i;
+        paginationEl.appendChild(pageBtn);
+    }
+    
+    // Botón siguiente
+    const nextBtn = document.createElement('div');
+    nextBtn.className = `page-item ${paginaActual === totalPaginas ? 'disabled' : ''}`;
+    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    paginationEl.appendChild(nextBtn);
+}
+
+function cambiarPagina(pagina) {
+    const totalPaginas = Math.ceil(solicitudesFiltradas.length / solicitudesPorPagina);
+    
+    if (pagina >= 1 && pagina <= totalPaginas) {
+        paginaActual = pagina;
+        renderizarSolicitudes();
+        actualizarPaginacion();
+    }
+}
+
+function mostrarDetalles(id) {
+    const solicitud = solicitudesData.find(s => s.id === id);
+    if (!solicitud) return;
+    
+    const modal = document.getElementById('detallesModal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalBody = modal.querySelector('.modal-body');
+    
+    // Actualizar título del modal
+    modalTitle.textContent = `Solicitud de ${solicitud.tipo} - ${solicitud.id}`;
+    
+    // Preparar contenido del cuerpo del modal
+    let infoAdicional = '';
+    if (solicitud.periodo) {
+        infoAdicional = `
+            <div class="detail-item">
+                <div class="detail-label">Periodo</div>
+                <div class="detail-value">${solicitud.periodo}</div>
+            </div>
+        `;
+    } else if (solicitud.fechaPermiso) {
+        infoAdicional = `
+            <div class="detail-item">
+                <div class="detail-label">Fecha de Permiso</div>
+                <div class="detail-value">${solicitud.fechaPermiso}</div>
+            </div>
+        `;
+    } else if (solicitud.motivo) {
+        infoAdicional = `
+            <div class="detail-item">
+                <div class="detail-label">Motivo</div>
+                <div class="detail-value">${solicitud.motivo}</div>
+            </div>
+        `;
+    }
+    
+    modalBody.innerHTML = `
+        <div class="modal-section">
+            <h3 class="modal-section-title">Información de la Solicitud</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">ID Solicitud</div>
+                    <div class="detail-value">${solicitud.id}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Tipo</div>
+                    <div class="detail-value">${solicitud.tipo}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Estado</div>
+                    <div class="detail-value estado-texto-${solicitud.estado}">${capitalize(solicitud.estado)}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Fecha de Solicitud</div>
+                    <div class="detail-value">${solicitud.fechaSolicitud}</div>
+                </div>
+                ${infoAdicional}
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3 class="modal-section-title">Información del Solicitante</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Nombre</div>
+                    <div class="detail-value">${solicitud.solicitante}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Departamento</div>
+                    <div class="detail-value">${solicitud.departamento}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-section">
+            <h3 class="modal-section-title">Detalles Adicionales</h3>
+            <div class="detail-text">
+                ${solicitud.detalles || 'No hay detalles adicionales'}
+            </div>
+        </div>
+        
+        ${solicitud.estado === 'pendiente' ? `
+            <div class="modal-actions">
+                <button class="btn btn-success aprobar-solicitud" data-id="${solicitud.id}">
+                    <i class="fas fa-check"></i> Aprobar
+                </button>
+                <button class="btn btn-danger rechazar-solicitud" data-id="${solicitud.id}">
+                    <i class="fas fa-times"></i> Rechazar
+                </button>
+            </div>
+        ` : ''}
+    `;
+    
+    // Configurar nuevos botones de acción
+    const botonesAccion = modalBody.querySelectorAll('.aprobar-solicitud, .rechazar-solicitud');
+    botonesAccion.forEach(btn => {
+        const isAprobar = btn.classList.contains('aprobar-solicitud');
+        btn.addEventListener('click', () => {
+            if (isAprobar) {
+                aprobarSolicitud(solicitud.id);
+            } else {
+                rechazarSolicitud(solicitud.id);
+            }
+            cerrarModal();
+        });
+    });
+    
+    // Mostrar modal
+    modal.classList.add('show');
+}
+
+function cerrarModal() {
+    const modal = document.getElementById('detallesModal');
+    modal.classList.remove('show');
+}
+
+function aprobarSolicitud(id) {
+    // Encontrar la solicitud en los datos
+    const solicitud = solicitudesData.find(s => s.id === id);
+    if (!solicitud) return;
+    
+    // Cambiar el estado
+    solicitud.estado = 'aprobado';
+    
+    // Actualizar UI
+    filtrarSolicitudes();
+    
+    // Mostrar notificación
+    mostrarNotificacion(`La solicitud ${id} ha sido aprobada con éxito`);
+}
+
+function rechazarSolicitud(id) {
+    // Encontrar la solicitud en los datos
+    const solicitud = solicitudesData.find(s => s.id === id);
+    if (!solicitud) return;
+    
+    // Cambiar el estado
+    solicitud.estado = 'rechazado';
+    
+    // Actualizar UI
+    filtrarSolicitudes();
+    
+    // Mostrar notificación
+    mostrarNotificacion(`La solicitud ${id} ha sido rechazada`);
+}
+
+function exportarDatos() {
+    // En un caso real, aquí generaríamos un Excel o CSV
+    // Para este ejemplo, simplemente mostramos una notificación
+    mostrarNotificacion('Datos exportados correctamente');
+    
+    // Crear objeto para simular la descarga
+    const dataStr = JSON.stringify(solicitudesFiltradas, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    
+    // Crear un enlace temporal y hacer clic en él
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'solicitudes_exportadas.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function mostrarNotificacion(mensaje) {
+    // Verificar si ya existe una notificación
+    let notificacion = document.querySelector('.notificacion');
+    
+    if (!notificacion) {
+        // Crear elemento de notificación
+        notificacion = document.createElement('div');
+        notificacion.className = 'notificacion';
+        document.body.appendChild(notificacion);
+    }
+    
+    // Actualizar mensaje y mostrar
+    notificacion.textContent = mensaje;
+    notificacion.classList.add('show');
+    
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+        notificacion.classList.remove('show');
+    }, 3000);
+}
+
+// Función de utilidad para capitalizar texto
+function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+// Inicializar cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar la aplicación
+    inicializarApp();
+    
+    // Configurar event listeners
+    configurarEventListeners();
+});</script>
+
+                                <li>Aprobar o rechazar solicitudes</li>
+                                <li>Enviar notificaciones</li>
+                                <li>Ver historial de cambios</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Editar Horarios -->
+                    <div class="menu-item" data-permiso="editarHorarios">
+                        <div class="menu-header">
+                            Editar Horarios
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Modificar horarios existentes</li>
+                                <li>Realizar cambios de emergencia</li>
+                                <li>Actualizar asignaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Solicitudes de Cambio -->
+                    <div class="menu-item" data-permiso="solicitudesInstructores">
+                        <div class="menu-header">
+                            Solicitudes de Cambio
+                            <span class="icon">▼</span>
+                        </div>
+                        <div class="menu-content">
+                            <ul class="menu-description">
+                                <li>Solicitar cambios de horario</li>
+                                <li>Justificar solicitudes</li>
+                                <li>Ver estado de solicitudes</li>
+                            </ul>
+                        </div>
+                    </div>
         </section>
     </div>
         </div>
     <script src="../js/inicio.js"></script>
     <script src="../js/crearhorarios.js"></script>
     <script src="../js/gestion-usuarios.js"></script>
+    <script src="../js/registro.js"></script>
+    <script src="../js/instru-horario.js"></script>
 </body>
 </html>
