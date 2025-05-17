@@ -637,6 +637,792 @@
                         </div>
                         <div class="menu-content">
                             <ul class="menu-description">
+                                <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header h1 {
+            color: #3B3F8C;
+            font-weight: 600;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .user-name {
+            font-weight: 500;
+            color: #3B3F8C;
+        }
+        
+        .project-title {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .project-title h2 {
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: #666;
+        }
+        
+        .project-title span {
+            background-color: #40BFB4;
+            color: white;
+            padding: 5px 25px;
+            margin-left: 15px;
+            position: relative;
+            font-weight: 600;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 15% 50%);
+        }
+        
+        .project-title span::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 0;
+            height: 100%;
+            width: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                #9c27b0,
+                #9c27b0 5px,
+                transparent 5px,
+                transparent 10px
+            );
+        }
+        
+        .project-description {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(4, 1fr);
+            gap: 2px;
+            margin-bottom: 30px;
+        }
+        
+        .activity-header {
+            background-color: #FF7043;
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+        }
+        
+        .activity-header::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                #FF9800,
+                #FF9800 3px,
+                transparent 3px,
+                transparent 6px
+            );
+        }
+        
+        .week-header {
+            padding: 10px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            color: white;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 15% 50%);
+        }
+        
+        .week-header::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.3),
+                rgba(255,255,255,0.3) 3px,
+                transparent 3px,
+                transparent 6px
+            );
+        }
+        
+        .week-header .week-number {
+            font-size: 18px;
+        }
+        
+        .week-header .date-range {
+            font-size: 12px;
+        }
+        
+        .week-1 {
+            background-color: #E91E63;
+        }
+        
+        .week-2 {
+            background-color: #8BC34A;
+        }
+        
+        .week-3 {
+            background-color: #FF5722;
+        }
+        
+        .week-4 {
+            background-color: #009688;
+        }
+        
+        .activity-item {
+            background-color: #FF7043;
+            color: white;
+            padding: 10px;
+            margin-bottom: 2px;
+            font-size: 14px;
+            position: relative;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+        }
+        
+        .activity-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                #FF9800,
+                #FF9800 3px,
+                transparent 3px,
+                transparent 6px
+            );
+        }
+        
+        .schedule-cell {
+            background-color: white;
+            border: 1px solid #eee;
+            padding: 10px;
+            min-height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .schedule-cell:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .schedule-cell.has-class {
+            position: relative;
+        }
+        
+        .class-indicator {
+            height: 3px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        
+        .class-indicator.ficha {
+            background-color: #E91E63;
+        }
+        
+        .class-indicator.english {
+            background-color: #2196F3;
+        }
+        
+        .class-indicator.complementaria {
+            background-color: #FFD166;
+        }
+        
+        .class-title {
+            font-weight: 500;
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        
+        .class-time {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .month-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .month-control button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #3B3F8C;
+            font-size: 18px;
+        }
+        
+        .current-month {
+            font-weight: 500;
+            font-size: 16px;
+            color: #3B3F8C;
+        }
+        
+        .filter-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .filter-btn.active {
+            background-color: #3B3F8C;
+            color: white;
+            border-color: #3B3F8C;
+        }
+        
+        .event-details {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .event-details h3 {
+            color: #3B3F8C;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .event-details .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .event-details .detail-label {
+            width: 120px;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .event-details .detail-value {
+            flex: 1;
+            color: #333;
+        }
+        
+        .event-details .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        
+        .color-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .color-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 150px repeat(4, 1fr);
+                font-size: 12px;
+            }
+            
+            .activity-item, .activity-header, .week-header {
+                padding: 8px 5px;
+                font-size: 12px;
+            }
+            
+            .week-header .week-number {
+                font-size: 14px;
+            }
+            
+            .week-header .date-range {
+                font-size: 10px;
+            }
+            
+            .class-title {
+                font-size: 10px;
+            }
+            
+            .class-time {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Chronogest</h1>
+            <div class="user-info">
+                <img src="/api/placeholder/40/40" alt="Perfil de usuario">
+                <span class="user-name">Carlos Rodríguez</span>
+            </div>
+        </div>
+        
+        <div class="project-title">
+            <h2>HORARIO</h2>
+            <span>APRENDIZ</span>
+        </div>
+        
+        <div class="project-description">
+            Visualización del horario semanal del aprendiz con todas las clases programadas para el mes en curso. Cada actividad está organizada por semana y tipo de formación.
+        </div>
+        
+        <div class="controls">
+            <div class="month-control">
+                <button id="prevMonth">&#9664;</button>
+                <span class="current-month" id="currentMonth">Mayo 2025</span>
+                <button id="nextMonth">&#9654;</button>
+            </div>
+        </div>
+        
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ficha">Ficha Técnica</button>
+            <button class="filter-btn" data-filter="english">English</button>
+            <button class="filter-btn" data-filter="complementaria">Complementaria</button>
+        </div>
+        
+        <div class="schedule-grid" id="scheduleGrid">
+            <!-- Encabezado de actividades -->
+            <div class="activity-header">ACTIVIDAD</div>
+            
+            <!-- Encabezados de semanas -->
+            <div class="week-header week-1">
+                <div class="week-number">SEMANA 1</div>
+                <div class="date-range">MAYO 1-7</div>
+            </div>
+            <div class="week-header week-2">
+                <div class="week-number">SEMANA 2</div>
+                <div class="date-range">MAYO 8-14</div>
+            </div>
+            <div class="week-header week-3">
+                <div class="week-number">SEMANA 3</div>
+                <div class="date-range">MAYO 15-21</div>
+            </div>
+            <div class="week-header week-4">
+                <div class="week-number">SEMANA 4</div>
+                <div class="date-range">MAYO 22-30</div>
+            </div>
+            
+            <!-- El resto del contenido se generará dinámicamente con JavaScript -->
+        </div>
+        
+        <div class="color-dots">
+            <div class="color-dot" style="background-color: #E91E63;"></div>
+            <div class="color-dot" style="background-color: #2196F3;"></div>
+            <div class="color-dot" style="background-color: #FFD166;"></div>
+            <div class="color-dot" style="background-color: #8BC34A;"></div>
+            <div class="color-dot" style="background-color: #009688;"></div>
+            <div class="color-dot" style="background-color: #9C27B0;"></div>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    <div class="event-details" id="eventDetails">
+        <button class="close-btn" id="closeEventDetails">&times;</button>
+        <h3 id="eventTitle">Nombre de la Clase</h3>
+        <div class="detail-row">
+            <div class="detail-label">Instructor:</div>
+            <div class="detail-value" id="eventInstructor">Nombre del Instructor</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Horario:</div>
+            <div class="detail-value" id="eventTime">7:00 AM - 9:00 AM</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Lugar:</div>
+            <div class="detail-value" id="eventLocation">Aula 305</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Tipo:</div>
+            <div class="detail-value" id="eventType">Ficha Técnica</div>
+        </div>
+        <div class="detail-row">
+            <div class="detail-label">Descripción:</div>
+            <div class="detail-value" id="eventDescription">Descripción detallada de la clase y los temas a tratar.</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuración inicial
+            const scheduleGrid = document.getElementById('scheduleGrid');
+            const currentMonthElement = document.getElementById('currentMonth');
+            const prevMonthBtn = document.getElementById('prevMonth');
+            const nextMonthBtn = document.getElementById('nextMonth');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const overlay = document.getElementById('overlay');
+            const eventDetails = document.getElementById('eventDetails');
+            const closeEventDetailsBtn = document.getElementById('closeEventDetails');
+            
+            // Lista de actividades
+            const activities = [
+                "Desarrollo de Software",
+                "English",
+                "Bases de Datos",
+                "Ética Profesional",
+                "Desarrollo Web",
+                "Proyecto Formativo",
+                "Emprendimiento"
+            ];
+            
+            // Datos de horario (simulados)
+            const scheduleData = [
+                {
+                    id: 1,
+                    activity: "Desarrollo de Software",
+                    title: "POO y Patrones de Diseño",
+                    instructor: "Juan Pérez",
+                    week: 1,
+                    time: "7:00 - 9:00",
+                    location: "Aula 305",
+                    type: "ficha",
+                    description: "Clase de programación orientada a objetos con enfoque en patrones de diseño y arquitectura de software."
+                },
+                {
+                    id: 2,
+                    activity: "English",
+                    title: "English Level 2",
+                    instructor: "María Johnson",
+                    week: 1,
+                    time: "10:00 - 12:00",
+                    location: "Language Lab",
+                    type: "english",
+                    description: "English conversation practice focusing on business and technical vocabulary."
+                },
+                {
+                    id: 3,
+                    activity: "Bases de Datos",
+                    title: "Diseño y Normalización",
+                    instructor: "Carlos Ramírez",
+                    week: 2,
+                    time: "7:00 - 10:00",
+                    location: "Sala de Cómputo 2",
+                    type: "ficha",
+                    description: "Diseño y normalización de bases de datos relacionales. Implementación con MySQL."
+                },
+                {
+                    id: 4,
+                    activity: "Ética Profesional",
+                    title: "Casos de Estudio",
+                    instructor: "Laura Gómez",
+                    week: 3,
+                    time: "14:00 - 16:00",
+                    location: "Auditorio Principal",
+                    type: "complementaria",
+                    description: "Análisis de casos de estudio sobre ética en el entorno laboral y responsabilidad profesional."
+                },
+                {
+                    id: 5,
+                    activity: "Desarrollo Web",
+                    title: "Frontend Avanzado",
+                    instructor: "Andrés Torres",
+                    week: 2,
+                    time: "7:00 - 11:00",
+                    location: "Aula 402",
+                    type: "ficha",
+                    description: "Creación de aplicaciones web con HTML5, CSS3 y JavaScript. Frameworks modernos y responsive design."
+                },
+                {
+                    id: 6,
+                    activity: "English",
+                    title: "Technical Workshop",
+                    instructor: "María Johnson",
+                    week: 4,
+                    time: "10:00 - 12:00",
+                    location: "Language Lab",
+                    type: "english",
+                    description: "Technical English workshop focused on IT terminology and documentation."
+                },
+                {
+                    id: 7,
+                    activity: "Proyecto Formativo",
+                    title: "Revisión de Avances",
+                    instructor: "Roberto Sánchez",
+                    week: 3,
+                    time: "8:00 - 12:00",
+                    location: "Sala de Proyectos",
+                    type: "ficha",
+                    description: "Sesión de trabajo guiada para el desarrollo del proyecto de grado. Revisión de avances y feedback."
+                },
+                {
+                    id: 8,
+                    activity: "Emprendimiento",
+                    title: "Plan de Negocios",
+                    instructor: "Diana Martínez",
+                    week: 4,
+                    time: "13:00 - 15:00",
+                    location: "Sala de Innovación",
+                    type: "complementaria",
+                    description: "Desarrollo del modelo de negocio y estrategias de mercado para proyectos de emprendimiento."
+                }
+            ];
+            
+            // Variables para el manejo de fechas
+            let currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+            
+            // Inicializar la vista
+            updateMonthDisplay();
+            generateScheduleGrid();
+            renderSchedule('all');
+            
+            // Event Listeners
+            prevMonthBtn.addEventListener('click', function() {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                updateMonthDisplay();
+                updateWeekHeaders();
+            });
+            
+            nextMonthBtn.addEventListener('click', function() {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                updateMonthDisplay();
+                updateWeekHeaders();
+            });
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    renderSchedule(this.dataset.filter);
+                });
+            });
+            
+            closeEventDetailsBtn.addEventListener('click', closeEventDetails);
+            overlay.addEventListener('click', closeEventDetails);
+            
+            // Funciones
+            function updateMonthDisplay() {
+                const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                currentMonthElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            }
+            
+            function updateWeekHeaders() {
+                // Obtener primer día del mes
+                const firstDay = new Date(currentYear, currentMonth, 1);
+                const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                
+                // Actualizar encabezados de semanas con rangos de fechas adecuados
+                const weekHeaders = document.querySelectorAll('.week-header');
+                
+                for (let i = 0; i < weekHeaders.length; i++) {
+                    const weekStart = i * 7 + 1;
+                    let weekEnd = weekStart + 6;
+                    
+                    // Ajustar fin de mes
+                    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+                    if (weekEnd > lastDayOfMonth) weekEnd = lastDayOfMonth;
+                    
+                    const dateRange = document.querySelector(`.week-${i+1} .date-range`);
+                    dateRange.textContent = `${monthNames[currentMonth].toUpperCase()} ${weekStart}-${weekEnd}`;
+                }
+            }
+            
+            function generateScheduleGrid() {
+                // Agregar filas de actividades y celdas
+                activities.forEach(activity => {
+                    // Fila de actividad
+                    const activityRow = document.createElement('div');
+                    activityRow.className = 'activity-item';
+                    activityRow.textContent = activity;
+                    scheduleGrid.appendChild(activityRow);
+                    
+                    // Celdas para cada semana
+                    for (let week = 1; week <= 4; week++) {
+                        const cell = document.createElement('div');
+                        cell.className = 'schedule-cell';
+                        cell.dataset.activity = activity;
+                        cell.dataset.week = week;
+                        scheduleGrid.appendChild(cell);
+                    }
+                });
+            }
+            
+            function renderSchedule(filter) {
+                // Limpiar contenido de celdas
+                document.querySelectorAll('.schedule-cell').forEach(cell => {
+                    cell.innerHTML = '';
+                    cell.classList.remove('has-class');
+                });
+                
+                // Filtrar los eventos según el tipo seleccionado
+                const filteredEvents = filter === 'all' ? 
+                    scheduleData : 
+                    scheduleData.filter(event => event.type === filter);
+                
+                // Renderizar cada evento en la celda correspondiente
+                filteredEvents.forEach(event => {
+                    const cell = document.querySelector(`.schedule-cell[data-activity="${event.activity}"][data-week="${event.week}"]`);
+                    
+                    if (cell) {
+                        cell.classList.add('has-class');
+                        
+                        // Crear indicador de clase
+                        const indicator = document.createElement('div');
+                        indicator.className = `class-indicator ${event.type}`;
+                        
+                        // Título de la clase
+                        const title = document.createElement('div');
+                        title.className = 'class-title';
+                        title.textContent = event.title;
+                        
+                        // Horario
+                        const time = document.createElement('div');
+                        time.className = 'class-time';
+                        time.textContent = event.time;
+                        
+                        // Agregar elementos a la celda
+                        cell.appendChild(indicator);
+                        cell.appendChild(title);
+                        cell.appendChild(time);
+                        
+                        // Añadir listener para mostrar detalles
+                        cell.addEventListener('click', function() {
+                            showEventDetails(event);
+                        });
+                    }
+                });
+            }
+            
+            function showEventDetails(event) {
+                document.getElementById('eventTitle').textContent = event.title;
+                document.getElementById('eventInstructor').textContent = event.instructor;
+                document.getElementById('eventTime').textContent = event.time;
+                document.getElementById('eventLocation').textContent = event.location;
+                document.getElementById('eventType').textContent = getTypeLabel(event.type);
+                document.getElementById('eventDescription').textContent = event.description;
+                
+                overlay.style.display = 'block';
+                eventDetails.style.display = 'block';
+            }
+            
+            function closeEventDetails() {
+                overlay.style.display = 'none';
+                eventDetails.style.display = 'none';
+            }
+            
+            function getTypeLabel(type) {
+                switch(type) {
+                    case 'ficha': return 'Ficha Técnica';
+                    case 'english': return 'English';
+                    case 'complementaria': return 'Formación Complementaria';
+                    default: return type;
+                }
+            }
+        });
+    </script>
 
                                 <li>Ver tu horario personal</li>
                                 <li>Recibir notificaciones de cambios</li>
