@@ -72,19 +72,28 @@
                     
                     <!-- Gestionar Usuarios -->
                     <div class="menu-item" data-permiso="gestionar">
-                        <div class="menu-header">
-                            Gestionar Usuarios
-                            <span class="icon">▼</span>
-                        </div>
-                        <div class="menu-content">
-                            <ul class="menu-description">
-                                <li>Ver todos los usuarios</li>
-                                <li>Modificar datos de usuarios</li>
-                                <li>Activar o desactivar usuarios</li>
-                                <li>Cambiar roles</li>
-                            </ul>
-                        </div>
+                    <div class="menu-header">
+                     Gestionar Usuarios
+                    <span class="icon">▼</span>
                     </div>
+                    <div class="menu-content" style="display: none;">
+                     <ul class="menu-description">
+                     <li>Ver todos los usuarios</li>
+                     <li>Modificar datos de usuarios</li>
+                     <li>Activar o desactivar usuarios</li>
+                    <li>Cambiar roles</li>
+                    </ul>
+
+                    <!-- Aquí puedes poner más contenido, como la lista de usuarios o formularios -->
+                    <section class="user-list-section">
+                    <h2>Lista de Usuarios</h2>
+                     <div id="usuariosLista">
+                <!-- Usuarios cargados dinámicamente aquí -->
+                     </d iv>
+                    </section>
+                    </div>
+                    </div>
+
                     <!-- Visualizar Horarios -->
                     <div class="menu-item" data-permiso="visualizarHorarios">
                         <div class="menu-header">
@@ -514,5 +523,6 @@
         </div>
     <script src="../js/inicio.js"></script>
     <script src="../js/crearhorarios.js"></script>
+    <script src="../js/gestion-usuarios.js"></script>
 </body>
 </html>
