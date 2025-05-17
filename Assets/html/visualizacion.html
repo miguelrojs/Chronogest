@@ -1,5 +1,12 @@
-<header>
-        <h1>Visualización de Horarios</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Visualización de Horarios</h1>
     </header>
     
     <div class="main-container">
@@ -196,20 +203,20 @@
 
         // Funciones para manejar acciones de horarios
         function editarHorario(id) {
-            alert(Editando horario con ID: ${id});
+            alert(`Editando horario con ID: ${id}`);
             // Aquí redirigirías al generador de horarios con el ID del horario a editar
             // window.location.href = generador-horarios.html?id=${id};
         }
 
         function duplicarHorario(id) {
-            alert(Duplicando horario con ID: ${id});
+            alert(`Duplicando horario con ID: ${id}`);
             // Implementar lógica para duplicar horario
         }
 
         function eliminarHorario(id) {
-            if (confirm(Estás seguro de que deseas eliminar el horario con ID: ${id})) {
+            if (confirm(`Estás seguro de que deseas eliminar el horario con ID: ${id}`)) {
                 // Implementar lógica para eliminar horario
-                alert(Horario con ID: ${id} eliminado);
+                alert(`Horario con ID: ${id} eliminado`);
                 // Actualizar la vista
                 renderizarHorarios(horarios.filter(h => h.id !== id));
             }
@@ -220,3 +227,6 @@
             renderizarHorarios(horarios);
         });
     </script>
+</body>
+</html>
+        
