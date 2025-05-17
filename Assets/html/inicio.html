@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -478,25 +479,8 @@
             // Botón para añadir curso
             document.getElementById('addCourseBtn').addEventListener('click', addCourse);
             
-            // Botón para exportar como imagen
-            document.getElementById('exportImage').addEventListener('click', function(e) {
-                e.preventDefault();
-                exportAsImage();
-                document.querySelector('.dropdown').classList.remove('active');
-            });
-            
-            // Botón para exportar como PDF
-            document.getElementById('exportPdf').addEventListener('click', function(e) {
-                e.preventDefault();
-                exportAsPdf();
-                document.querySelector('.dropdown').classList.remove('active');
-            });
-            
             // Botón para crear nuevo horario
             document.getElementById('newScheduleBtn').addEventListener('click', createNewSchedule);
-            
-            // Botón "Guardar como..."
-            document.getElementById('saveAsBtn').addEventListener('click', toggleDropdown);
             
             // Cerrar el menú desplegable cuando se hace clic fuera de él
             document.addEventListener('click', function(e) {
@@ -509,8 +493,6 @@
             });
         });
     </script>
-</body>
-</html>
                             <ul class="menu-description">
                                 <li>Asignar permisos por rol</li>
                                 <li>Crear nuevos roles</li>

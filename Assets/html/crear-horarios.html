@@ -4,28 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Horario</title>
-    <link rel="stylesheet" href="/Assets/css/crear--horarios.css">
+    <link rel="stylesheet" href="../css/modulo-crearhorarios.css">
 </head>
 <body>
 <div class="header">
-        <h1>Generador de horarios</h1>
+        <h1>Crear horarios</h1>
     </div>
-    
     <div class="toolbar">
         <button class="toolbar-button" id="newScheduleBtn">
             <i>📅</i> Crear nuevo horario
         </button>
-        <div class="dropdown">
-            <button class="toolbar-button" id="saveAsBtn">
-                <i>💾</i> Guardar como...
-            </button>
-            <div class="dropdown-content" id="exportOptions">
-                <a href="#" id="exportImage">Imagen (PNG)</a>
-                <a href="#" id="exportPdf">PDF</a>
-            </div>
-        </div>
-    </div>
-    
     <div class="course-panel">
         <table class="course-table">
             <tr>
@@ -237,36 +225,6 @@
             document.getElementById('endTime').selectedIndex = 0;
         }
         
-        // Exportar horario como imagen
-        function exportAsImage() {
-            const scheduleTable = document.getElementById('scheduleTable');
-            
-            html2canvas(scheduleTable).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const link = document.createElement('a');
-                link.href = imgData;
-                link.download = 'horario.png';
-                link.click();
-            });
-        }
-        
-        // Exportar horario como PDF
-        function exportAsPdf() {
-            const scheduleTable = document.getElementById('scheduleTable');
-            const { jsPDF } = window.jspdf;
-            
-            html2canvas(scheduleTable).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('l', 'mm', 'a4'); // Landscape orientation
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-                
-                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                pdf.save('horario.pdf');
-            });
-        }
-        
         // Crear nuevo horario
         function createNewSchedule() {
             if (courses.length > 0) {
@@ -279,7 +237,6 @@
                 renderCourses();
             }
         }
-        
         // Manejar menú desplegable
         function toggleDropdown() {
             document.querySelector('.dropdown').classList.toggle('active');
