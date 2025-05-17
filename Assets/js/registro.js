@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!id) return;
 
             const menuURLs = {
-           'registrar': '../html/registro.html',
-            'gestionar': '../html/gestion-usuarios.html',
-            'crearHorarios': '../html/crear-horarios',
-            'visualizarHorarios': '../html/inf-visualizarhorarios.html',
-            'horarioAprendiz': '../html/inf-horarioaprendiz.html',
-            'horarioInstructor': '../html/horario-instructor',
-            'revisarSolicitudes': '../html/inf-revisarsolicitudes.html',
-            'editarHorarios': '../html/inf-editarhorarios.html',
-            'perfil': '../html/inf-perfil.html',
-            'solicitudesInstructores': '../html/solicitudes.html',
+           'registrar': '',
+            'gestionar': '',
+            'crearHorarios': '',
+            'visualizarHorarios': '',
+            'horarioAprendiz': '',
+            'horarioInstructor': '',
+            'revisarSolicitudes': '',
+            'editarHorarios': '',
+            'perfil': '',
+            'solicitudesInstructores': '',
             'permisosMenu': '../html/inf-permisosmenu.html'
             };
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 button.style.marginLeft = '10px';
                 button.style.padding = '2px 8px';
                 button.style.fontSize = '12px';
-                button.style.backgroundColor = '#4CAF50';
+                button.style.backgroundColor = '#1e3850';
                 button.style.color = 'white';
                 button.style.border = 'none';
                 button.style.borderRadius = '4px';
