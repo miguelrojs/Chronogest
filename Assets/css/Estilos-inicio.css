@@ -2,7 +2,7 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 105vh;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
