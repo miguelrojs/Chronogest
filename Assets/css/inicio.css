@@ -4,6 +4,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* 8. Navegación */
+nav a {
+  position: relative;
+  right: -1075px;
+  margin-left: 16px;
+  text-decoration: none;
+  color: #f3f1f1;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
 
 .perfil-toggle img {
 width: 60px;
@@ -50,14 +61,6 @@ header {
 .perfil-toggle {
   cursor: pointer;
   display: inline-block;
-}
-
-.perfil-toggle img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; /* imagen redonda */
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #activarPerfil:checked + .perfil-toggle img {
@@ -224,6 +227,11 @@ label.boton {
   display: none;
 }
 
+nav a.active,
+nav a:hover {
+  background-color: #34495e;
+  color: #e6e6e6;
+}
 /* Estilo para el botón de permiso */
 .permiso-boton {
   display: block;
@@ -239,7 +247,6 @@ label.boton {
 .permiso-boton:hover {
   background-color: #2980b9;
 }
-
 /* Contenido de cada permiso (oculto por defecto) */
 .permiso-contenido {
   max-height: 0;
@@ -247,7 +254,6 @@ label.boton {
   transition: max-height 0.3s ease;
   background-color: white;
 }
-
 /* Cuando se activa el checkbox, mostrar el contenido */
 .permiso-toggle:checked + .permiso-boton {
   background-color: #2c3e50;
@@ -274,7 +280,6 @@ label.boton {
 .permiso-contenido ul li:last-child {
   border-bottom: none;
 }
-
 /* 13. Footer */
 .footer-estilo-3 {
   background: linear-gradient(to right, #c5dcf3, #34495e);
@@ -327,20 +332,21 @@ label.boton {
     position: absolute;
     left: 0;
     top: 0;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #0066cc;
-    border-radius: 4px;
-    background-color: white;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #888;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
     transition: all 0.3s ease;
 }
 
 .checkbox-input:checked + .checkbox-label:before {
-    background-color: #0066cc;
+    background-color: #888;
+    border: solid 1px rgb(255, 255, 255);
 }
 
 .checkbox-input:checked + .checkbox-label:after {
-    content: '';
+    content: none;
     position: absolute;
     left: 9px;
     top: 5px;
@@ -354,37 +360,41 @@ label.boton {
 /* Estilos para la lista de usuarios */
 .usuarios-lista {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 5px;
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .usuario-item {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
+  padding: 12px 15px;
+  border-bottom: 1px solid #1e3850;
 }
 
 .usuario-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .usuario-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 .usuario-info strong {
-    color: #0066cc;
-    margin-bottom: 3px;
+    color: #6e97bd;
+    margin-bottom: 10px;
 }
 
 .usuario-info p {
     margin: 0;
-    color: #666;
-    font-size: 14px;
+    color: #15293c;
+    font-size: 17px;
+    padding-top: 5px;
 }
 
 /* Estilos para el menú de permisos */
@@ -397,13 +407,12 @@ label.boton {
 }
 
 .menu-item {
-    border: 1px solid #ddd;
     border-radius: 8px;
     width: 250px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    background-color: #fff;
+    background-color: #1e3850;
 }
 
 .menu-item:hover {
@@ -412,11 +421,10 @@ label.boton {
 }
 
 .menu-header {
-    background-color: #004d99;
-    color: white;
+    background-color: #2a3f52;
+    color: rgb(184, 180, 180);
     padding: 15px;
     cursor: pointer;
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -425,30 +433,32 @@ label.boton {
 .menu-content {
     overflow: hidden;
     transition: height 0.3s ease;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .menu-content.active {
   width: 100%;
   height: auto;
-  
-
 }
 
 .menu-description {
-    margin: 0;
-    padding: 0 0 0 20px;
+    margin: 10px;
+    padding: 5 6 6 20px;
 }
 
 .menu-description li {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     line-height: 1.4;
+    color: #335676;
 }
-
 .icon {
     transition: transform 0.3s ease;
 }
 
 .icon.active {
     transform: rotate(180deg);
+}
+.logosenainicio{
+  width: 50px;
+  height: 50px;
 }
